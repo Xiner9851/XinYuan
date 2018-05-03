@@ -51,7 +51,8 @@
             android:id="@+id/ming_teather_btn"
             android:gravity="center"
             android:button="@null"
-            android:drawableTop="@mipmap/home_master_normal"
+
+            android:drawableTop="@drawable/teather_btn_check"
             android:text="名师"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -60,7 +61,8 @@
             android:id="@+id/work_btn"
             android:gravity="center"
             android:button="@null"
-            android:drawableTop="@mipmap/home_work_normal"
+
+            android:drawableTop="@drawable/work_btn_check"
             android:text="作业"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -69,7 +71,8 @@
             android:id="@+id/baodian_btn"
             android:gravity="center"
             android:button="@null"
-            android:drawableTop="@mipmap/home_valuable_normal"
+
+            android:drawableTop="@drawable/baodian_btn_check"
             android:text="宝典"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -78,7 +81,8 @@
             android:id="@+id/yugao_btn"
             android:gravity="center"
             android:button="@null"
-            android:drawableTop="@mipmap/home_notice_normal"
+
+            android:drawableTop="@drawable/yugao_btn_check"
             android:text="预告"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -87,7 +91,8 @@
             android:id="@+id/me_btn"
             android:gravity="center"
             android:button="@null"
-            android:drawableTop="@mipmap/home_myself_normal"
+
+            android:drawableTop="@drawable/me_btn_check"
             android:text="我的"
             android:layout_width="0dp"
             android:layout_weight="1"
