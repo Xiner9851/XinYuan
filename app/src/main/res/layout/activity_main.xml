@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.xinyuan.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/tou"
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ming_teather_title_img"
+            android:src="@mipmap/title_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/panda_title"
+            android:textSize="30dp"
+            android:layout_centerInParent="true"
+            android:textColor="#fff"
+            android:text="你好"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/message_img"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/home_master_shape"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_below="@+id/tou"
+        android:layout_above="@+id/gp_bt"
+        android:id="@+id/fragment_manger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></FrameLayout>
+    <RadioGroup
+        android:id="@+id/gp_bt"
+
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/ming_teather_btn"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@mipmap/home_master_normal"
+            android:text="名师"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/work_btn"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@mipmap/home_work_normal"
+            android:text="作业"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/baodian_btn"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@mipmap/home_valuable_normal"
+            android:text="宝典"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/yugao_btn"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@mipmap/home_notice_normal"
+            android:text="预告"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/me_btn"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@mipmap/home_myself_normal"
+            android:text="我的"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+    </RadioGroup>
+
+
+</RelativeLayout>
