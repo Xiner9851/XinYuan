@@ -1,6 +1,8 @@
 package com.example.administrator.xinyuan.view.teather.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -45,7 +47,34 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }else if (viewType==one){
             View inflate = inflater.inflate(R.layout.teather_one_item, parent, false);
             holder=new HolderOne(inflate);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+
+            ((HolderOne) holder).one_recy.setLayoutManager(linearLayoutManager);
+            linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+            List<TeatherBean.DataBean.UsersBean> users= (List<TeatherBean.DataBean.UsersBean>) teather_list.get(1);
+
+            OneAdapter oneAdapter = new OneAdapter(context, users);
+            ((HolderOne) holder).one_recy.setAdapter(oneAdapter);
             return holder;
+        }else if (viewType==two){
+            View inflate = inflater.inflate(R.layout.teather_twot_item, parent, false);
+            holder=new HolderTwo(inflate);
+            List<TeatherBean.DataBean.LiveCoursesBean> liveCourses= (List<TeatherBean.DataBean.LiveCoursesBean>) teather_list.get(2);
+            ((HolderTwo) holder).two_recy.setLayoutManager(new GridLayoutManager(context,2));
+            TwoAdapter twoAdapter = new TwoAdapter(context, liveCourses);
+            ((HolderTwo) holder).two_recy.setAdapter(twoAdapter);
+            return holder;
+        }else if (viewType==three){
+            View inflate = inflater.inflate(R.layout.teather_three_item, parent, false);
+            holder = new HolderThree(inflate);
+            List<TeatherBean.DataBean.HomewoksBean> homewoks= (List<TeatherBean.DataBean.HomewoksBean>) teather_list.get(3);
+            ((HolderThree) holder).three_recy.setLayoutManager(new LinearLayoutManager(context));
+            ThreeAdapter threeAdapter = new ThreeAdapter(context,homewoks);
+            ((HolderThree) holder).three_recy.setAdapter(threeAdapter);
+            return holder;
+        }else if (viewType==four){
+            View inflate = inflater.inflate(R.layout.teather_four_item, parent, false);
+            holder=new HolderFour(inflate);
         }
         return holder;
     }
@@ -54,10 +83,10 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         if (holder instanceof HolderZero){
-            List<TeatherBean.DataBean.LiveCoursesBean> liveCourses= (List<TeatherBean.DataBean.LiveCoursesBean>) teather_list.get(0);
+            List<TeatherBean.DataBean.SystemAdsBean> systemAds= (List<TeatherBean.DataBean.SystemAdsBean>) teather_list.get(0);
         ArrayList<String> imgs=new ArrayList<>();
-          for (int i=0;i<liveCourses.size();i++){
-              imgs.add(liveCourses.get(i).getCoverImg());
+          for (int i=0;i<systemAds.size();i++){
+              imgs.add(systemAds.get(i).getMobileImgUrl());
           }
           Log.e("SSSSSSSSSSSSs",imgs.size()+"");
         ((HolderZero) holder).flyBanner.setImagesUrl(imgs);
@@ -112,21 +141,24 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
     public class HolderOne extends RecyclerView.ViewHolder{
-
+        private RecyclerView one_recy;
         public HolderOne(View itemView) {
             super(itemView);
+            one_recy=itemView.findViewById(R.id.one_recy);
         }
     }
     public class HolderTwo extends RecyclerView.ViewHolder{
-
+        private RecyclerView two_recy;
         public HolderTwo(View itemView) {
             super(itemView);
+            two_recy=itemView.findViewById(R.id.two_recy);
         }
     }
     public class HolderThree extends RecyclerView.ViewHolder{
-
+        private RecyclerView three_recy;
         public HolderThree(View itemView) {
             super(itemView);
+            three_recy=itemView.findViewById(R.id.teather_three_recy);
         }
     }
     public class HolderFour extends RecyclerView.ViewHolder{

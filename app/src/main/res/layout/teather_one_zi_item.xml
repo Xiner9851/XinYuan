@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
 
-</LinearLayout>
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="15dp">
+    <ImageView
+        android:id="@+id/one_zi_img"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_above="@+id/one_zi_contact"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="11dp">
+
+        <TextView
+            android:textColor="#fff"
+            android:id="@+id/one_zi_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="李丹"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:src="@mipmap/home_level_vip_yellow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+
+        android:id="@+id/one_zi_contact"
+        android:text="李丹"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/one_zi_img" />
+</RelativeLayout>

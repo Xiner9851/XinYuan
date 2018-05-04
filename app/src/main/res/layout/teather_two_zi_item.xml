@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="50dp"
+    android:layout_marginTop="-25dp"
+    android:layout_marginBottom="15dp">
+    <ImageView
+        android:id="@+id/two_zi_img"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <LinearLayout
+        android:layout_marginTop="-25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/two"
+        android:layout_below="@+id/two_zi_img"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-</LinearLayout>
+        <TextView
+
+            android:id="@+id/two_zi_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="李丹"
+            android:textSize="20dp" />
+
+        <ImageView
+
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/home_level_vip_yellow"
+            />
+        <TextView
+            android:layout_marginLeft="40dp"
+            android:text="表演"
+            android:textColor="#63dcd2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_below="@+id/two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+       >
+        <TextView
+           android:layout_gravity="center_horizontal"
+            android:text="课堂开播："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    <TextView
+
+        android:id="@+id/two_zi_time"
+        android:text="李丹"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    </LinearLayout>
+</RelativeLayout>

@@ -15,6 +15,8 @@ import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.administrator.xinyuan.R.id;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -31,7 +33,7 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
 
     @Override
     protected void init() {
-        teather_recy=getView().findViewById(R.id.teather_recy);
+        teather_recy=getView().findViewById(id.teather_recy);
     }
 
     @Override
@@ -69,11 +71,18 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
     public void showData(TeatherBean teatherBean) {
 
        teather_list=new ArrayList<>();
+        List<TeatherBean.DataBean.SystemAdsBean> systemAds = teatherBean.getData().getSystemAds();
+        List<TeatherBean.DataBean.UsersBean> users = teatherBean.getData().getUsers();
         List<TeatherBean.DataBean.LiveCoursesBean> liveCourses = teatherBean.getData().getLiveCourses();
+        List<TeatherBean.DataBean.HomewoksBean> homewoks = teatherBean.getData().getHomewoks();
 
 
 
+        teather_list.add(systemAds);
+        teather_list.add(users);
         teather_list.add(liveCourses);
+        teather_list.add(homewoks);
+        teather_list.add("");
         Teather_Adapter teather_adapter = new Teather_Adapter(teather_list,getActivity());
         teather_recy.setAdapter(teather_adapter);
     }
