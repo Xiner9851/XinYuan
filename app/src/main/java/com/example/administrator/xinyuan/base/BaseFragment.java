@@ -25,6 +25,7 @@ public abstract class BaseFragment extends android.app.Fragment {
         init();
         loadDate();
     }
+    //抽象布局
     protected abstract int getLayoutId();
 
     protected abstract void init();
