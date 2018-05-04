@@ -57,8 +57,8 @@
         android:layout_toRightOf="@+id/work_img"
         android:layout_below="@+id/work_content"
         android:scaleType="fitXY"
-        android:layout_width="300dp"
-        android:layout_height="300dp" />
+        android:layout_width="260dp"
+        android:layout_height="260dp" />
     <RadioGroup
         android:layout_below="@+id/word_image"
         android:weightSum="4"
@@ -66,28 +66,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <RadioButton
-            android:background="@mipmap/reply_normal"
+            android:drawableTop="@mipmap/reply_normal"
             android:id="@+id/work_comment"
             android:button="@null"
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content" />
         <RadioButton
-            android:background="@mipmap/detail_praisse_normal"
+            android:drawableTop="@mipmap/detail_praisse_normal"
             android:id="@+id/work_zan"
             android:button="@null"
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content" />
         <RadioButton
-            android:background="@mipmap/reward_active"
+            android:drawableTop="@mipmap/reward_active"
             android:id="@+id/work_shang"
             android:button="@null"
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content" />
         <RadioButton
-            android:background="@mipmap/share_default"
+            android:drawableTop="@mipmap/share_default"
             android:id="@+id/work_share"
             android:button="@null"
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content" />
     </RadioGroup>
 
