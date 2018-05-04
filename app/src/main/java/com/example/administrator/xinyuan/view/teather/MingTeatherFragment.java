@@ -67,10 +67,9 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
 
     @Override
     public void showData(TeatherBean teatherBean) {
-        teather_list=new ArrayList<>();
+
+       teather_list=new ArrayList<>();
         List<TeatherBean.DataBean.LiveCoursesBean> liveCourses = teatherBean.getData().getLiveCourses();
-
-
 
 
 

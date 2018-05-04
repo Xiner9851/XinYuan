@@ -1,6 +1,7 @@
 package com.example.administrator.xinyuan.model.biz;
 
 import com.example.administrator.xinyuan.model.entity.TeatherBean;
+import com.example.administrator.xinyuan.model.entity.TokenBean;
 import com.example.administrator.xinyuan.model.url.Urls;
 
 import io.reactivex.Observable;
@@ -14,4 +15,6 @@ public interface XinYuanService {
 
     @POST(Urls.teather_url)
     Observable<TeatherBean> teatherData();
+    @POST(Urls.token_url)
+    Observable<TokenBean> tokenValue();
 }
