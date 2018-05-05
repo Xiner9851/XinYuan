@@ -1,13 +1,47 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.administrator.xinyuan.view.work.WorkFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<RadioGroup
+    android:id="@+id/work_rg"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:weightSum="2">
+    <RadioButton
+        android:drawableTop="@mipmap/commit_work"
+        android:gravity="center"
+        android:text="提交课程作业"
+        android:button="@null"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+    <RadioButton
+        android:drawableTop="@mipmap/submit_work"
+        android:gravity="center"
+        android:text="发布求教视频"
+        android:button="@null"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+</RadioGroup>
+<LinearLayout
+    android:layout_below="@+id/work_rg"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.TabLayout
+        android:id="@+id/work_tab"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="作业" />
+        android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/work_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+</LinearLayout>
 
-</FrameLayout>
+
+</RelativeLayout>

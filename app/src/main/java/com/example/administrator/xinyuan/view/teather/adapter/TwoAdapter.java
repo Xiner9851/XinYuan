@@ -12,6 +12,8 @@ import com.bumptech.glide.Glide;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.model.entity.TeatherBean;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,7 +40,10 @@ public class TwoAdapter extends RecyclerView.Adapter<TwoAdapter.Holder> {
     public void onBindViewHolder(TwoAdapter.Holder holder, int position) {
         Glide.with(context).load(liveCourses.get(position).getCoverImg()).into(holder.img);
         holder.name.setText(liveCourses.get(position).getNickname());
-        holder.time.setText(liveCourses.get(position).getEndDate()+"");
+        long endDate = liveCourses.get(position).getEndDate();
+        String s = longToDate(endDate);
+
+        holder.time.setText(s);
     }
 
     @Override
@@ -57,4 +62,10 @@ public class TwoAdapter extends RecyclerView.Adapter<TwoAdapter.Holder> {
             time=itemView.findViewById(R.id.two_zi_time);
         }
     }
+    public static String longToDate(long lo){
+        Date date = new Date(lo);
+        SimpleDateFormat sd = new SimpleDateFormat("MM-dd HH:mm");
+        return sd.format(date);
+    }
+
 }
