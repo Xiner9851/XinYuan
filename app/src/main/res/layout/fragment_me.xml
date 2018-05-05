@@ -1,13 +1,75 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.administrator.xinyuan.view.me.MeFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@mipmap/xiner_x"
+        >
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@mipmap/u4974"
+            android:id="@+id/touxiang"
+            android:layout_gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp" />
 
-    <!-- TODO: Update blank fragment layout -->
+    </RelativeLayout>
+
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="我的" />
+        android:layout_height="wrap_content"
+        android:text="登录后，享受更多精彩服务"
+        android:gravity="center"
+        android:textColor="#b8b8b8"
+        android:layout_marginTop="70dp"
+        />
+    <LinearLayout
+        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:text="注册"
 
-</FrameLayout>
+            android:id="@+id/zhuce"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="20dp"
+            android:textColor="#ffffff"
+            android:background="#ebe018"
+            android:textSize="18sp"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:text="登录"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="#ffffff"
+            android:background="#4486e9"
+            android:textSize="18sp"
+            android:id="@+id/denglu"
+            />
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

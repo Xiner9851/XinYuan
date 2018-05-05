@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.xinyuan.view.me.ZhuCeActivity">
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_margin="10dp"
+        android:src="@mipmap/u1253"
+        android:id="@+id/quxiao"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="输入手机号，快速注册"
+        android:layout_margin="40dp"
+        android:textSize="19sp"
+        android:textColor="#000000"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入手机号"
+        android:id="@+id/tel"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_margin="40dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="输入验证码"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:id="@+id/ma" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取验证码"
+            android:textColor="#63a5f1"
+            android:textSize="12sp"
+            android:id="@+id/hqma"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40dp"
+            />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册表示你同意"
+            android:layout_marginLeft="40dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UnivStar服务使用协议"
+            android:textColor="#000000"
+
+            />
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#4173f2"
+        android:text="注册"
+        android:textSize="18sp"
+        android:id="@+id/zhuce"
+        android:textColor="#ffffff"
+        android:layout_margin="40dp"
+        />
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        >
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:drawableTop="@mipmap/weixin_login"
+            android:layout_weight="1"
+            android:text="微信登录"
+            android:textColor="#d9d8d8"
+            android:gravity="center"
+            android:button="@null"
+            android:id="@+id/weixin"
+            />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:drawableTop="@mipmap/qq_login"
+            android:layout_weight="1"
+            android:text="微信登录"
+            android:textColor="#d9d8d8"
+            android:gravity="center"
+            android:button="@null"
+            android:id="@+id/qq"
+            />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:drawableTop="@mipmap/sinaweibo_login"
+            android:layout_weight="1"
+            android:text="微博登录"
+            android:textColor="#d9d8d8"
+            android:gravity="center"
+            android:id="@+id/weibo"
+            android:button="@null"
+            />
+    </RadioGroup>
+
+
+
+</LinearLayout>

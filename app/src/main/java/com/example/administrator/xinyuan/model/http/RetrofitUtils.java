@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 
+import com.example.administrator.xinyuan.model.biz.IHuoQuYZMaService;
 import com.example.administrator.xinyuan.model.biz.XinYuanService;
 import com.example.administrator.xinyuan.model.entity.TokenBean;
 import com.example.administrator.xinyuan.model.url.Urls;
@@ -246,5 +247,8 @@ public class RetrofitUtils {
     }
     public static String getJSESSIONID(){
         return s;
+    }
+    public IHuoQuYZMaService getIHuoQuYZMaService(){
+        return retrofit.create(IHuoQuYZMaService.class);
     }
 }
