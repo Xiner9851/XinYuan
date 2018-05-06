@@ -1,13 +1,12 @@
 package com.example.administrator.xinyuan.base;
 
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.administrator.xinyuan.App;
+
 
 /**
  * Created by Administrator on 2018/5/3.
@@ -42,29 +41,28 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void loadData();
 
     protected void setContentView(int containerId,Class<? extends BaseFragment> fragmentClass,Bundle params){
-
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        String name = fragmentClass.getSimpleName();
-        BaseFragment fragment = (BaseFragment) fragmentManager.findFragmentByTag(name);
+        android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction transaction = manager.beginTransaction();
+        String simpleName = fragmentClass.getSimpleName();
+        BaseFragment fragment = (BaseFragment) manager.findFragmentByTag(simpleName);
         if (fragment==null){
-            try {
-                fragment  = fragmentClass.newInstance();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
+           try {
+               fragment  = fragmentClass.newInstance();
+           } catch (InstantiationException e) {
+               e.printStackTrace();
+           } catch (IllegalAccessException e) {
+               e.printStackTrace();
             }
-            transaction.add(containerId,fragment,name);
+            transaction.add(containerId,fragment,simpleName);
         }
         if (params!=null){
-            fragment.setArguments(params);
-        }
+           fragment.setArguments(params);
+       }
         if (lastframent!=null){
-            transaction.hide(lastframent);
-        }
-        transaction.show(fragment);
-        lastframent=fragment;
+           transaction.hide(lastframent);
+       }
+       transaction.show(fragment);
+       lastframent=fragment;
         transaction.commit();
-    }
+   }
 }

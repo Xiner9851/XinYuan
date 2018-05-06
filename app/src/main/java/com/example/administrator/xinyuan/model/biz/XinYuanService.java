@@ -2,10 +2,15 @@ package com.example.administrator.xinyuan.model.biz;
 
 import com.example.administrator.xinyuan.model.entity.TeatherBean;
 import com.example.administrator.xinyuan.model.entity.TokenBean;
+import com.example.administrator.xinyuan.model.entity.WorkBean;
 import com.example.administrator.xinyuan.model.entity.YuDaoBean;
 import com.example.administrator.xinyuan.model.url.Urls;
 
+import java.util.Map;
+
 import io.reactivex.Observable;
+import retrofit2.http.FieldMap;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 /**
@@ -20,4 +25,9 @@ public interface XinYuanService {
     Observable<TokenBean> tokenValue();
     @POST(Urls.yugao_url)
     Observable<YuDaoBean> yudaoData();
+    @FormUrlEncoded
+    @POST(Urls.work_url)
+    Observable<WorkBean> workData(@FieldMap Map<String,Object> params);
+
+
 }

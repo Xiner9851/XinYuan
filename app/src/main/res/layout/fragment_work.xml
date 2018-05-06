@@ -12,6 +12,7 @@
     android:layout_height="70dp"
     android:weightSum="2">
     <RadioButton
+        android:id="@+id/work_commit"
         android:drawableTop="@mipmap/commit_work"
         android:gravity="center"
         android:text="提交课程作业"
@@ -20,6 +21,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content" />
     <RadioButton
+        android:id="@+id/work_submit"
         android:drawableTop="@mipmap/submit_work"
         android:gravity="center"
         android:text="发布求教视频"
