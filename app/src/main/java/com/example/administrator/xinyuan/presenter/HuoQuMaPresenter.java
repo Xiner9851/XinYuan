@@ -4,7 +4,13 @@ import android.util.Log;
 
 import com.example.administrator.xinyuan.contact.IHuoQuYZMaContact;
 import com.example.administrator.xinyuan.model.biz.IHuoQuYZMaService;
+import com.example.administrator.xinyuan.model.entity.HuoQuMa;
+import com.example.administrator.xinyuan.model.entity.LoginBean;
+import com.example.administrator.xinyuan.model.entity.UapateBean;
+import com.example.administrator.xinyuan.model.entity.WangChengBean;
+import com.example.administrator.xinyuan.model.entity.ZhuCeBean;
 import com.example.administrator.xinyuan.model.http.RetrofitUtils;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -47,7 +53,9 @@ public class HuoQuMaPresenter implements IHuoQuYZMaContact.Presenter {
                     public void onNext(ResponseBody value) {
                         try {
                             String string = value.string();
-                            Log.e("aaaaaaaa",string);
+                            Gson gson = new Gson();
+                            HuoQuMa huoQuMa = gson.fromJson(string, HuoQuMa.class);
+                            view.loadMa(huoQuMa.getMessage());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -82,7 +90,16 @@ public class HuoQuMaPresenter implements IHuoQuYZMaContact.Presenter {
 
                     @Override
                     public void onNext(ResponseBody value) {
+                        try {
+                            String string = value.string();
+                            Gson gson = new Gson();
+                            ZhuCeBean zhuCeBean = gson.fromJson(string, ZhuCeBean.class);
+                            String message = zhuCeBean.getMessage();
+                            view.zhuCe(message);
+                        } catch (IOException e) {
 
+
+                        }
                     }
 
                     @Override
@@ -119,8 +136,12 @@ public class HuoQuMaPresenter implements IHuoQuYZMaContact.Presenter {
                     @Override
                     public void onNext(ResponseBody value) {
                         try {
+
                             String string = value.string();
-                            Log.e("aaagdsaaaaa",string);
+                            Gson gson = new Gson();
+                            WangChengBean wangChengBean = gson.fromJson(string, WangChengBean.class);
+
+                            view.wangCheng(wangChengBean);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -156,7 +177,10 @@ public class HuoQuMaPresenter implements IHuoQuYZMaContact.Presenter {
                     public void onNext(ResponseBody value) {
                         try {
                             String string = value.string();
-                            Log.e("kkkk",string);
+                            Log.e("kjkk",string);
+                            Gson gson = new Gson();
+                            LoginBean loginBean = gson.fromJson(string, LoginBean.class);
+                            view.login(loginBean);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -179,8 +203,6 @@ public class HuoQuMaPresenter implements IHuoQuYZMaContact.Presenter {
         Map<String,String> psw=new HashMap<>();
         psw.put("mobile",tel);
         psw.put("authCode",ma);
-
-
         iHuoQuYZMaService.findPass(psw)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -194,7 +216,10 @@ public class HuoQuMaPresenter implements IHuoQuYZMaContact.Presenter {
                     public void onNext(ResponseBody value) {
                         try {
                             String string = value.string();
-                            Log.e("iiiii",string);
+                            Gson gson = new Gson();
+                            ZhuCeBean zhuCeBean = gson.fromJson(string, ZhuCeBean.class);
+                            String message = zhuCeBean.getMessage();
+                            view.findPass(message);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -229,7 +254,10 @@ public class HuoQuMaPresenter implements IHuoQuYZMaContact.Presenter {
                     @Override
                     public void onNext(ResponseBody value) {
                         try {
-                            Log.e("pppppp",value.string());
+                            String string = value.string();
+                            Gson gson = new Gson();
+                            UapateBean uapateBean = gson.fromJson(string, UapateBean.class);
+                            view.findPassNext(uapateBean);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

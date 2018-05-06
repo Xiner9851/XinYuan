@@ -6,10 +6,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.administrator.xinyuan.MainActivity;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
 import com.example.administrator.xinyuan.contact.IHuoQuYZMaContact;
+import com.example.administrator.xinyuan.model.entity.LoginBean;
+import com.example.administrator.xinyuan.model.entity.UapateBean;
+import com.example.administrator.xinyuan.model.entity.WangChengBean;
 import com.example.administrator.xinyuan.presenter.HuoQuMaPresenter;
 
 public class GoToLoginActivity extends BaseActivity implements View.OnClickListener,IHuoQuYZMaContact.View{
@@ -67,18 +72,52 @@ public class GoToLoginActivity extends BaseActivity implements View.OnClickListe
                 break;
             case R.id.denglu:
                 huoQuMaPresenter.login(tel.getText().toString(),password.getText().toString());
-                Intent intent2 = new Intent(this, MySelfActivity.class);
-                startActivity(intent2);
                 break;
             case R.id.wangpsw:
                 Intent intent1 = new Intent(this, RetrievePassActivity.class);
                 startActivity(intent1);
+                finish();
                 break;
         }
     }
 
     @Override
-    public void show() {
+    public void loadMa(String a) {
+
+    }
+
+    @Override
+    public void zhuCe(String s) {
+
+    }
+
+    @Override
+    public void wangCheng(WangChengBean wangChengBean) {
+
+    }
+
+    @Override
+    public void login(LoginBean loginBean) {
+        if (loginBean.getMessage().equals("cid为空")){
+            Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("name",loginBean.getData().getNickname());
+            intent.putExtra("mobile",loginBean.getData().getMobile());
+            setResult(10,intent);
+            finish();
+        }else {
+            Toast.makeText(this, "登录失败，请重新输入", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    @Override
+    public void findPass(String s) {
+
+    }
+
+    @Override
+    public void findPassNext(UapateBean uapateBean) {
 
     }
 }

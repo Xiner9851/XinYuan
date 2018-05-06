@@ -26,7 +26,6 @@
         <activity android:name=".view.me.GoToLoginActivity" />
         <activity android:name=".view.me.RetrievePassActivity" />
         <activity android:name=".view.me.ResetPassActivity" />
-        <activity android:name=".view.me.MySelfActivity"></activity>
     </application>
 
 </manifest>

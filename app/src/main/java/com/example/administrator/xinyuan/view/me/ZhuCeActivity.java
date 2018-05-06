@@ -9,10 +9,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
 import com.example.administrator.xinyuan.contact.IHuoQuYZMaContact;
+import com.example.administrator.xinyuan.model.entity.LoginBean;
+import com.example.administrator.xinyuan.model.entity.UapateBean;
+import com.example.administrator.xinyuan.model.entity.WangChengBean;
 import com.example.administrator.xinyuan.presenter.HuoQuMaPresenter;
 
 public class ZhuCeActivity extends BaseActivity implements View.OnClickListener,IHuoQuYZMaContact.View{
@@ -74,30 +78,69 @@ public class ZhuCeActivity extends BaseActivity implements View.OnClickListener,
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.hqma:
+                if(tel.getText().toString().length()!=11){
+                    Toast.makeText(this, "手机号不对", Toast.LENGTH_SHORT).show();
+                }else {
                 huoQuMaPresenter.loadMa(tel.getText().toString());
-                runnable=new Runnable() {
+                runnable = new Runnable() {
                     @Override
                     public void run() {
                         i--;
-                        if(i>-1) {
+                        if (i > -1) {
                             Message message = handler.obtainMessage(1, i);
                             handler.sendMessage(message);
                         }
                     }
                 };
                 handler.post(runnable);
+            }
                 break;
             case R.id.zhuce:
                 huoQuMaPresenter.zhuCe(tel.getText().toString(),ma.getText().toString());
-                Intent intent = new Intent(this, WanSanXinXiActivity.class);
-                intent.putExtra("tel",tel.getText().toString());
-                startActivity(intent);
+
                 break;
         }
     }
 
     @Override
-    public void show() {
+    public void loadMa(String a) {
+        if(a.equals("验证码已发送")){
+            Toast.makeText(this, "验证码发送成功", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "验证码发送失败", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void zhuCe(String s) {
+        if(s.equals("成功")){
+            Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, WanSanXinXiActivity.class);
+            intent.putExtra("tel",tel.getText().toString());
+            startActivity(intent);
+            finish();
+        }else {
+            Toast.makeText(this, "输入手机号和验证码", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void wangCheng(WangChengBean wangChengBean) {
+
+    }
+
+    @Override
+    public void login(LoginBean loginBean) {
+
+    }
+
+    @Override
+    public void findPass(String s) {
+
+    }
+
+    @Override
+    public void findPassNext(UapateBean uapateBean) {
 
     }
 }

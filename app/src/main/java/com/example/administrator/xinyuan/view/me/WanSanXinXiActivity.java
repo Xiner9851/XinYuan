@@ -9,10 +9,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
 import com.example.administrator.xinyuan.contact.IHuoQuYZMaContact;
+import com.example.administrator.xinyuan.model.entity.LoginBean;
+import com.example.administrator.xinyuan.model.entity.UapateBean;
+import com.example.administrator.xinyuan.model.entity.WangChengBean;
 import com.example.administrator.xinyuan.presenter.HuoQuMaPresenter;
 
 import java.io.File;
@@ -60,7 +64,6 @@ public class WanSanXinXiActivity extends BaseActivity implements View.OnClickLis
         textView1= (TextView) findViewById(R.id.textView1);
 
         touxiang.setOnClickListener(this);
-        paizhao.setOnClickListener(this);
         wangcheng.setOnClickListener(this);
         quxiao.setOnClickListener(this);
         mReLayout.setOnClickListener(this);
@@ -96,8 +99,7 @@ public class WanSanXinXiActivity extends BaseActivity implements View.OnClickLis
                 break;
             case R.id.wangcheng:
                 huoQuMaPresenter.wangCheng(name.getText().toString(),"","",tel,password.getText().toString());
-                Intent intent = new Intent(this, SetPianHaoActivity.class);
-                startActivity(intent);
+
                 break;
             case R.id.touxiang:
 
@@ -105,9 +107,41 @@ public class WanSanXinXiActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
+
+
     @Override
-    public void show() {
+    public void loadMa(String a) {
 
     }
 
+    @Override
+    public void zhuCe(String s) {
+
+    }
+
+    @Override
+    public void wangCheng(WangChengBean wangChengBean) {
+        if(wangChengBean.getMessage().equals("成功")){
+            Intent intent = new Intent(this, SetPianHaoActivity.class);
+            startActivity(intent);
+            finish();
+        }else {
+            Toast.makeText(this, "不对", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void login(LoginBean loginBean) {
+
+    }
+
+    @Override
+    public void findPass(String s) {
+
+    }
+
+    @Override
+    public void findPassNext(UapateBean uapateBean) {
+
+    }
 }

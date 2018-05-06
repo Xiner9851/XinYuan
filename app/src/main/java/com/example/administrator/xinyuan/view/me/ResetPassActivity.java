@@ -5,10 +5,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
 import com.example.administrator.xinyuan.contact.IHuoQuYZMaContact;
+import com.example.administrator.xinyuan.model.entity.LoginBean;
+import com.example.administrator.xinyuan.model.entity.UapateBean;
+import com.example.administrator.xinyuan.model.entity.WangChengBean;
 import com.example.administrator.xinyuan.presenter.HuoQuMaPresenter;
 
 public class ResetPassActivity extends BaseActivity implements View.OnClickListener,IHuoQuYZMaContact.View{
@@ -47,7 +51,38 @@ public class ResetPassActivity extends BaseActivity implements View.OnClickListe
     }
 
     @Override
-    public void show() {
+    public void loadMa(String a) {
+
+    }
+
+    @Override
+    public void zhuCe(String s) {
+
+    }
+
+    @Override
+    public void wangCheng(WangChengBean wangChengBean) {
+
+    }
+
+    @Override
+    public void login(LoginBean loginBean) {
+
+    }
+
+    @Override
+    public void findPass(String s) {
+
+    }
+
+    @Override
+    public void findPassNext(UapateBean uapateBean) {
+        if(uapateBean.getMessage().equals("成功")){
+            Toast.makeText(this, "密码重置成功", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, GoToLoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
     }
 }

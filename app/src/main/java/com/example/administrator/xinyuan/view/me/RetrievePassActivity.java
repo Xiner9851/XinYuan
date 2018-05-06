@@ -8,10 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
 import com.example.administrator.xinyuan.contact.IHuoQuYZMaContact;
+import com.example.administrator.xinyuan.model.entity.LoginBean;
+import com.example.administrator.xinyuan.model.entity.UapateBean;
+import com.example.administrator.xinyuan.model.entity.WangChengBean;
 import com.example.administrator.xinyuan.presenter.HuoQuMaPresenter;
 
 public class RetrievePassActivity extends BaseActivity implements IHuoQuYZMaContact.View,View.OnClickListener{
@@ -69,18 +73,11 @@ public class RetrievePassActivity extends BaseActivity implements IHuoQuYZMaCont
 
 
     @Override
-    public void show() {
-
-    }
-
-    @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.retrievepass_aty_loginbtn:
                 huoQuMaPresenter.findPass(retrievepass_aty_phone_et.getText().toString(),retrievepass_aty_getcode_et.getText().toString());
-                Intent intent = new Intent(this, ResetPassActivity.class);
-                intent.putExtra("phone",retrievepass_aty_phone_et.getText().toString());
-                startActivity(intent);
+
                 break;
             case R.id.retrievepass_aty_getcode_reset:
                 huoQuMaPresenter.loadMa(retrievepass_aty_phone_et.getText().toString());
@@ -98,5 +95,47 @@ public class RetrievePassActivity extends BaseActivity implements IHuoQuYZMaCont
                 break;
 
         }
+    }
+
+
+    @Override
+    public void loadMa(String a) {
+        if(a.equals("验证码已发送")){
+            Toast.makeText(this, "验证码已发送", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "验证码发送失败", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void zhuCe(String s) {
+
+    }
+
+    @Override
+    public void wangCheng(WangChengBean wangChengBean) {
+
+    }
+
+    @Override
+    public void login(LoginBean loginBean) {
+
+    }
+
+    @Override
+    public void findPass(String s) {
+        if(s.equals("成功")){
+            Intent intent = new Intent(this, ResetPassActivity.class);
+            intent.putExtra("phone",retrievepass_aty_phone_et.getText().toString());
+            startActivity(intent);
+            finish();
+        }else {
+            Toast.makeText(this, "重新输入", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void findPassNext(UapateBean uapateBean) {
+
     }
 }
