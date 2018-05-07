@@ -3,6 +3,7 @@ package com.example.administrator.xinyuan.view.teather;
 
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.widget.Toast;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseFragment;
@@ -64,6 +65,8 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
         });
 
 
+
+
     }
 
 
@@ -85,5 +88,26 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
         teather_list.add("");
         Teather_Adapter teather_adapter = new Teather_Adapter(teather_list,getActivity());
         teather_recy.setAdapter(teather_adapter);
+        //one监听
+        teather_adapter.setOneClick(new Teather_Adapter.OneClick() {
+            @Override
+            public void setOneClick(int postion) {
+                Toast.makeText(getContext(), "one"+postion, Toast.LENGTH_SHORT).show();
+            }
+        });
+        //two监听
+        teather_adapter.setTwoClick(new Teather_Adapter.TwoClick() {
+            @Override
+            public void setTwoClick(int postion) {
+                Toast.makeText(getContext(), "two"+postion, Toast.LENGTH_SHORT).show();
+            }
+        });
+        //three监听
+        teather_adapter.setThreeClick(new Teather_Adapter.ThreeClick() {
+            @Override
+            public void setThreeClick(int postion) {
+                Toast.makeText(getContext(), "three"+postion, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

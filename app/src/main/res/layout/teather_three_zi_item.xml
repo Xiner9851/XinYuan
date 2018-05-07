@@ -58,8 +58,16 @@
         android:layout_below="@+id/work_content"
         android:scaleType="fitXY"
         android:layout_width="260dp"
-        android:layout_height="260dp" />
+        android:layout_height="260dp"
+       android:layout_marginBottom="10dp"/>
+    <TextView
+        android:layout_below="@+id/word_image"
+        android:background="#8888"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
     <RadioGroup
+    android:id="@+id/work_rg"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/word_image"
         android:weightSum="4"
         android:orientation="horizontal"
@@ -67,32 +75,39 @@
         android:layout_height="wrap_content">
         <RadioButton
             android:drawableTop="@mipmap/reply_normal"
-            android:id="@+id/work_comment"
+            android:id="@+id/teather_pinglun"
             android:button="@null"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
         <RadioButton
+
             android:drawableTop="@mipmap/detail_praisse_normal"
-            android:id="@+id/work_zan"
+            android:id="@+id/teather_dianzan"
             android:button="@null"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
         <RadioButton
             android:drawableTop="@mipmap/reward_active"
-            android:id="@+id/work_shang"
+            android:id="@+id/trather_shang"
             android:button="@null"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
         <RadioButton
             android:drawableTop="@mipmap/share_default"
-            android:id="@+id/work_share"
+            android:id="@+id/teather_share"
             android:button="@null"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
     </RadioGroup>
+    <TextView
+
+        android:layout_below="@+id/work_rg"
+        android:background="#8888"
+        android:layout_width="match_parent"
+        android:layout_height="15dp" />
 
 </RelativeLayout>

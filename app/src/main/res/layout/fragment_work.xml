@@ -2,48 +2,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:orientation="vertical"
     tools:context="com.example.administrator.xinyuan.view.work.WorkFragment">
-<RadioGroup
-    android:id="@+id/work_rg"
-    android:gravity="center"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="70dp"
-    android:weightSum="2">
-    <RadioButton
-        android:id="@+id/work_commit"
-        android:drawableTop="@mipmap/commit_work"
-        android:gravity="center"
-        android:text="提交课程作业"
-        android:button="@null"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content" />
-    <RadioButton
-        android:id="@+id/work_submit"
-        android:drawableTop="@mipmap/submit_work"
-        android:gravity="center"
-        android:text="发布求教视频"
-        android:button="@null"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content" />
-</RadioGroup>
-<LinearLayout
-    android:layout_below="@+id/work_rg"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <android.support.design.widget.TabLayout
-        android:id="@+id/work_tab"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
-    <android.support.v4.view.ViewPager
-        android:id="@+id/work_vp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
-</LinearLayout>
+    <android.support.design.widget.CoordinatorLayout
 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:background="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <LinearLayout
+
+                android:gravity="center_horizontal"
+                app:layout_scrollFlags="scroll"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+                    android:id="@+id/work_tijiao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingLeft="60dp"
+                    >
+
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:src="@mipmap/commit_work"
+                        />
+
+
+                    <TextView
+
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="提交作业课程" />
+                </LinearLayout>
+            <LinearLayout
+
+                android:id="@+id/work_fabu_zuoping"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="60dp"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/imageView"
+                    android:layout_toEndOf="@+id/textView"
+                    android:layout_toRightOf="@+id/textView"
+
+                    android:src="@mipmap/submit_work" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:text="发布作业请求" />
+            </LinearLayout>
+            </LinearLayout>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/work_tab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                />
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/work_vp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v4.view.ViewPager>
+        </RelativeLayout>
+    </android.support.design.widget.CoordinatorLayout>
 
 </RelativeLayout>

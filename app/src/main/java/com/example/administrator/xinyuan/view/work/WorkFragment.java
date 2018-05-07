@@ -6,8 +6,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
@@ -19,7 +24,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WorkFragment extends BaseFragment{
+public class WorkFragment extends BaseFragment implements View.OnClickListener {
 
 
     private RadioButton work_commit;
@@ -30,6 +35,10 @@ public class WorkFragment extends BaseFragment{
     private Work_FuYong_Fragment fuYong_fragment;
     private ArrayList<Fragment> fragments;
     private ArrayList<String> titles;
+    private ImageView imageView;
+    private TextView textView;
+    private LinearLayout work_tijiao;
+    private LinearLayout work_fabu_zuoping;
 
 
     @Override
@@ -39,17 +48,19 @@ public class WorkFragment extends BaseFragment{
 
     @Override
     protected void init() {
-        work_commit=getView().findViewById(R.id.work_commit);
-        work_submit=getView().findViewById(R.id.work_submit);
-        work_tab=getView().findViewById(R.id.work_tab);
-        work_vp=getView().findViewById(R.id.work_vp);
-        fragments=new ArrayList<>();
-        titles=new ArrayList<>();
-        fuYong_fragment=new Work_FuYong_Fragment();
-
+        //work_commit=getView().findViewById(R.id.work_commit);
+        // work_submit=getView().findViewById(R.id.work_submit);
+        work_tab = getView().findViewById(R.id.work_tab);
+        work_vp = getView().findViewById(R.id.work_vp);
+        work_fabu_zuoping=getView().findViewById(R.id.work_fabu_zuoping);
+        work_tijiao=getView().findViewById(R.id.work_tijiao);
+        fragments = new ArrayList<>();
+        titles = new ArrayList<>();
+        fuYong_fragment = new Work_FuYong_Fragment();
 
 
     }
+
     //你好啊
     @Override
     protected void loadDate() {
@@ -60,21 +71,32 @@ public class WorkFragment extends BaseFragment{
 
         for (int i = 0; i < titles.size(); i++) {
             Bundle bundle = new Bundle();
-            bundle.putInt("012",i);
+            bundle.putInt("012", i);
 
-            fuYong_fragment=new Work_FuYong_Fragment();
+            fuYong_fragment = new Work_FuYong_Fragment();
             fuYong_fragment.setArguments(bundle);
             fragments.add(fuYong_fragment);
-            Log.e("aaaa",i+"");
+            Log.e("aaaa", i + "");
 
         }
         Work_Viewpager_Adapter work_viewpager_adapter = new Work_Viewpager_Adapter(((BaseActivity) getActivity()).getSupportFragmentManager(), fragments, titles);
         work_vp.setAdapter(work_viewpager_adapter);
         work_tab.setupWithViewPager(work_vp);
+        
 
 
     }
 
 
-
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.work_fabu_zuoping:
+                Toast.makeText(getContext(), "提交", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.work_tijiao:
+                Toast.makeText(getContext(), "发布作品", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 }

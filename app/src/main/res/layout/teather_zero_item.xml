@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <RadioButton
-            android:id="@+id/ming_teather_btn"
+            android:id="@+id/find_teather_btn"
             android:gravity="center"
             android:button="@null"
 
@@ -24,7 +24,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content" />
         <RadioButton
-            android:id="@+id/work_btn"
+            android:id="@+id/xianshang_ke_btn"
             android:gravity="center"
             android:button="@null"
 
@@ -34,7 +34,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content" />
         <RadioButton
-            android:id="@+id/baodian_btn"
+            android:id="@+id/jiao_work_btn"
             android:gravity="center"
             android:button="@null"
 
@@ -44,7 +44,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content" />
         <RadioButton
-            android:id="@+id/yugao_btn"
+            android:id="@+id/liao_yikao_btn"
             android:gravity="center"
             android:button="@null"
 
@@ -54,7 +54,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content" />
         <RadioButton
-            android:id="@+id/me_btn"
+            android:id="@+id/xianxia_ke_btn"
             android:gravity="center"
             android:button="@null"
 

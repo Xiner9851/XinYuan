@@ -18,7 +18,7 @@ import java.util.List;
  * Created by Administrator on 2018/5/4.
  */
 
-public class OneAdapter extends RecyclerView.Adapter<OneAdapter.Holder> {
+public class OneAdapter extends RecyclerView.Adapter<OneAdapter.Holder> implements View.OnClickListener{
     private Context context;
     private List<TeatherBean.DataBean.UsersBean> users;
 
@@ -31,7 +31,7 @@ public class OneAdapter extends RecyclerView.Adapter<OneAdapter.Holder> {
     public OneAdapter.Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.teather_one_zi_item, parent, false);
         Holder holder = new Holder(inflate);
-
+        holder.itemView.setOnClickListener(this);
         return holder;
     }
 
@@ -40,12 +40,16 @@ public class OneAdapter extends RecyclerView.Adapter<OneAdapter.Holder> {
         Glide.with(context).load(users.get(position).getImages()).into(holder.img);
         holder.name.setText(users.get(position).getNickname());
         holder.contect.setText(users.get(position).getIntro());
+
+        holder.itemView.setTag(position);
     }
 
     @Override
     public int getItemCount() {
         return users.size();
     }
+
+
 
     public class Holder extends RecyclerView.ViewHolder {
         private ImageView img;
@@ -57,5 +61,19 @@ public class OneAdapter extends RecyclerView.Adapter<OneAdapter.Holder> {
             name=itemView.findViewById(R.id.one_zi_name);
             contect=itemView.findViewById(R.id.one_zi_contact);
         }
+    }
+    public interface OneOnClick{
+        void setOneOnClick(View view,int postion);
+    }
+    private OneOnClick oneOnClick;
+    @Override
+    public void onClick(View v) {
+        if (oneOnClick!=null){
+            oneOnClick.setOneOnClick(v,(int)v.getTag());
+        }
+    }
+    public void setOneOnCLickItem(OneOnClick oneOnClick){
+        this.oneOnClick=oneOnClick;
+
     }
 }

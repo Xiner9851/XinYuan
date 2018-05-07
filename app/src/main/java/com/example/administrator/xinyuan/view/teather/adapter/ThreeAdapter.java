@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
@@ -24,7 +26,7 @@ import java.util.List;
  * Created by Administrator on 2018/5/4.
  */
 
-public class ThreeAdapter extends RecyclerView.Adapter<ThreeAdapter.Holder> {
+public class ThreeAdapter extends RecyclerView.Adapter<ThreeAdapter.Holder> implements View.OnClickListener{
     private Context context;
     private List<TeatherBean.DataBean.HomewoksBean> homewoks;
 
@@ -37,6 +39,11 @@ public class ThreeAdapter extends RecyclerView.Adapter<ThreeAdapter.Holder> {
     public ThreeAdapter.Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.teather_three_zi_item, parent, false);
         Holder holder = new Holder(inflate);
+        holder.itemView.setOnClickListener(this);
+        holder.rb1.setOnClickListener(this);
+        holder.rb2.setOnClickListener(this);
+        holder.rb3.setOnClickListener(this);
+        holder.rb4.setOnClickListener(this);
         return holder;
     }
 
@@ -66,6 +73,35 @@ public class ThreeAdapter extends RecyclerView.Adapter<ThreeAdapter.Holder> {
         long pushDate = homewoks.get(position).getPushDate();
         String s = longToDate(pushDate);
         holder.three_time.setText(s);
+        holder.itemView.setTag(position);
+        holder.rb1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "评论", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        holder.rb2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "点赞", Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.rb3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "赏钱", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        holder.rb4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "分享", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     @Override
@@ -80,6 +116,10 @@ public class ThreeAdapter extends RecyclerView.Adapter<ThreeAdapter.Holder> {
         private TextView three_name;
         private TextView three_time;
         private TextView three_contact;
+        private RadioButton rb1;
+        private RadioButton rb2;
+        private RadioButton rb3;
+        private RadioButton rb4;
         public Holder(View itemView) {
             super(itemView);
             three_img=itemView.findViewById(R.id.word_image);
@@ -87,6 +127,13 @@ public class ThreeAdapter extends RecyclerView.Adapter<ThreeAdapter.Holder> {
             three_time=itemView.findViewById(R.id.work_time);
             three_contact=itemView.findViewById(R.id.work_content);
             three_touxiang=itemView.findViewById(R.id.work_img);
+            rb1=itemView.findViewById(R.id.teather_pinglun);
+            rb2=itemView.findViewById(R.id.teather_dianzan);
+            rb3=itemView.findViewById(R.id.trather_shang);
+            rb4=itemView.findViewById(R.id.teather_share);
+
+
+
 
         }
     }
@@ -94,5 +141,20 @@ public class ThreeAdapter extends RecyclerView.Adapter<ThreeAdapter.Holder> {
         Date date = new Date(lo);
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd HH:mm");
         return sd.format(date);
+    }
+    public interface ThreeOnClick{
+        void setThreeOnClick(View view,int postion);
+    }
+    private ThreeOnClick threeOnClick;
+    @Override
+    public void onClick(View v) {
+        if (threeOnClick!=null){
+            threeOnClick.setThreeOnClick(v,(int)v.getTag());
+        }
+
+    }
+    public void setThreeOnCLickItem(ThreeOnClick threeOnClick){
+        this.threeOnClick=threeOnClick;
+
     }
 }

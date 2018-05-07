@@ -20,7 +20,7 @@ import java.util.List;
  * Created by Administrator on 2018/5/4.
  */
 
-public class TwoAdapter extends RecyclerView.Adapter<TwoAdapter.Holder> {
+public class TwoAdapter extends RecyclerView.Adapter<TwoAdapter.Holder> implements View.OnClickListener{
     private Context context;
     private List<TeatherBean.DataBean.LiveCoursesBean> liveCourses;
 
@@ -33,6 +33,7 @@ public class TwoAdapter extends RecyclerView.Adapter<TwoAdapter.Holder> {
     public TwoAdapter.Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.teather_two_zi_item, parent, false);
         Holder holder = new Holder(inflate);
+        holder.itemView.setOnClickListener(this);
         return holder;
     }
 
@@ -44,6 +45,7 @@ public class TwoAdapter extends RecyclerView.Adapter<TwoAdapter.Holder> {
         String s = longToDate(endDate);
 
         holder.time.setText(s);
+        holder.itemView.setTag(position);
     }
 
     @Override
@@ -67,5 +69,18 @@ public class TwoAdapter extends RecyclerView.Adapter<TwoAdapter.Holder> {
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd HH:mm");
         return sd.format(date);
     }
+    public interface TwoOnClick{
+        void setTwoOnClick(View view,int postion);
+    }
+    private TwoOnClick twoOnClick;
+    @Override
+    public void onClick(View v) {
+        if (twoOnClick!=null){
+            twoOnClick.setTwoOnClick(v,(int)v.getTag());
+        }
+    }
+    public void setTwoOnCLickItem(TwoOnClick twoOnClick){
+        this.twoOnClick=twoOnClick;
 
+    }
 }

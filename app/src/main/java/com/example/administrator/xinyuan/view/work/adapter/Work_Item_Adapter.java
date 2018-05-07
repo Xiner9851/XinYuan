@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.xinyuan.R;
@@ -25,6 +26,35 @@ import java.util.List;
 public class Work_Item_Adapter extends RecyclerView.Adapter<Work_Item_Adapter.Holder> {
     private List<WorkBean.DataBean.ListBean> list;
     private Context context;
+    private RoundedImageView work_recycler_item_title_img;
+    private TextView work_recycler_item_student_name;
+    private TextView work_recycler_item_time;
+    private TextView work_recycler_item_from;
+    private TextView work_recycler_item_content;
+    private TextView work_recycler_item_content_intro;
+    private ImageView work_recycler_item_intro_img;
+    private ImageView work_recycler_item_audio_img;
+    private TextView work_recycler_item_audio_time;
+    private RelativeLayout work_recycler_item_audio_gorpu;
+    private TextView work_recycler_item_video_time;
+    private LinearLayout work_recycler_item_video_gorpu;
+    private RelativeLayout work_recycler_item_intro_img_group;
+    private TextView work_recycler_item_work_type;
+    private RoundedImageView work_recycler_item_teacher_img;
+    private TextView work_recycler_item_teacher_name;
+    private TextView work_recycler_item_teacher_intro;
+    private TextView work_recycler_item_peep_price;
+    private LinearLayout work_recycler_item_peep;
+    private RelativeLayout work_recycler_item_teacher_group;
+    private TextView home_masterwork_listitem_teacher_group_line;
+    private CheckBox work_recycler_item_reply_cb;
+    private LinearLayout work_recycler_item_reply_group;
+    private CheckBox work_recycler_item_praise_cb;
+    private LinearLayout work_recycler_item_praise_group;
+    private CheckBox work_recycler_item_reward_cb;
+    private LinearLayout work_recycler_item_reward_group;
+    private LinearLayout work_recycler_item_share;
+    private LinearLayout work_item;
 
 
     public Work_Item_Adapter(List<WorkBean.DataBean.ListBean> list, Context context) {
@@ -45,9 +75,51 @@ public class Work_Item_Adapter extends RecyclerView.Adapter<Work_Item_Adapter.Ho
         Glide.with(context).load(list.get(position).getPhoto()).into(holder.work_recycler_item_title_img);
         holder.work_recycler_item_student_name.setText(list.get(position).getNickname());
         holder.work_recycler_item_from.setText(listBean.getSource());
-        holder. work_recycler_item_content.setText(listBean.getContent());
+        holder.work_recycler_item_content.setText(listBean.getContent());
         Glide.with(context).load(list.get(position).getCoverImg()).into(holder.work_recycler_item_intro_img);
+        //item监听
+        holder.work_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "item监听", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //work评论
+       holder. work_recycler_item_reply_cb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "work评论", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //work点赞
+        holder.work_recycler_item_praise_cb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "work点赞", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //work赏
+        holder.work_recycler_item_reward_cb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "work赏", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //work分享
+       holder. work_recycler_item_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "work分享", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //work头像
 
+        holder.work_recycler_item_title_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "work头像", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
@@ -86,17 +158,29 @@ public class Work_Item_Adapter extends RecyclerView.Adapter<Work_Item_Adapter.Ho
         private CheckBox work_recycler_item_reward_cb;
         private LinearLayout work_recycler_item_reward_group;
         private LinearLayout work_recycler_item_share;
+        private LinearLayout work_item;
+
         public Holder(View itemView) {
             super(itemView);
-            work_recycler_item_teacher_name=itemView.findViewById(R.id.work_recycler_item_teacher_name);
-         work_recycler_item_teacher_intro=itemView.findViewById(R.id.work_recycler_item_teacher_intro);
-          work_recycler_item_peep_price=itemView.findViewById(R.id.work_recycler_item_peep_price);
-            work_recycler_item_title_img=itemView.findViewById(R.id.work_recycler_item_title_img);
-          work_recycler_item_student_name=itemView.findViewById(R.id.work_recycler_item_student_name);
-          work_recycler_item_time=itemView.findViewById(R.id.work_recycler_item_time);
-           work_recycler_item_from=itemView.findViewById(R.id.work_recycler_item_from);
-            work_recycler_item_content=itemView.findViewById(R.id. work_recycler_item_content);
-            work_recycler_item_intro_img=itemView.findViewById(R.id.work_recycler_item_intro_img);
+            work_recycler_item_teacher_name = itemView.findViewById(R.id.work_recycler_item_teacher_name);
+            work_recycler_item_teacher_intro = itemView.findViewById(R.id.work_recycler_item_teacher_intro);
+            work_recycler_item_peep_price = itemView.findViewById(R.id.work_recycler_item_peep_price);
+            work_recycler_item_title_img = itemView.findViewById(R.id.work_recycler_item_title_img);
+            work_recycler_item_student_name = itemView.findViewById(R.id.work_recycler_item_student_name);
+            work_recycler_item_time = itemView.findViewById(R.id.work_recycler_item_time);
+            work_recycler_item_from = itemView.findViewById(R.id.work_recycler_item_from);
+            work_recycler_item_content = itemView.findViewById(R.id.work_recycler_item_content);
+            work_recycler_item_intro_img = itemView.findViewById(R.id.work_recycler_item_intro_img);
+            work_item=itemView.findViewById(R.id.work_item);
+
+            work_recycler_item_share=itemView.findViewById(R.id.work_recycler_item_share);
+            work_recycler_item_reply_group=itemView.findViewById(R.id.work_recycler_item_reply_group);
+            work_recycler_item_praise_group=itemView.findViewById(R.id.work_recycler_item_praise_group);
+            work_recycler_item_reward_group=itemView.findViewById(R.id.work_recycler_item_reward_group);
+
+            work_recycler_item_reply_cb=itemView.findViewById(R.id.work_recycler_item_reply_cb);
+            work_recycler_item_praise_cb=itemView.findViewById(R.id.work_recycler_item_praise_cb);
+            work_recycler_item_reward_cb=itemView.findViewById(R.id.work_recycler_item_reward_cb);
         }
     }
 }

@@ -18,7 +18,7 @@ import java.util.List;
  * Created by Administrator on 2018/5/4.
  */
 
-public class YuGao_Adapter extends RecyclerView.Adapter<YuGao_Adapter.Holder> {
+public class YuGao_Adapter extends RecyclerView.Adapter<YuGao_Adapter.Holder> implements View.OnClickListener {
     private Context context;
     private List<YuDaoBean.DataBean.ListBean> list;
 
@@ -31,6 +31,7 @@ public class YuGao_Adapter extends RecyclerView.Adapter<YuGao_Adapter.Holder> {
     public YuGao_Adapter.Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.yugao_item, parent, false);
         Holder holder = new Holder(inflate);
+        holder.itemView.setOnClickListener(this);
         return holder;
     }
 
@@ -40,13 +41,15 @@ public class YuGao_Adapter extends RecyclerView.Adapter<YuGao_Adapter.Holder> {
         holder.yugao_addss.setText(list.get(position).getAddress());
         holder.yugao_data.setText(list.get(position).getStartDate()+"");
         holder.price.setText(list.get(position).getPrice()+"");
-
+        holder.itemView.setTag(position);
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
+
+
 
     public class Holder extends RecyclerView.ViewHolder {
         private ImageView yugao_img;
@@ -61,4 +64,19 @@ public class YuGao_Adapter extends RecyclerView.Adapter<YuGao_Adapter.Holder> {
             price=itemView.findViewById(R.id.yugao_price);
         }
     }
+    public  interface YuGaoOnClickListion{
+        void setOnClickListion(View view,int postion);
+    }
+    private YuGaoOnClickListion yuGaoOnClickListion;
+    @Override
+    public void onClick(View v) {
+        if (yuGaoOnClickListion!=null){
+            yuGaoOnClickListion.setOnClickListion(v,(int)v.getTag());
+        }
+    }
+    public void setOnClickListionItem(YuGaoOnClickListion yuGaoOnClickListion){
+        this.yuGaoOnClickListion=yuGaoOnClickListion;
+
+    }
+
 }
