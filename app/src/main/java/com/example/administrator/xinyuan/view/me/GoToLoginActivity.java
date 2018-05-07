@@ -103,6 +103,7 @@ public class GoToLoginActivity extends BaseActivity implements View.OnClickListe
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("name",loginBean.getData().getNickname());
             intent.putExtra("mobile",loginBean.getData().getMobile());
+            //      intent.putExtra("phone",photo);
             setResult(10,intent);
             finish();
         }else {

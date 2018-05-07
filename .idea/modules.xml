@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/XinYuan.iml" filepath="$PROJECT_DIR$/XinYuan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/XinYuan-mas.iml" filepath="$PROJECT_DIR$/XinYuan-mas.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

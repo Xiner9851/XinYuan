@@ -36,4 +36,12 @@ public interface IHuoQuYZMaService {
     @FormUrlEncoded
     @POST("v1/m/user/save/password")
     Observable<ResponseBody> findPassNext(@FieldMap Map<String, String> params);
+
+
+    @FormUrlEncoded
+    @POST("v1/m/artcircle/home")
+    Observable<ResponseBody> loadBaoDian(@FieldMap Map<String, Integer> params);
+
+
+
 }
