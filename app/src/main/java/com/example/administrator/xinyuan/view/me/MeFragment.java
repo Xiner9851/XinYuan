@@ -61,6 +61,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
     private LinearLayout home_myselft_fragment_login_body;
     private TextView ssss;
     private LinearLayout ddd;
+    private ImageView phone;
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_me;
@@ -99,6 +100,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
     private void initView() {
         ssss=getView().findViewById(R.id.ssss);
         touxiang=getView().findViewById(R.id.touxiang);
+        phone=getView().findViewById(R.id.phone);
         zhuce=getView().findViewById(R.id.zhuce);
         denglu=getView().findViewById(R.id.denglu);
         home_myselft_fragment_message =getView().findViewById(R.id.home_myselft_fragment_message);
@@ -151,8 +153,10 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         if(requestCode==10&&resultCode==10){
             String name = data.getStringExtra("name");
             String mobile = data.getStringExtra("mobile");
+            String aa = data.getStringExtra("phone");
             ssss.setVisibility(View.GONE);
             ddd.setVisibility(View.GONE);
+      //      Glide.with(getContext()).load(aa).into(phone);
             home_myselft_fragment_nologin_head.setVisibility(View.GONE);
             home_myselft_fragment_student_toolline.setVisibility(View.VISIBLE);
             home_myselft_fragment_login_body.setVisibility(View.VISIBLE);

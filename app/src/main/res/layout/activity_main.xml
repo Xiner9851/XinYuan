@@ -28,6 +28,15 @@
             android:layout_height="wrap_content" />
 
         <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/publish_valuable"
+            android:layout_toLeftOf="@+id/message_img"
+            android:visibility="gone"
+            android:id="@+id/message_bi"
+            />
+
+        <ImageView
             android:id="@+id/message_img"
             android:layout_alignParentRight="true"
             android:src="@mipmap/home_master_shape"
