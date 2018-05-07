@@ -76,6 +76,7 @@ public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
                 yugao_recy.setPullLoadMoreCompleted();
             }
         });
+        //时间选择器
         yugao_shaixuan.setOnClickListener(new View.OnClickListener() {
             private Button data_queding;
             private Button data_chongzhi;
