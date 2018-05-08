@@ -95,7 +95,7 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
                 Toast.makeText(getContext(), "one"+postion, Toast.LENGTH_SHORT).show();
             }
         });
-        //two监听
+        //two监听sssssssss
         teather_adapter.setTwoClick(new Teather_Adapter.TwoClick() {
             @Override
             public void setTwoClick(int postion) {
