@@ -6,7 +6,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 
-import com.example.administrator.xinyuan.App;
 import com.example.administrator.xinyuan.model.biz.IHuoQuYZMaService;
 import com.example.administrator.xinyuan.model.biz.XinYuanService;
 import com.example.administrator.xinyuan.model.entity.TokenBean;
@@ -52,7 +51,7 @@ public class RetrofitUtils {
                 return response;
             }
         };*/
-        Cache cache = new Cache(App.context.getCacheDir(), 1024 * 1024 * 10);
+        Cache cache = new Cache(context.getCacheDir(), 1024 * 1024 * 10);
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(new AddCookiesInterceptor(context))
                 .addInterceptor(new ReceivedCookiesInterceptor(context))
