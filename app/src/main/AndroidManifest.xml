@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.xinyuan">
-<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -10,9 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".YingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +26,9 @@
         <activity android:name=".view.me.GoToLoginActivity" />
         <activity android:name=".view.me.RetrievePassActivity" />
         <activity android:name=".view.me.ResetPassActivity" />
+        <activity android:name=".view.teather.Teather_Banner_Item_Activity" />
+        <activity android:name=".view.teather.Teather_OneItem_Activity" />
+        <activity android:name=".view.yugao.YuGao_ItemActivity"></activity>
     </application>
 
 </manifest>
