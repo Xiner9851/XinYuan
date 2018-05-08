@@ -23,6 +23,7 @@ public class BaoDianFuYongFragment extends BaseFragment implements IBaoDianConta
     BaoDianPresent baoDianPresent;
     BaoDianFuYongAdapter baoDianFuYongAdapter;
     List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list1;
+    //aaaa
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_bao_dian_fu_yong;
