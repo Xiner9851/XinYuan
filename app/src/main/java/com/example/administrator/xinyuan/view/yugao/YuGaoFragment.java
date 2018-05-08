@@ -34,7 +34,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
-
+//ccc
 
     private TextView yugao_shaixuan;
     private PullLoadMoreRecyclerView yugao_recy;
