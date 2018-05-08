@@ -28,6 +28,7 @@
                 android:layout_height="40dp" />
 
             <LinearLayout
+                android:id="@+id/xianqing"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:layout_marginLeft="10dp"
@@ -38,6 +39,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_marginRight="12dp"
+
                     android:layout_height="wrap_content">
 
                     <TextView
