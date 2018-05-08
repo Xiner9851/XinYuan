@@ -1,4 +1,3 @@
-
 package com.example.administrator.xinyuan.view.yugao;
 
 import android.content.Intent;
@@ -55,7 +54,7 @@ public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Conta
         again_back= (ImageView) findViewById(R.id.again_back);
 
     }
-    //aaa
+    //aa
 
     @Override
     protected void loadData() {
