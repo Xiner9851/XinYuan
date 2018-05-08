@@ -31,6 +31,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private RadioButton me_btn;
     private RadioGroup gp_bt;
 
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -47,6 +48,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         fragment_manger= (FrameLayout) findViewById(R.id.fragment_manger);
         message_bi= (ImageView) findViewById(R.id.message_bi);
         message_img= (ImageView) findViewById(R.id.message_img);
+        tou= (RelativeLayout) findViewById(R.id.tou);
 
         ming_teather_btn.setOnClickListener(this);
         work_btn.setOnClickListener(this);
@@ -60,8 +62,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     protected void loadData() {
-        setContentView(R.id.fragment_manger, MingTeatherFragment.class, null);
-        ming_teather_btn.setChecked(true);
+
+
 
 
     }
@@ -70,10 +72,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         switch (v.getId()) {
             case R.id.ming_teather_btn:
                 setContentView(R.id.fragment_manger, MingTeatherFragment.class, null);
-                message_bi.setVisibility(View.GONE);
                 break;
             case R.id.work_btn:
-                message_bi.setVisibility(View.GONE);
                 setContentView(R.id.fragment_manger, WorkFragment.class, null);
                 break;
             case R.id.baodian_btn:
@@ -81,11 +81,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 message_bi.setVisibility(View.VISIBLE);
                 break;
             case R.id.yugao_btn:
-                message_bi.setVisibility(View.GONE);
+
                 setContentView(R.id.fragment_manger, YuGaoFragment.class, null);
                 break;
             case R.id.me_btn:
-                message_bi.setVisibility(View.GONE);
+
                 setContentView(R.id.fragment_manger, MeFragment.class, null);
                 break;
         }

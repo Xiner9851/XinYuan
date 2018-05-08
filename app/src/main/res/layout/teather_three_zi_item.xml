@@ -53,13 +53,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <ImageView
-        android:src="@mipmap/play_music_bg"
         android:id="@+id/word_image"
         android:layout_toRightOf="@+id/work_img"
         android:layout_below="@+id/work_content"
         android:scaleType="fitXY"
         android:layout_width="260dp"
-        android:layout_height="230dp"
+        android:layout_height="260dp"
        android:layout_marginBottom="10dp"/>
     <TextView
         android:layout_below="@+id/word_image"

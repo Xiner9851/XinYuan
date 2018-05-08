@@ -113,7 +113,6 @@ public class MyXinXiActivity extends BaseActivity implements IMeMyXinXiContact.V
             sex=0;
         }else if(aa==1){
             userinfo_aty_changensex_tv.setText("女");
-            //sdfsf
             sex=1;
         }
         String address = (String) data.getAddress();
