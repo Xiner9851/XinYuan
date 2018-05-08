@@ -89,7 +89,6 @@ public class MyXinXiActivity extends BaseActivity implements IMeMyXinXiContact.V
         userinfo_aty_changenbirthday.setOnClickListener(this);
 
     }
-//dgdfdf
     @Override
     protected void loadData() {
         Intent intent = getIntent();
