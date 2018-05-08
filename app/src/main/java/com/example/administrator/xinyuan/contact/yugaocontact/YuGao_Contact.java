@@ -6,7 +6,7 @@ import com.example.administrator.xinyuan.model.entity.YuDaoBean;
  * Created by Administrator on 2018/5/4.
  */
 
-public class YuGao_Contact {
+public interface YuGao_Contact {
     public interface Presenter{
         void loadData();
     }

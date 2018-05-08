@@ -42,11 +42,6 @@ public interface IHuoQuYZMaService {
     @POST("v1/m/artcircle/home")
     Observable<ResponseBody> loadBaoDian(@FieldMap Map<String, Integer> params);
 
-    @FormUrlEncoded
-    @POST("v1/m/user/info")
-    Observable<ResponseBody> loadMyXinxi(@FieldMap Map<String, Integer> params);
 
-    @FormUrlEncoded
-    @POST("v1/m/artcircle/detail")
-    Observable<ResponseBody> loaddetail(@FieldMap Map<String, Integer> params);
+
 }
