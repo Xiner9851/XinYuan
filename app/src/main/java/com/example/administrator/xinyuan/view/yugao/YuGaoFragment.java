@@ -51,7 +51,7 @@ public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
         yugao_recy = getView().findViewById(R.id.yugao_recy);
 
     }
-
+//bbb
     @Override
     protected void loadDate() {
         final IYuGaoPresenter iYuGaoPresenter = new IYuGaoPresenter(this);
