@@ -1,7 +1,6 @@
 package com.example.administrator.xinyuan.view.me;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -104,11 +103,6 @@ public class GoToLoginActivity extends BaseActivity implements View.OnClickListe
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("name",loginBean.getData().getNickname());
             intent.putExtra("mobile",loginBean.getData().getMobile());
-            String photo= (String) loginBean.getData().getPhoto();
-            intent.putExtra("phone",photo);
-            intent.putExtra("id",loginBean.getData().getId());
-            Log.e("DDDDDDDDD",photo);
-
             //      intent.putExtra("phone",photo);
             setResult(10,intent);
             finish();
