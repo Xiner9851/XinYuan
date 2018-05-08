@@ -54,6 +54,7 @@ public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Conta
         again_back= (ImageView) findViewById(R.id.again_back);
 
     }
+    //aaa
 
     @Override
     protected void loadData() {
