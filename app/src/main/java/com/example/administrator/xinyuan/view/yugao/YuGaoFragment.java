@@ -2,6 +2,7 @@ package com.example.administrator.xinyuan.view.yugao;
 
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -33,7 +34,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
-
+//ccc
 
     private TextView yugao_shaixuan;
     private PullLoadMoreRecyclerView yugao_recy;
@@ -50,7 +51,7 @@ public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
         yugao_recy = getView().findViewById(R.id.yugao_recy);
 
     }
-
+//bbb
     @Override
     protected void loadDate() {
         final IYuGaoPresenter iYuGaoPresenter = new IYuGaoPresenter(this);
@@ -145,16 +146,25 @@ public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
 
 
 
-
+//aaaaaa
     @Override
     public void showData(YuDaoBean yuDaoBean) {
-        List<YuDaoBean.DataBean.ListBean> list = yuDaoBean.getData().getList();
+        final List<YuDaoBean.DataBean.ListBean> list = yuDaoBean.getData().getList();
         YuGao_Adapter yuGao_adapter = new YuGao_Adapter(getActivity(), list);
         yugao_recy.setAdapter(yuGao_adapter);
         yuGao_adapter.setOnClickListionItem(new YuGao_Adapter.YuGaoOnClickListion() {
             @Override
             public void setOnClickListion(View view, int postion) {
                 Toast.makeText(getContext(), "预告监听", Toast.LENGTH_SHORT).show();
+            }
+        });
+        yuGao_adapter.setOnClickListionItem(new YuGao_Adapter.YuGaoOnClickListion() {
+            @Override
+            public void setOnClickListion(View view, int postion) {
+                int id = list.get(postion).getId();
+                Intent intent = new Intent(getContext(), YuGao_ItemActivity.class);
+                intent.putExtra("id",id);
+                startActivity(intent);
             }
         });
     }

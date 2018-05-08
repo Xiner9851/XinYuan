@@ -51,7 +51,6 @@
             android:layout_width="17dp"
             android:layout_height="17dp"
             android:src="@mipmap/u1288"
-            android:id="@+id/paizhao"
             android:layout_alignBottom="@+id/touxiang"
             android:layout_alignRight="@+id/touxiang"
             android:layout_alignEnd="@+id/touxiang" />
