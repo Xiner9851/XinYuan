@@ -62,7 +62,7 @@ public class Teather_OneItem_Activity extends BaseActivity implements Teather_On
         masterdetail_recyclerview= (RecyclerView) findViewById(R.id.masterdetail_recyclerview);
         masterdetail_recyclerview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
-
+    //ggg
     @Override
     protected void loadData() {
         Intent intent = getIntent();
