@@ -33,7 +33,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
-
+//ccc
 
     private TextView yugao_shaixuan;
     private PullLoadMoreRecyclerView yugao_recy;
@@ -50,7 +50,7 @@ public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
         yugao_recy = getView().findViewById(R.id.yugao_recy);
 
     }
-
+//bbb
     @Override
     protected void loadDate() {
         final IYuGaoPresenter iYuGaoPresenter = new IYuGaoPresenter(this);
@@ -145,7 +145,7 @@ public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
 
 
 
-
+//aaaaaa
     @Override
     public void showData(YuDaoBean yuDaoBean) {
         List<YuDaoBean.DataBean.ListBean> list = yuDaoBean.getData().getList();
