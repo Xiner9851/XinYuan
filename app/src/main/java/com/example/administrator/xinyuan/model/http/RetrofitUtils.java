@@ -252,4 +252,5 @@ public class RetrofitUtils {
     public IHuoQuYZMaService getIHuoQuYZMaService(){
         return retrofit.create(IHuoQuYZMaService.class);
     }
+
 }

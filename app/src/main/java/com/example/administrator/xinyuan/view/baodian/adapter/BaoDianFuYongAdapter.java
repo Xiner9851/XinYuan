@@ -26,7 +26,7 @@ import java.util.List;
 public class BaoDianFuYongAdapter extends RecyclerView.Adapter<BaoDianFuYongAdapter.Holder> {
     List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list1;
     private Context context;
-
+    private LinearLayout xianqin;
 
 
     public BaoDianFuYongAdapter(List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list1, Context context) {
@@ -37,9 +37,11 @@ public class BaoDianFuYongAdapter extends RecyclerView.Adapter<BaoDianFuYongAdap
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.baodian_fuyong_adapter, parent, false);
+        xianqin=view.findViewById(R.id.xianqing);
+        Holder holder = new Holder(view);
 
 
-        return new Holder(view);
+        return holder;
     }
 
     @Override
@@ -48,7 +50,6 @@ public class BaoDianFuYongAdapter extends RecyclerView.Adapter<BaoDianFuYongAdap
         holder.home_valuable_listitem_contenttype.setText(list1.get(position).getContentType());
 
         long createDate = list1.get(position).getCreateDate();
-
         holder.home_valuable_listitem_title.setText(list1.get(position).getTitle());
         holder.home_valuable_listitem_content.setText(list1.get(position).getContent());
         Picasso.with(context).load(list1.get(position).getCoverImg() ).into(holder.home_valuable_listitem_contentimg);
@@ -56,12 +57,16 @@ public class BaoDianFuYongAdapter extends RecyclerView.Adapter<BaoDianFuYongAdap
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd");
         String format = simpleDateFormat.format(date);
         holder.home_valuable_listitem_time.setText(format);
+
+
     }
 
     @Override
     public int getItemCount() {
         return list1.size();
     }
+
+
 
     public class Holder extends RecyclerView.ViewHolder {
         private ImageView home_valuable_listitem_img;
@@ -85,8 +90,10 @@ public class BaoDianFuYongAdapter extends RecyclerView.Adapter<BaoDianFuYongAdap
         private CheckBox home_valuable_list_item_praise_cb;
         private LinearLayout home_valuable_list_item_praise_group;
         private LinearLayout home_valuable_list_item_share;
+        private LinearLayout xianqin;
         public Holder(View itemView) {
             super(itemView);
+            xianqin=itemView.findViewById(R.id.xianqing);
             home_valuable_listitem_name=itemView.findViewById(R.id.home_valuable_listitem_name);
             home_valuable_listitem_contenttype=itemView.findViewById(R.id.home_valuable_listitem_contenttype);
             home_valuable_listitem_time=itemView.findViewById(R.id.home_valuable_listitem_time);
@@ -95,4 +102,5 @@ public class BaoDianFuYongAdapter extends RecyclerView.Adapter<BaoDianFuYongAdap
             home_valuable_listitem_contentimg=itemView.findViewById(R.id.home_valuable_listitem_contentimg);
         }
     }
+
 }
