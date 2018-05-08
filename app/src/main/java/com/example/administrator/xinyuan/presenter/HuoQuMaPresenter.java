@@ -37,82 +37,89 @@ public class HuoQuMaPresenter implements IHuoQuYZMaContact.Presenter {
 
     @Override
     public void loadMa(String value) {
-        Map<String,String> params=new HashMap<>();
-        params.put("mobile",value);
+        if(value.length()!=11){
+            view.findPass("不值钱");
+        }else {
+            Map<String, String> params = new HashMap<>();
+            params.put("mobile", value);
 
-        iHuoQuYZMaService.loadMa(params)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<ResponseBody>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
 
-                    }
+            iHuoQuYZMaService.loadMa(params)
+                    .subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<ResponseBody>() {
+                        @Override
+                        public void onSubscribe(Disposable d) {
 
-                    @Override
-                    public void onNext(ResponseBody value) {
-                        try {
-                            String string = value.string();
-                            Gson gson = new Gson();
-                            HuoQuMa huoQuMa = gson.fromJson(string, HuoQuMa.class);
-                            view.loadMa(huoQuMa.getMessage());
-                        } catch (IOException e) {
-                            e.printStackTrace();
                         }
-                    }
 
-                    @Override
-                    public void onError(Throwable e) {
+                        @Override
+                        public void onNext(ResponseBody value) {
+                            try {
+                                String string = value.string();
+                                Gson gson = new Gson();
+                                HuoQuMa huoQuMa = gson.fromJson(string, HuoQuMa.class);
+                                view.loadMa(huoQuMa.getMessage());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
 
-                    }
+                        @Override
+                        public void onError(Throwable e) {
 
-                    @Override
-                    public void onComplete() {
+                        }
 
-                    }
-                });
+                        @Override
+                        public void onComplete() {
+
+                        }
+                    });
+        }
     }
 
     @Override
     public void zhuCe(String tel, String ma) {
-        Map<String,String> paramw=new HashMap<>();
-        paramw.put("mobile",tel);
-        paramw.put("mobileValidCode",ma);
 
-        iHuoQuYZMaService.zhuCe(paramw)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<ResponseBody>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
+            Map<String, String> paramw = new HashMap<>();
+            paramw.put("mobile", tel);
+            paramw.put("mobileValidCode", ma);
 
-                    }
-
-                    @Override
-                    public void onNext(ResponseBody value) {
-                        try {
-                            String string = value.string();
-                            Gson gson = new Gson();
-                            ZhuCeBean zhuCeBean = gson.fromJson(string, ZhuCeBean.class);
-                            String message = zhuCeBean.getMessage();
-                            view.zhuCe(message);
-                        } catch (IOException e) {
-
+            iHuoQuYZMaService.zhuCe(paramw)
+                    .subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<ResponseBody>() {
+                        @Override
+                        public void onSubscribe(Disposable d) {
 
                         }
-                    }
 
-                    @Override
-                    public void onError(Throwable e) {
+                        @Override
+                        public void onNext(ResponseBody value) {
+                            try {
+                                String string = value.string();
+                                Gson gson = new Gson();
+                                ZhuCeBean zhuCeBean = gson.fromJson(string, ZhuCeBean.class);
+                                String message = zhuCeBean.getMessage();
+                                view.zhuCe(message);
+                            } catch (IOException e) {
 
-                    }
 
-                    @Override
-                    public void onComplete() {
+                            }
+                        }
 
-                    }
-                });
-    }
+                        @Override
+                        public void onError(Throwable e) {
+
+                        }
+
+                        @Override
+                        public void onComplete() {
+
+                        }
+                    });
+        }
+
 
     @Override
     public void wangCheng(String name, String sex, String photo, String tel, String password) {

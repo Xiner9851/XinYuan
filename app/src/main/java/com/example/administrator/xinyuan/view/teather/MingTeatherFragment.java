@@ -1,7 +1,6 @@
 package com.example.administrator.xinyuan.view.teather;
 
 
-import android.content.Intent;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
@@ -72,7 +71,7 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
 
 
     @Override
-    public void showData(final TeatherBean teatherBean) {
+    public void showData(TeatherBean teatherBean) {
 
        teather_list=new ArrayList<>();
         List<TeatherBean.DataBean.SystemAdsBean> systemAds = teatherBean.getData().getSystemAds();
@@ -93,10 +92,6 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
         teather_adapter.setOneClick(new Teather_Adapter.OneClick() {
             @Override
             public void setOneClick(int postion) {
-                int id = teatherBean.getData().getUsers().get(postion).getId();
-               Intent intent = new Intent(getContext(), Teather_OneItem_Activity.class);
-                intent.putExtra("id",id);
-               startActivity(intent);
                 Toast.makeText(getContext(), "one"+postion, Toast.LENGTH_SHORT).show();
             }
         });
@@ -114,7 +109,5 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
                 Toast.makeText(getContext(), "three"+postion, Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
 }
