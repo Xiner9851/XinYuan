@@ -78,6 +78,9 @@ public class ZhuCeActivity extends BaseActivity implements View.OnClickListener,
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.hqma:
+                if(tel.getText().toString().length()!=11){
+                    Toast.makeText(this, "手机号不对", Toast.LENGTH_SHORT).show();
+                }else {
                 huoQuMaPresenter.loadMa(tel.getText().toString());
                 runnable = new Runnable() {
                     @Override
@@ -90,6 +93,7 @@ public class ZhuCeActivity extends BaseActivity implements View.OnClickListener,
                     }
                 };
                 handler.post(runnable);
+            }
                 break;
             case R.id.zhuce:
                 huoQuMaPresenter.zhuCe(tel.getText().toString(),ma.getText().toString());
@@ -115,12 +119,8 @@ public class ZhuCeActivity extends BaseActivity implements View.OnClickListener,
             intent.putExtra("tel",tel.getText().toString());
             startActivity(intent);
             finish();
-        }else if(s.equals("此号码已被注册，请直接登录")){
-            Toast.makeText(this, "此号码已注册请登录", Toast.LENGTH_SHORT).show();
-        }else if(s.equals("验证码错误")){
-            Toast.makeText(this, "验证码不正确", Toast.LENGTH_SHORT).show();
         }else {
-            Toast.makeText(this, "手机号不正确", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "输入手机号和验证码", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -136,9 +136,7 @@ public class ZhuCeActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void findPass(String s) {
-        if(s.equals("不值钱")){
-            Toast.makeText(this, "手机号不正确", Toast.LENGTH_SHORT).show();
-        }
+
     }
 
     @Override
