@@ -10,9 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.model.entity.BaoDianFuYongBean;
 import com.squareup.picasso.Picasso;
@@ -25,10 +23,10 @@ import java.util.List;
  * Created by fghjkl on 2018/5/7.
  */
 
-public class BaoDianFuYongAdapter extends RecyclerView.Adapter<BaoDianFuYongAdapter.Holder> implements View.OnClickListener{
+public class BaoDianFuYongAdapter extends RecyclerView.Adapter<BaoDianFuYongAdapter.Holder> {
     List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list1;
     private Context context;
-
+    private LinearLayout xianqin;
 
 
     public BaoDianFuYongAdapter(List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list1, Context context) {
@@ -39,8 +37,10 @@ public class BaoDianFuYongAdapter extends RecyclerView.Adapter<BaoDianFuYongAdap
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.baodian_fuyong_adapter, parent, false);
+        xianqin=view.findViewById(R.id.xianqing);
         Holder holder = new Holder(view);
-        holder.itemView.setOnClickListener(this);
+
+
         return holder;
     }
 
@@ -50,47 +50,15 @@ public class BaoDianFuYongAdapter extends RecyclerView.Adapter<BaoDianFuYongAdap
         holder.home_valuable_listitem_contenttype.setText(list1.get(position).getContentType());
 
         long createDate = list1.get(position).getCreateDate();
-
         holder.home_valuable_listitem_title.setText(list1.get(position).getTitle());
         holder.home_valuable_listitem_content.setText(list1.get(position).getContent());
         Picasso.with(context).load(list1.get(position).getCoverImg() ).into(holder.home_valuable_listitem_contentimg);
-        Glide.with(context).load(list1.get(position).getPhoto()).into(holder.home_valuable_listitem_img);
         Date date = new Date(createDate);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd");
         String format = simpleDateFormat.format(date);
         holder.home_valuable_listitem_time.setText(format);
-        holder.home_valuable_listitem_img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "宝典头像", Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.home_valuable_list_item_collect_cb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "收藏", Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.home_valuable_list_item_reply_cb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "评论", Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.home_valuable_list_item_praise_cb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "点赞", Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.home_valuable_list_item_share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "分享", Toast.LENGTH_SHORT).show();
-            }
-        });
 
-        holder.itemView.setTag(position);
+
     }
 
     @Override
@@ -122,40 +90,17 @@ public class BaoDianFuYongAdapter extends RecyclerView.Adapter<BaoDianFuYongAdap
         private CheckBox home_valuable_list_item_praise_cb;
         private LinearLayout home_valuable_list_item_praise_group;
         private LinearLayout home_valuable_list_item_share;
+        private LinearLayout xianqin;
         public Holder(View itemView) {
             super(itemView);
+            xianqin=itemView.findViewById(R.id.xianqing);
             home_valuable_listitem_name=itemView.findViewById(R.id.home_valuable_listitem_name);
             home_valuable_listitem_contenttype=itemView.findViewById(R.id.home_valuable_listitem_contenttype);
             home_valuable_listitem_time=itemView.findViewById(R.id.home_valuable_listitem_time);
             home_valuable_listitem_title=itemView.findViewById(R.id.home_valuable_listitem_title);
             home_valuable_listitem_content=itemView.findViewById(R.id.home_valuable_listitem_content);
             home_valuable_listitem_contentimg=itemView.findViewById(R.id.home_valuable_listitem_contentimg);
-            home_valuable_listitem_img=itemView.findViewById(R.id.home_valuable_listitem_img);
-
-            home_valuable_list_item_collect_group=itemView.findViewById(R.id.home_valuable_list_item_collect_group);
-            home_valuable_list_item_reply_group=itemView.findViewById(R.id.home_valuable_list_item_reply_group);
-            home_valuable_list_item_praise_group=itemView.findViewById(R.id.home_valuable_list_item_praise_group);
-            home_valuable_list_item_share=itemView.findViewById(R.id.home_valuable_list_item_share);
-
-            home_valuable_list_item_collect_cb=itemView.findViewById(R.id.home_valuable_list_item_collect_cb);
-            home_valuable_list_item_reply_cb=itemView.findViewById(R.id.home_valuable_list_item_reply_cb);
-            home_valuable_list_item_praise_cb=itemView.findViewById(R.id.home_valuable_list_item_praise_cb);
-
-
         }
     }
-    public interface BaoDianOnClickListion{
-        void setBaoDianOnClickListion(View view,int postion);
-    }
-    private BaoDianOnClickListion baoDianOnClickListion;
-    @Override
-    public void onClick(View v) {
-        if (baoDianOnClickListion!=null){
-            baoDianOnClickListion.setBaoDianOnClickListion(v,(int)v.getTag());
-        }
-    }
-    public void setBaoDianOnClickListionItem(BaoDianOnClickListion baoDianOnClickListion){
-        this.baoDianOnClickListion=baoDianOnClickListion;
 
-    }
 }

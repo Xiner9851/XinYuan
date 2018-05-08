@@ -2,7 +2,11 @@ package com.example.administrator.xinyuan.view.me;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v4.app.Fragment;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseFragment;
 
@@ -62,6 +68,9 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
     private TextView ssss;
     private LinearLayout ddd;
     private ImageView phone;
+    private int id;
+    private TextView myxinxi;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_me;
@@ -95,9 +104,16 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
                 startActivityForResult(intent2,10);
 
                 break;
+            case R.id.myxinxi:
+                Intent intent3 = new Intent(getActivity(), MyXinXiActivity.class);
+                intent3.putExtra("id",id);
+                startActivity(intent3);
+                break;
         }
     }
     private void initView() {
+        myxinxi=getView().findViewById(R.id.myxinxi);
+        myxinxi.setOnClickListener(this);
         ssss=getView().findViewById(R.id.ssss);
         touxiang=getView().findViewById(R.id.touxiang);
         phone=getView().findViewById(R.id.phone);
@@ -148,15 +164,32 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    public void onActivityResult(int requestCode, int resultCode, Intent data3) {
+        super.onActivityResult(requestCode, resultCode, data3);
         if(requestCode==10&&resultCode==10){
-            String name = data.getStringExtra("name");
-            String mobile = data.getStringExtra("mobile");
-            String aa = data.getStringExtra("phone");
+            String name = data3.getStringExtra("name");
+            String mobile = data3.getStringExtra("mobile");
+            String aa = data3.getStringExtra("phone");
+            Glide.with(getActivity()).load(aa)
+                    .asBitmap()
+                    .override(50,50)
+                    .into(new BitmapImageViewTarget(phone){
+                        @Override
+                        protected void setResource(Bitmap resource) {
+                            super.setResource(resource);
+                            RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getActivity().getResources(), resource);
+                            roundedBitmapDrawable.setCornerRadius(100);
+                            phone.setImageDrawable(roundedBitmapDrawable);
+                        }
+                    });
+            id = data3.getIntExtra("id",0);
+
+
+
+            Log.e("SSS",aa);
             ssss.setVisibility(View.GONE);
             ddd.setVisibility(View.GONE);
-      //      Glide.with(getContext()).load(aa).into(phone);
+            phone.setVisibility(View.VISIBLE);
             home_myselft_fragment_nologin_head.setVisibility(View.GONE);
             home_myselft_fragment_student_toolline.setVisibility(View.VISIBLE);
             home_myselft_fragment_login_body.setVisibility(View.VISIBLE);
