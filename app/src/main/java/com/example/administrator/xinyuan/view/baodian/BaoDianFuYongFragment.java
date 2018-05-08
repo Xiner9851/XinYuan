@@ -24,6 +24,7 @@ public class BaoDianFuYongFragment extends BaseFragment implements IBaoDianConta
     private RecyclerView mRecy;
     BaoDianPresent baoDianPresent;
     BaoDianFuYongAdapter baoDianFuYongAdapter;
+    //aaaa
     List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list1;
     @Override
     protected int getLayoutId() {
