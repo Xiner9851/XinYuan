@@ -13,7 +13,6 @@ import com.example.administrator.xinyuan.model.entity.BaoDianFuYongBean;
 import com.example.administrator.xinyuan.presenter.baodianpresent.BaoDianPresent;
 import com.example.administrator.xinyuan.view.baodian.adapter.BaoDianFuYongAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +22,7 @@ public class BaoDianFuYongFragment extends BaseFragment implements IBaoDianConta
     private RecyclerView mRecy;
     BaoDianPresent baoDianPresent;
     BaoDianFuYongAdapter baoDianFuYongAdapter;
-    List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list1=new ArrayList<>();
+    List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list1;
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_bao_dian_fu_yong;
@@ -39,22 +38,22 @@ public class BaoDianFuYongFragment extends BaseFragment implements IBaoDianConta
     @Override
     protected void loadDate() {
         Bundle arguments = getArguments();
-        final int i = arguments.getInt("a");
+        int i = arguments.getInt("a");
         if (i <= 2) {
             baoDianPresent = new BaoDianPresent(this);
             baoDianPresent.loadData(i);
         }
-        baoDianFuYongAdapter=new BaoDianFuYongAdapter(list1,getContext());
-        mRecy.setAdapter(baoDianFuYongAdapter);
 
 
     }
 
     @Override
     public void showData(BaoDianFuYongBean baoDianFuYongBean) {
-
+       // list1=new ArrayList<>();
         List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list = baoDianFuYongBean.getData().getArtcircleList().getList();
-        list1.addAll(list);
+       // list1.addAll(list);
+        baoDianFuYongAdapter=new BaoDianFuYongAdapter(list,getContext());
+        mRecy.setAdapter(baoDianFuYongAdapter);
         baoDianFuYongAdapter.notifyDataSetChanged();
 
     }
