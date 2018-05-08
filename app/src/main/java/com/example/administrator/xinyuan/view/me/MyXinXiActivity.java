@@ -118,7 +118,7 @@ public class MyXinXiActivity extends BaseActivity implements IMeMyXinXiContact.V
         String address = (String) data.getAddress();
         userinfo_aty_changenaddress_tv.setText(address);
         Long birthday = data.getBirthday();
-        Log.e("afa",birthday+"");//safasfas
+        Log.e("afa",birthday+"");
         Date date = new Date(birthday);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd");
         String format = simpleDateFormat.format(date);

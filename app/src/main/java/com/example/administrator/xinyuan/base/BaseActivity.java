@@ -18,7 +18,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        App.context=this;
         init();
         loadData();
     }
@@ -26,7 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        App.context=this;
     }
 
     @Override
@@ -64,8 +63,6 @@ public abstract class BaseActivity extends AppCompatActivity {
        }
        transaction.show(fragment);
        lastframent=fragment;
-
         transaction.commit();
-        //return fragment;
    }
 }
