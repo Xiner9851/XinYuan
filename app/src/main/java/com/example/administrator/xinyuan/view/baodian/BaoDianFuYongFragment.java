@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseFragment;
@@ -23,7 +25,6 @@ public class BaoDianFuYongFragment extends BaseFragment implements IBaoDianConta
     BaoDianPresent baoDianPresent;
     BaoDianFuYongAdapter baoDianFuYongAdapter;
     List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list1;
-    //aaaa
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_bao_dian_fu_yong;
@@ -55,6 +56,12 @@ public class BaoDianFuYongFragment extends BaseFragment implements IBaoDianConta
        // list1.addAll(list);
         baoDianFuYongAdapter=new BaoDianFuYongAdapter(list,getContext());
         mRecy.setAdapter(baoDianFuYongAdapter);
+        baoDianFuYongAdapter.setBaoDianOnClickListionItem(new BaoDianFuYongAdapter.BaoDianOnClickListion() {
+            @Override
+            public void setBaoDianOnClickListion(View view, int postion) {
+                Toast.makeText(getContext(), "宝典"+postion, Toast.LENGTH_SHORT).show();
+            }
+        });
         baoDianFuYongAdapter.notifyDataSetChanged();
 
     }
