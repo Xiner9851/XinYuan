@@ -93,6 +93,7 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
             @Override
             public void setOneClick(int postion) {
                 Toast.makeText(getContext(), "one"+postion, Toast.LENGTH_SHORT).show();
+                //dsdsafsa
             }
         });
         //two监听sssssssss
