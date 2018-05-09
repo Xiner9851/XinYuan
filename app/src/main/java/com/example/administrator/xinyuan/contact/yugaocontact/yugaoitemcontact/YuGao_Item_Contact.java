@@ -1,4 +1,4 @@
-package com.example.administrator.xinyuan.contact.yugaoitemcontact;
+package com.example.administrator.xinyuan.contact.yugaocontact.yugaoitemcontact;
 
 import com.example.administrator.xinyuan.model.entity.YuGao_ItemData;
 

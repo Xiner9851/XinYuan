@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.xinyuan.view.baodian.BaoDian_ItemActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<RelativeLayout
+    android:id="@+id/qqq"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+    <ImageView
+
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/baodian_check_img"
+        android:layout_width="80dp"
+        android:layout_height="150dp" />
+    <LinearLayout
+        android:gravity="center"
+        android:layout_toRightOf="@+id/baodian_check_img"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/baodian_check_name"
+            android:text="你好"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/baodian_check_time"
+            android:text="你好"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/laixing"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:background="@drawable/valuable_listitem_type_bg"
+        android:layout_centerVertical="true"
+        android:textColor="#5072c8"
+        android:paddingLeft="10dp"
+        android:text="asfafa"
+        android:paddingRight="10dp"
+        android:gravity="center"
+        android:layout_below="@+id/home_valuable_listitem_name"
+        android:textSize="12sp"
+        android:layout_height="24dp" />
+</RelativeLayout>
+    <TextView
+        android:layout_below="@+id/qqq"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/baodian_check_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+
+        android:layout_below="@+id/baodian_check_title"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/baodian_check_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_below="@+id/baodian_check_content"
+        android:id="@+id/baodian_check_path"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/rrr"
+        android:layout_below="@+id/baodian_check_path"
+        android:layout_marginLeft="30dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+
+            android:layout_width="16dp"
+            android:src="@mipmap/label_flag"
+            android:layout_height="16dp" />
+
+        <TextView
+            android:id="@+id/baodian_check_biaoqian"
+            android:textSize="14dp"
+            android:layout_marginLeft="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/ttt"
+        android:layout_below="@+id/rrr"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#8888"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+    <Button
+        android:id="@+id/baodian_check_zansnag"
+        android:layout_below="@+id/ttt"
+        android:layout_marginBottom="15dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shap2"
+        android:text="赞赏"
+
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_centerInParent="true"
+        android:id="@+id/kaola"
+        android:layout_below="@+id/baodian_check_zansnag"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_below="@+id/kaola"
+        android:layout_marginTop="10dp"
+        android:background="#e9e4e4"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginBottom="20dp"/>
+    <RelativeLayout
+
+        android:layout_below="@+id/kaola"
+        android:id="@+id/aaa"
+        android:layout_marginTop="15dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <ImageView
+            android:layout_centerInParent="true"
+
+            android:layout_toLeftOf="@+id/one_title"
+            android:src="@mipmap/rectangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/one_title"
+            android:textSize="20dp"
+            android:layout_centerInParent="true"
+            android:text="热门评论"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_toRightOf="@+id/one_title"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/rectangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+        <ImageView
+
+            android:layout_below="@+id/aaa"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/detail_no_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </ScrollView>
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/again_back"
+            android:src="@mipmap/register_return"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+       <TextView
+           android:layout_centerInParent="true"
+           android:textSize="25dp"
+            android:textColor="#64e1db"
+           android:text="艺考详情"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+</RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/fudao"
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:background="#fff"
+                android:gravity="center"
+                android:weightSum="8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:hint="写评论"
+                    android:button="@null"
+
+                    android:layout_gravity="center_vertical"
+
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:layout_height="wrap_content" />
+                <ImageView
+
+                    android:gravity="center"
+                    android:src="@mipmap/collect_normal"
+                    android:layout_centerInParent="true"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/yuyue_item_btn"
+
+                    android:src="@mipmap/work_detail_comment"
+                    android:text="预约"
+                    android:textSize="20dp"
+                    android:textColor="#fff"
+                    android:gravity="center"
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <ImageView
+
+
+                    android:src="@mipmap/work_detail_praise_normal"
+                    android:text="预约"
+                    android:textSize="20dp"
+                    android:textColor="#fff"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

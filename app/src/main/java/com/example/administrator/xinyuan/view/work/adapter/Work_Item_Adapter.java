@@ -23,7 +23,7 @@ import java.util.List;
  * Created by Administrator on 2018/5/5.
  */
 
-public class Work_Item_Adapter extends RecyclerView.Adapter<Work_Item_Adapter.Holder> {
+public class Work_Item_Adapter extends RecyclerView.Adapter<Work_Item_Adapter.Holder> implements View.OnClickListener{
     private List<WorkBean.DataBean.ListBean> list;
     private Context context;
     private RoundedImageView work_recycler_item_title_img;
@@ -66,6 +66,7 @@ public class Work_Item_Adapter extends RecyclerView.Adapter<Work_Item_Adapter.Ho
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.work_fuyong_item, parent, false);
         Holder holder = new Holder(inflate);
+        holder.itemView.setOnClickListener(this);
         return holder;
     }
 
@@ -77,13 +78,7 @@ public class Work_Item_Adapter extends RecyclerView.Adapter<Work_Item_Adapter.Ho
         holder.work_recycler_item_from.setText(listBean.getSource());
         holder.work_recycler_item_content.setText(listBean.getContent());
         Glide.with(context).load(list.get(position).getCoverImg()).into(holder.work_recycler_item_intro_img);
-        //item监听
-        holder.work_item.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "item监听", Toast.LENGTH_SHORT).show();
-            }
-        });
+       holder.itemView.setTag(position);
         //work评论
        holder. work_recycler_item_reply_cb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +123,8 @@ public class Work_Item_Adapter extends RecyclerView.Adapter<Work_Item_Adapter.Ho
     public int getItemCount() {
         return list.size();
     }
+
+
 
     public class Holder extends RecyclerView.ViewHolder {
         private RoundedImageView work_recycler_item_title_img;
@@ -182,5 +179,18 @@ public class Work_Item_Adapter extends RecyclerView.Adapter<Work_Item_Adapter.Ho
             work_recycler_item_praise_cb=itemView.findViewById(R.id.work_recycler_item_praise_cb);
             work_recycler_item_reward_cb=itemView.findViewById(R.id.work_recycler_item_reward_cb);
         }
+    }
+    public interface WorkOnClickListion{
+        void setWorkOnClickListion(View view,int postion);
+    }
+    private WorkOnClickListion workOnClickListion;
+    @Override
+    public void onClick(View v) {
+        if (workOnClickListion!=null){
+            workOnClickListion.setWorkOnClickListion(v,(int)v.getTag());
+        }
+    }
+    public void setworkOnClickListionItem(WorkOnClickListion workOnClickListion){
+        this.workOnClickListion=workOnClickListion;
     }
 }

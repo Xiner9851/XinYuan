@@ -5,15 +5,16 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
-import com.example.administrator.xinyuan.contact.yugaoitemcontact.YuGao_Item_Contact;
+import com.example.administrator.xinyuan.contact.yugaocontact.yugaoitemcontact.YuGao_Item_Contact;
 import com.example.administrator.xinyuan.model.entity.YuGao_ItemData;
-import com.example.administrator.xinyuan.presenter.yugaoitempresenter.IYuGaoItemPresenter;
+import com.example.administrator.xinyuan.presenter.yugaopresenter.yugaoitempresenter.IYuGaoItemPresenter;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,6 +38,11 @@ public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Conta
     private RelativeLayout fudao;
     String webUrl = "http://share.univstar.com/view/course.html?courseid=%s";
     private int id;
+    private TextView yiyuyue;
+    private TextView yugao_item_prices;
+    private RelativeLayout yugao_item_xinxi;
+    private RadioButton yuyue_btn;
+    private int price;
 
     @Override
     protected int getLayoutId() {
@@ -45,13 +51,14 @@ public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Conta
 
     @Override
     protected void init() {
-        yugao_item_img= (ImageView) findViewById(R.id.yugao_item_img);
-        yugao_item_geshu= (TextView) findViewById(R.id.yugao_item_geshu);
-        yugao_item_time= (TextView) findViewById(R.id.yugao_item_time);
-        yugao_item_address= (TextView) findViewById(R.id.yugao_item_address);
-        yugao_item_price= (TextView) findViewById(R.id.yugao_item_prices);
-        again_NameTeacherContent= (WebView) findViewById(R.id.again_NameTeacherContent);
-        again_back= (ImageView) findViewById(R.id.again_back);
+        yugao_item_img = (ImageView) findViewById(R.id.yugao_item_img);
+        yugao_item_geshu = (TextView) findViewById(R.id.yugao_item_geshu);
+        yugao_item_time = (TextView) findViewById(R.id.yugao_item_time);
+        yugao_item_address = (TextView) findViewById(R.id.yugao_item_address);
+        yugao_item_price = (TextView) findViewById(R.id.yugao_item_prices);
+        again_NameTeacherContent = (WebView) findViewById(R.id.again_NameTeacherContent);
+        again_back = (ImageView) findViewById(R.id.again_back);
+        yuyue_btn= (RadioButton) findViewById(R.id.yuyue_item_btn);
 
     }
     //aa
@@ -70,20 +77,22 @@ public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Conta
                 finish();
             }
         });
+
+
     }
 
     @Override
     public void showData(YuGao_ItemData yuGao_itemData) {
-        YuGao_ItemData.DataBean data = yuGao_itemData.getData();
+        final YuGao_ItemData.DataBean data = yuGao_itemData.getData();
         Glide.with(this).load(data.getCoverImg()).into(yugao_item_img);
-        yugao_item_geshu.setText(data.getReservationNum()+"/"+data.getSubscribeNum());
+        yugao_item_geshu.setText(data.getReservationNum() + "/" + data.getSubscribeNum());
         yugao_item_address.setText(data.getAddress());
-        yugao_item_price.setText(data.getPrice()+"");
+        yugao_item_price.setText(data.getPrice() + "");
         long startDate = data.getStartDate();
         String s = longToDate(startDate);
 
         yugao_item_time.setText(s);
-
+        price = data.getPrice();
         //again_NameTeacherContent.loadUrl(String.format(webUrl,id));
         //again_NameTeacherContent.setWebViewClient(new WebViewClient());
         //声明WebSettings子类
@@ -106,13 +115,22 @@ public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Conta
         webSettings.setLoadsImagesAutomatically(true); //支持自动加载图片
         webSettings.setDefaultTextEncodingName("utf-8");//设置编码格式
         again_NameTeacherContent.loadUrl(String.format(webUrl, id));
-
+        yuyue_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(getApplication(), YuYue_Activity.class);
+                intent1.putExtra("jiage",price);
+                startActivity(intent1);
+            }
+        });
 
     }
-    public static String longToDate(long lo){
+
+    public static String longToDate(long lo) {
         Date date = new Date(lo);
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd HH:mm");
         return sd.format(date);
     }
+
 
 }

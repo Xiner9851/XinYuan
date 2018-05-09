@@ -382,6 +382,7 @@
                     android:layout_weight="2"
                     android:layout_height="wrap_content" />
             <RadioButton
+                android:id="@+id/yuyue_item_btn"
                 android:background="#62e7e0"
                 android:button="@null"
 

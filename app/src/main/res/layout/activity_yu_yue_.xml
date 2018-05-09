@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.xinyuan.view.yugao.YuYue_Activity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    >
+    <ImageView
+        android:id="@+id/zhifu_back"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/register_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+       android:layout_centerInParent="true"
+        android:textColor="#4372c7"
+        android:textSize="30dp"
+        android:text="支付订单"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
+    <ImageView
+        android:id="@+id/zhifu_img"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="180dp" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:background="#8888"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+
+            android:textSize="20dp"
+            android:text="支付剩余时间"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/zhifu_time"
+            android:textColor="#e8ea68"
+            android:text="00:00:00"
+            android:textSize="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/zhifu_price"
+            android:textSize="20dp"
+            android:layout_alignParentRight="true"
+            android:text="$1073.0"
+            android:textColor="#ef2d2d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:background="#8888">
+        <TextView
+            android:text="请选择支付方式"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/weixin_play_img"
+            android:src="@mipmap/weixin_pay_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_toRightOf="@+id/weixin_play_img"
+            android:text="微信支付"
+            android:textColor="#080808"
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/weixin_zhifu"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/jubao_select_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/zhifubao_play_img"
+            android:src="@mipmap/zhifubao_pay_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_toRightOf="@+id/zhifubao_play_img"
+            android:text="支付宝支付"
+            android:textColor="#080808"
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/zhifubao_zhifu"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/jubao_select_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <Button
+        android:id="@+id/zhifu_btn"
+        android:background="#98ed66"
+        android:text="确定支付"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

@@ -89,6 +89,7 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
         teather_list.add("");
         Teather_Adapter teather_adapter = new Teather_Adapter(teather_list,getActivity());
         teather_recy.setAdapter(teather_adapter);
+
         //one监听
         teather_adapter.setOneClick(new Teather_Adapter.OneClick() {
             @Override

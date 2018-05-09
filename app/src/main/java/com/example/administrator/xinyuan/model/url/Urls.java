@@ -16,4 +16,10 @@ public class Urls {
 
     public static final String yugao_item_url="v1/m/forthcoming/detail";
 
+    public static final String baodian_item_url="v1/m/artcircle/detail";
+
+    public static final String work_item_url="v1/m/homewok/detail";
+
+    public static final String teather_banner_url="v1/m/forthcoming/detail";
+
 }

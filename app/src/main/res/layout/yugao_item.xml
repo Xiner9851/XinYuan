@@ -2,7 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+
+            android:id="@+id/yugao_img"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="match_parent"
+            android:layout_height="255dp" />
     <TextView
+
         android:id="@+id/yugao_biaoqian"
         android:text="表演"
         android:gravity="center"
@@ -11,12 +22,8 @@
         android:layout_marginBottom="-60dp"
         android:layout_width="60dp"
         android:layout_height="30dp" />
-    <ImageView
 
-        android:id="@+id/yugao_img"
-        android:src="@mipmap/ic_launcher"
-        android:layout_width="match_parent"
-        android:layout_height="255dp" />
+    </FrameLayout>
     <LinearLayout
         android:background="#8888"
         android:layout_marginTop="-30dp"
@@ -37,7 +44,7 @@
 
 
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:gravity="center_vertical">
         <TextView
             android:text="地址:"

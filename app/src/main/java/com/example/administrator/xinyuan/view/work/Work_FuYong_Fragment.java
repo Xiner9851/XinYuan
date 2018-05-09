@@ -1,10 +1,12 @@
 package com.example.administrator.xinyuan.view.work;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.View;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseFragment;
@@ -80,9 +82,17 @@ public class Work_FuYong_Fragment extends BaseFragment implements Work_Contact.V
     @Override
     public void showData(WorkBean workBean) {
         Log.e("AAAAAAAAaxin", workBean.getMessage());
-        List<WorkBean.DataBean.ListBean> list = workBean.getData().getList();
+        final List<WorkBean.DataBean.ListBean> list = workBean.getData().getList();
         Work_Item_Adapter work_item_adapter = new Work_Item_Adapter(list,getContext());
         work_pullload.setAdapter(work_item_adapter);
+        work_item_adapter.setworkOnClickListionItem(new Work_Item_Adapter.WorkOnClickListion() {
+            @Override
+            public void setWorkOnClickListion(View view, int postion) {
+                Intent intent = new Intent(getContext(), Work_ItemActivity.class);
+                intent.putExtra("id",list.get(postion).getId());
+                startActivity(intent);
+            }
+        });
 
     }
 
