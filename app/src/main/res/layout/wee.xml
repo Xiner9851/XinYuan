@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginLeft="12dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:src="@mipmap/jindou"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="6dp"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:id="@+id/recharge_center_listitem_amount"
+                android:layout_width="wrap_content"
+                android:textSize="14dp"
+                android:textColor="#000000"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/recharge_center_listitem_price"
+            android:layout_width="60dp"
+            android:background="@drawable/select_type_blue_bg_active"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="#315496"
+            android:layout_height="28dp" />
+
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="12dp"
+        android:layout_height="1dp" />
+</LinearLayout>

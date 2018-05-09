@@ -1,6 +1,9 @@
 package com.example.administrator.xinyuan.view.me;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -8,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.xinyuan.MainActivity;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
 import com.example.administrator.xinyuan.contact.IHuoQuYZMaContact;
@@ -16,6 +18,8 @@ import com.example.administrator.xinyuan.model.entity.LoginBean;
 import com.example.administrator.xinyuan.model.entity.UapateBean;
 import com.example.administrator.xinyuan.model.entity.WangChengBean;
 import com.example.administrator.xinyuan.presenter.HuoQuMaPresenter;
+
+
 
 public class GoToLoginActivity extends BaseActivity implements View.OnClickListener,IHuoQuYZMaContact.View{
 
@@ -100,11 +104,18 @@ public class GoToLoginActivity extends BaseActivity implements View.OnClickListe
     public void login(LoginBean loginBean) {
         if (loginBean.getMessage().equals("cid为空")){
             Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra("name",loginBean.getData().getNickname());
-            intent.putExtra("mobile",loginBean.getData().getMobile());
+            Log.e("logid",loginBean.getData().getId()+"");
+            SharedPreferences sharedPreferences1 = getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = sharedPreferences1.edit();
+            edit.putBoolean("bbb",true);
+            edit.putString("name",loginBean.getData().getNickname());
+            edit.putString("mobile",loginBean.getData().getMobile());
+            String photo= (String) loginBean.getData().getPhoto();
+            edit.putString("phone",photo);
+            edit.putInt("id",loginBean.getData().getId());
+            Log.e("DDDDDDDDD",photo);
+            edit.commit();
             //      intent.putExtra("phone",photo);
-            setResult(10,intent);
             finish();
         }else {
             Toast.makeText(this, "登录失败，请重新输入", Toast.LENGTH_SHORT).show();
