@@ -25,6 +25,8 @@ public class WenZhangDetailPresent implements IWenZhangDetailContact.Present {
         iHuoQuYZMaService= RetrofitUtils.getInstence().getIHuoQuYZMaService();
     }
 
+
+
     @Override
     public void loadDeatil(int id) {
         Map<String,Integer> params=new HashMap<>();
