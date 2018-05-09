@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -123,13 +122,6 @@ public class MyXinXiActivity extends BaseActivity implements IMeMyXinXiContact.V
         String format = simpleDateFormat.format(date);
         userinfo_aty_changenbirthday_tv.setText(format);
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) and run LayoutCreator again
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){

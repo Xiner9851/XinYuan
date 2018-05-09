@@ -1,7 +1,9 @@
 package com.example.administrator.xinyuan.view.me;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.support.v4.app.Fragment;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
@@ -18,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseFragment;
+import com.example.administrator.xinyuan.model.http.Constant;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,6 +73,11 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
     private ImageView phone;
     private int id;
     private TextView myxinxi;
+    private String set="";
+    private String mobile;
+    private String string;
+    private boolean bbb;
+    private SharedPreferences preferences;
 
     @Override
     protected int getLayoutId() {
@@ -80,11 +88,15 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
     protected void init() {
         initView();
 
+
     }
 
     @Override
     protected void loadDate() {
-
+        preferences = getActivity().getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
+        string = preferences.getString(Constant.UserId, "");
+        String mobile = preferences.getString("mobile", "");
+        Log.e("mobile",mobile);
     }
 
 
@@ -108,6 +120,31 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
                 Intent intent3 = new Intent(getActivity(), MyXinXiActivity.class);
                 intent3.putExtra("id",id);
                 startActivity(intent3);
+                break;
+            case R.id.home_myselft_fragment_setting:
+                if(preferences.getBoolean("bbb", false)==false){
+                    startActivity(new Intent(getActivity(),ZhuCeActivity.class));
+                }else {
+                    Intent intent4 = new Intent(getActivity(), SettingActivity.class);
+                    intent4.putExtra("mobile",mobile);
+                    startActivity(intent4);
+
+                }
+
+                break;
+            case R.id.home_myself_fragment_jindou_group:
+                Intent intent4 = new Intent(getActivity(), ChongZhiActivity.class);
+                startActivity(intent4);
+                break;
+            case R.id.home_myselft_fragment_havegift_group:
+
+                break;
+            case R.id.home_myselft_fragment_tiezi_group:
+                Intent intent5 = new Intent(getActivity(), TieZiActivity.class);
+                startActivity(intent5);
+                break;
+            case R.id.home_myselft_fragment_guanzhu_group:
+
                 break;
         }
     }
@@ -160,17 +197,37 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         denglu.setOnClickListener(this);
         zhuce.setOnClickListener(this);
         touxiang.setOnClickListener(this);
-
+        home_myselft_fragment_setting.setOnClickListener(this);
+        home_myself_fragment_jindou_group.setOnClickListener(this);
+        home_myselft_fragment_havegift_group.setOnClickListener(this);
+        home_myselft_fragment_tiezi_group.setOnClickListener(this);
+        home_myselft_fragment_guanzhu_group.setOnClickListener(this);
     }
 
+
+
+
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data3) {
-        super.onActivityResult(requestCode, resultCode, data3);
-        if(requestCode==10&&resultCode==10){
-            String name = data3.getStringExtra("name");
-            String mobile = data3.getStringExtra("mobile");
-            String aa = data3.getStringExtra("phone");
-            Glide.with(getActivity()).load(aa)
+    public void onResume() {
+        super.onResume();
+        if(preferences.getBoolean("bbb", false)==false){
+            ssss.setVisibility(View.VISIBLE);
+            ddd.setVisibility(View.VISIBLE);
+            phone.setVisibility(View.GONE);
+            home_myselft_fragment_nologin_head.setVisibility(View.VISIBLE);
+            home_myselft_fragment_student_toolline.setVisibility(View.GONE);
+            home_myselft_fragment_login_body.setVisibility(View.GONE);
+        }else{
+            ssss.setVisibility(View.GONE);
+            ddd.setVisibility(View.GONE);
+            phone.setVisibility(View.VISIBLE);
+            home_myselft_fragment_nologin_head.setVisibility(View.GONE);
+            home_myselft_fragment_student_toolline.setVisibility(View.VISIBLE);
+            home_myselft_fragment_login_body.setVisibility(View.VISIBLE);
+            String mobile = preferences.getString("mobile", "");
+            String aw = preferences.getString("phone", "");
+            String name = preferences.getString("name", "");
+            Glide.with(getActivity()).load(aw)
                     .asBitmap()
                     .override(50,50)
                     .into(new BitmapImageViewTarget(phone){
@@ -182,19 +239,11 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
                             phone.setImageDrawable(roundedBitmapDrawable);
                         }
                     });
-            id = data3.getIntExtra("id",0);
-
-
-
-            Log.e("SSS",aa);
-            ssss.setVisibility(View.GONE);
-            ddd.setVisibility(View.GONE);
-            phone.setVisibility(View.VISIBLE);
-            home_myselft_fragment_nologin_head.setVisibility(View.GONE);
-            home_myselft_fragment_student_toolline.setVisibility(View.VISIBLE);
-            home_myselft_fragment_login_body.setVisibility(View.VISIBLE);
             home_myself_fragment_username.setText(name);
 
+
         }
+
+
     }
 }

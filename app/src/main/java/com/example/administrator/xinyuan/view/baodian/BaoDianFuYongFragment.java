@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseFragment;
@@ -52,7 +53,7 @@ public class BaoDianFuYongFragment extends BaseFragment implements IBaoDianConta
 
     @Override
     public void showData(BaoDianFuYongBean baoDianFuYongBean) {
-
+        Log.e("aaaaaa",baoDianFuYongBean.toString());
         List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list = baoDianFuYongBean.getData().getArtcircleList().getList();
         list1.addAll(list);
         baoDianFuYongAdapter.notifyDataSetChanged();

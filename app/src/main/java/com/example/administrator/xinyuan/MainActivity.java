@@ -39,6 +39,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     protected void init() {
+        tou= (RelativeLayout) findViewById(R.id.tou);
         ming_teather_btn= (RadioButton) findViewById(R.id.ming_teather_btn);
         work_btn= (RadioButton) findViewById(R.id.work_btn);
         baodian_btn= (RadioButton) findViewById(R.id.baodian_btn);
@@ -48,7 +49,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         fragment_manger= (FrameLayout) findViewById(R.id.fragment_manger);
         message_bi= (ImageView) findViewById(R.id.message_bi);
         message_img= (ImageView) findViewById(R.id.message_img);
-        tou= (RelativeLayout) findViewById(R.id.tou);
 
         ming_teather_btn.setOnClickListener(this);
         work_btn.setOnClickListener(this);
@@ -87,6 +87,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             case R.id.me_btn:
 
                 setContentView(R.id.fragment_manger, MeFragment.class, null);
+                tou.setVisibility(View.GONE);
                 break;
         }
     }

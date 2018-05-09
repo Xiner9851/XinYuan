@@ -35,7 +35,14 @@
         <activity android:name=".view.me.RetrievePassActivity" />
         <activity android:name=".view.me.ResetPassActivity" />
         <activity android:name=".view.me.MyXinXiActivity" />
-        <activity android:name=".view.baodian.YiKaoXQActivity"></activity>
+        <activity android:name=".view.baodian.YiKaoXQActivity" />
+        <activity android:name=".view.me.SettingActivity" />
+        <activity android:name=".view.me.HuanPhoneActivity" />
+        <activity android:name=".view.me.HuanMobileActivity" />
+        <activity android:name=".view.me.ChongZhiActivity" />
+        <activity android:name=".view.me.ZhangDangActivity" />
+        <activity android:name=".view.me.TieZiActivity" />
+        <activity android:name=".view.me.GuanZhuActivity"></activity>
     </application>
 
 </manifest>

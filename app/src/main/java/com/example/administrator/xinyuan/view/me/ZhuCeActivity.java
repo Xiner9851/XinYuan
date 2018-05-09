@@ -66,6 +66,7 @@ public class ZhuCeActivity extends BaseActivity implements View.OnClickListener,
         weixin= (RadioButton) findViewById(R.id.weixin);
         qq= (RadioButton) findViewById(R.id.qq);
         weibo= (RadioButton) findViewById(R.id.weibo);
+        quxiao.setOnClickListener(this);
     }
 
     @Override
@@ -94,6 +95,9 @@ public class ZhuCeActivity extends BaseActivity implements View.OnClickListener,
             case R.id.zhuce:
                 huoQuMaPresenter.zhuCe(tel.getText().toString(),ma.getText().toString());
 
+                break;
+            case R.id.quxiao:
+                finish();
                 break;
         }
     }
