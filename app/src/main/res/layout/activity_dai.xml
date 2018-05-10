@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="26dp"
+        android:layout_height="44dp">
+
+        <TextView
+            android:id="@+id/indentlist_aty_title_cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+          />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="我的订单"
+            android:textColor="#2914c5"
+            android:textSize="18dp"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="1dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#f8f8f8"
+        android:layout_height="36dp">
+
+        <RelativeLayout
+            android:id="@+id/indentlist_aty_level1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/indentlist_aty_level1_tv"
+                android:layout_width="wrap_content"
+                android:text="全部"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/indentlist_aty_level1_line"
+                android:layout_width="20dp"
+                android:background="@drawable/home_work_fragment_sortline_bg"
+                android:visibility="invisible"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_height="3dp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/indentlist_aty_level2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/indentlist_aty_level2_tv"
+                android:layout_width="wrap_content"
+                android:text="待付款"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/indentlist_aty_level2_line"
+                android:layout_width="20dp"
+                android:background="#FFD235"
+                android:visibility="invisible"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_height="3dp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/indentlist_aty_level3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/indentlist_aty_level3_tv"
+                android:layout_width="wrap_content"
+                android:text="待使用"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/indentlist_aty_level3_line"
+                android:layout_width="20dp"
+                android:background="#FFD235"
+                android:visibility="invisible"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_height="3dp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/indentlist_aty_level4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/indentlist_aty_level4_tv"
+                android:layout_width="wrap_content"
+                android:text="退货"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/indentlist_aty_level4_line"
+                android:layout_width="20dp"
+                android:background="#FFD235"
+                android:visibility="invisible"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_height="3dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="1dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/indentlist_aty_recycler"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:id="@+id/indentlist_aty_recyclerview_empty"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="145dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:src="@mipmap/empty_content"
+                android:layout_height="77dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="暂无内容"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

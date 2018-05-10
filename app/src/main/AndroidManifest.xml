@@ -43,12 +43,6 @@
         <activity android:name=".view.me.ZhangDangActivity" />
         <activity android:name=".view.me.TieZiActivity" />
         <activity android:name=".view.me.GuanZhuActivity"></activity>
-        <activity android:name=".view.teather.Teather_Banner_Item_Activity" />
-        <activity android:name=".view.teather.Teather_OneItem_Activity" />
-        <activity android:name=".view.yugao.YuGao_ItemActivity" />
-        <activity android:name=".view.yugao.YuYue_Activity" />
-        <activity android:name=".view.baodian.BaoDian_ItemActivity" />
-        <activity android:name=".view.work.Work_ItemActivity"></activity>
     </application>
 
 </manifest>

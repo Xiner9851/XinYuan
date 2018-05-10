@@ -71,7 +71,6 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
     private TextView ssss;
     private LinearLayout ddd;
     private ImageView phone;
-    private int id;
     private TextView myxinxi;
     private String set="";
     private String mobile;
@@ -118,7 +117,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
                 break;
             case R.id.myxinxi:
                 Intent intent3 = new Intent(getActivity(), MyXinXiActivity.class);
-                intent3.putExtra("id",id);
+                int iad = preferences.getInt("id", 0);
+                intent3.putExtra("id",iad);
                 startActivity(intent3);
                 break;
             case R.id.home_myselft_fragment_setting:
@@ -136,14 +136,42 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
                 Intent intent4 = new Intent(getActivity(), ChongZhiActivity.class);
                 startActivity(intent4);
                 break;
-            case R.id.home_myselft_fragment_havegift_group:
-
-                break;
             case R.id.home_myselft_fragment_tiezi_group:
                 Intent intent5 = new Intent(getActivity(), TieZiActivity.class);
                 startActivity(intent5);
                 break;
             case R.id.home_myselft_fragment_guanzhu_group:
+                Intent intent6 = new Intent(getActivity(), GuanZhuActivity.class);
+                startActivity(intent6);
+                break;
+            case R.id.home_myselft_fragment_fensi_group:
+                Intent intent7 = new Intent(getActivity(), FensiActivity.class);
+                startActivity(intent7);
+                break;
+            case R.id.home_myself_fragment_selectmajor:
+                Intent intent8 = new Intent(getActivity(), MyPianHaoActivity.class);
+                startActivity(intent8);
+                break;
+            case R.id.home_myselft_fragment_message:
+
+                break;
+            case R.id.home_myselft_fragment_student_fukuan:
+                Intent intent9 = new Intent(getActivity(), DaiActivity.class);
+                startActivity(intent9);
+                break;
+            case R.id.home_myselft_fragment_student_shiyong:
+                Intent intentt = new Intent(getActivity(), DaiActivity.class);
+                startActivity(intentt);
+                break;
+            case R.id.home_myselft_fragment_student_tuiguo:
+                Intent intentr = new Intent(getActivity(), DaiActivity.class);
+                startActivity(intentr);
+                break;
+            case R.id.home_myselft_fragment_student_dingdan:
+                Intent intentd= new Intent(getActivity(), DaiActivity.class);
+                startActivity(intentd);
+                break;
+            case R.id.home_myselft_fragment_havegift_group:
 
                 break;
         }
@@ -202,6 +230,14 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         home_myselft_fragment_havegift_group.setOnClickListener(this);
         home_myselft_fragment_tiezi_group.setOnClickListener(this);
         home_myselft_fragment_guanzhu_group.setOnClickListener(this);
+        home_myselft_fragment_fensi_group.setOnClickListener(this);
+        home_myself_fragment_selectmajor.setOnClickListener(this);
+        home_myselft_fragment_message.setOnClickListener(this);
+        home_myselft_fragment_student_fukuan.setOnClickListener(this);
+        home_myselft_fragment_student_shiyong.setOnClickListener(this);
+        home_myselft_fragment_student_tuiguo.setOnClickListener(this);
+        home_myselft_fragment_student_dingdan.setOnClickListener(this);
+        home_myselft_fragment_havegift_group.setOnClickListener(this);
     }
 
 

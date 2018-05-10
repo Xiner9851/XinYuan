@@ -1,6 +1,8 @@
 package com.example.administrator.xinyuan.model.biz;
 
+import com.example.administrator.xinyuan.model.entity.FensiBean;
 import com.example.administrator.xinyuan.model.entity.GuanZhuBean;
+import com.example.administrator.xinyuan.model.entity.MyPianHaoBean;
 import com.example.administrator.xinyuan.model.entity.MyselfModelBean;
 import com.example.administrator.xinyuan.model.entity.RechargeCenterListModel;
 import com.example.administrator.xinyuan.model.entity.TieZiBean;
@@ -11,6 +13,7 @@ import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Url;
 
@@ -66,12 +69,20 @@ public interface IHuoQuYZMaService {
     Observable<RechargeCenterListModel> getMyselftData(@Url String url);
 
     @FormUrlEncoded
-    @POST("/v1/m/user/my")
-    Observable<MyselfModelBean> loadTieZi(@FieldMap Map<String,Integer> params);
+    @POST("v1/m/user/my/artcircle")
+    Observable<TieZiBean> loadTieZi(@FieldMap Map<String,Integer> params);
 
 
     @FormUrlEncoded
     @POST("v1/m/user/my/attention")
     Observable<GuanZhuBean> loadGuanzhu(@FieldMap Map<String,Integer> params);
+
+    @FormUrlEncoded
+    @POST("v1/m/user/my/fans")
+    Observable<FensiBean> loadFensi(@FieldMap Map<String,Integer> params);
+
+
+    @GET("v1/m/user/preference")
+    Observable<MyPianHaoBean> loadPianHao();
 
 }

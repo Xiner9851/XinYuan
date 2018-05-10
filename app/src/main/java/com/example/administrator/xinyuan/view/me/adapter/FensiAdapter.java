@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.administrator.xinyuan.R;
-import com.example.administrator.xinyuan.model.entity.GuanZhuBean;
+import com.example.administrator.xinyuan.model.entity.FensiBean;
 
 import java.util.List;
 
@@ -22,12 +22,12 @@ import java.util.List;
  * Created by fghjkl on 2018/5/9.
  */
 
-public class GuanZhuAdapter extends BaseAdapter {
+public class FensiAdapter extends BaseAdapter {
     private Context context;
-    private List<GuanZhuBean.DataBean.ListBean> list;
+    private List<FensiBean.DataBean.ListBean> list;
     private Vh vh;
 
-    public GuanZhuAdapter(Context context, List<GuanZhuBean.DataBean.ListBean> list) {
+    public FensiAdapter(Context context, List<FensiBean.DataBean.ListBean> list) {
         this.context = context;
         this.list = list;
     }
