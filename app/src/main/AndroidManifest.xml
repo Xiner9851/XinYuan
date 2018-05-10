@@ -35,8 +35,10 @@
         <activity android:name=".view.me.RetrievePassActivity" />
         <activity android:name=".view.me.ResetPassActivity" />
         <activity android:name=".view.me.MyXinXiActivity" />
-
+        <activity android:name=".view.me.DaiActivity" />
         <activity android:name=".view.baodian.YiKaoXQActivity" />
+
+
 
         <activity android:name=".view.me.SettingActivity" />
         <activity android:name=".view.me.HuanPhoneActivity" />
@@ -44,10 +46,23 @@
         <activity android:name=".view.me.HuanMobileActivity" />
 
         <activity android:name=".view.me.ChongZhiActivity" />
+        <activity android:name=".view.me.FensiActivity" />
         <activity android:name=".view.me.ZhangDangActivity" />
 
         <activity android:name=".view.me.TieZiActivity" />
+        <activity android:name=".view.me.MyPianHaoActivity" />
         <activity android:name=".view.me.GuanZhuActivity"></activity>
+        <activity android:name=".view.teather.Teather_Banner_Item_Activity" />
+        <activity android:name=".view.teather.Teather_OneItem_Activity" />
+        <activity android:name=".view.teather.ZhaoTeatherActivity" />
+        <activity android:name=".view.teather.ZhaoTeather_ItemCheck_Activity" />
+        <activity android:name=".view.teather.ZhaoTeather_FenSiActivity" />
+        <activity android:name=".view.teather.ZhaoTeather_KeCheng_Activity" />
+
+        <activity android:name=".view.yugao.YuGao_ItemActivity" />
+        <activity android:name=".view.yugao.YuYue_Activity" />
+        <activity android:name=".view.baodian.BaoDian_ItemActivity" />
+        <activity android:name=".view.work.Work_ItemActivity"></activity>
     </application>
 
 </manifest>

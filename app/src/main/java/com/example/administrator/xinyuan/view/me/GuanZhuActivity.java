@@ -2,7 +2,6 @@ package com.example.administrator.xinyuan.view.me;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -48,8 +47,15 @@ public class GuanZhuActivity extends BaseActivity implements View.OnClickListene
         tieZiPresent=new TieZiPresent(this);
         SharedPreferences xiaoji = getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
         tieZiPresent.LoadGuanZhu(xiaoji.getInt("id",0));
-
-
+        if(size==0){
+            mLiv.setVisibility(View.GONE);
+            masterfudaolist_list_empty.setVisibility(View.VISIBLE);
+        }else {
+            mLiv.setVisibility(View.VISIBLE);
+            masterfudaolist_list_empty.setVisibility(View.GONE);
+        }
+        guanZhuAdapter = new GuanZhuAdapter(this,list1);
+        mLiv.setAdapter(guanZhuAdapter);
     }
 
     @Override
@@ -68,19 +74,9 @@ public class GuanZhuActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void showGuanZhi(GuanZhuBean guanZhuBean) {
-         size = guanZhuBean.getData().getList().size();
-        Log.e("size",size+"");
         List<GuanZhuBean.DataBean.ListBean> list = guanZhuBean.getData().getList();
         list1.addAll(list);
-        if(size==0){
-            mLiv.setVisibility(View.GONE);
-            masterfudaolist_list_empty.setVisibility(View.VISIBLE);
-        }else {
-            mLiv.setVisibility(View.VISIBLE);
-            masterfudaolist_list_empty.setVisibility(View.GONE);
-            guanZhuAdapter = new GuanZhuAdapter(this,list1);
-            mLiv.setAdapter(guanZhuAdapter);
-        }
+        guanZhuAdapter.notifyDataSetChanged();
     }
 
     @Override

@@ -12,9 +12,15 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.example.administrator.xinyuan.MainActivity;
 import com.example.administrator.xinyuan.R;
+import com.example.administrator.xinyuan.base.BaseActivity;
 import com.example.administrator.xinyuan.model.entity.TeatherBean;
+import com.example.administrator.xinyuan.view.baodian.BaoDianFragment;
 import com.example.administrator.xinyuan.view.teather.Teather_Banner_Item_Activity;
+import com.example.administrator.xinyuan.view.teather.ZhaoTeatherActivity;
+import com.example.administrator.xinyuan.view.work.WorkFragment;
+import com.example.administrator.xinyuan.view.yugao.YuGaoFragment;
 import com.recker.flybanner.FlyBanner;
 
 import java.util.ArrayList;
@@ -128,6 +134,8 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "找老师", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, ZhaoTeatherActivity.class);
+                    context.startActivity(intent);
                 }
             });
             //线上课监听
@@ -142,6 +150,10 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "交作业", Toast.LENGTH_SHORT).show();
+
+                   // context.startActivity(new Intent(conext, WorkFragment.class));
+                    ((BaseActivity)context). setContentView(R.id.fragment_manger, WorkFragment.class, null);
+                    ((MainActivity)context).work_btn.setChecked(true);
                 }
             });
             //聊艺考监听
@@ -149,6 +161,9 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "聊艺考", Toast.LENGTH_SHORT).show();
+                   // context.startActivity(new Intent(context, BaoDianFragment.class));
+                    ((MainActivity)context).baodian_btn.setChecked(true);
+                    ((BaseActivity)context). setContentView(R.id.fragment_manger, BaoDianFragment.class, null);
                 }
             });
             //线下课监听
@@ -156,6 +171,9 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "线下课", Toast.LENGTH_SHORT).show();
+                   // context.startActivity(new Intent(context, YuGaoFragment.class));
+                    ((MainActivity)context).yugao_btn.setChecked(true);
+                    ((BaseActivity)context). setContentView(R.id.fragment_manger, YuGaoFragment.class, null);
                 }
             });
 

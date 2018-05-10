@@ -4,28 +4,15 @@
 
     android:layout_height="match_parent">
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/img"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/commit_work"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="11dp" />
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/name"
-        android:text="asfasf"
-        android:textColor="#000000"
-        android:layout_marginLeft="26dp"
-        android:layout_marginStart="26dp"
-        android:layout_alignTop="@+id/img"
-        android:layout_toRightOf="@+id/img"
-        android:layout_toEndOf="@+id/img" />
+        />
 
 
 

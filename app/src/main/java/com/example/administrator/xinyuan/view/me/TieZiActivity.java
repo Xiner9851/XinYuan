@@ -2,7 +2,6 @@ package com.example.administrator.xinyuan.view.me;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -23,7 +22,7 @@ public class TieZiActivity extends BaseActivity implements ITieZiContact.View,Vi
     private TextView masterfudaolist_aty_title_tv;
     private ListView mLiv;
     private RelativeLayout masterfudaolist_list_empty;
-    private int size=0;
+    private int size;
 
 
     @Override
@@ -44,7 +43,6 @@ public class TieZiActivity extends BaseActivity implements ITieZiContact.View,Vi
     protected void loadData() {
         tieZiPresent=new TieZiPresent(this);
         SharedPreferences xiaoji = getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
-        Log.e("xiaoji",xiaoji.getInt("id",0)+"");
         tieZiPresent.LoadData(xiaoji.getInt("id",0));
         if(size==0){
             mLiv.setVisibility(View.GONE);

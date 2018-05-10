@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.xinyuan.view.teather.ZhaoTeatherActivity">
+    <RelativeLayout
+        android:layout_gravity="center_vertical|center"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/zhao_back"
+            android:src="@mipmap/register_return"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:textSize="30dp"
+            android:textColor="#54dec4"
+           android:layout_centerInParent="true"
+            android:text="名师"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2" />
+    </RelativeLayout>
+    <android.support.design.widget.TabLayout
+        android:background="#8888"
+        android:id="@+id/zhaoteather_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
+<android.support.v4.view.ViewPager
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="10dp"
+    android:id="@+id/zhaoteather_vp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+</LinearLayout>

@@ -63,7 +63,6 @@ public class Teather_Banner_Item_Activity extends BaseActivity implements Teathe
     @Override
     protected void loadData() {
         Intent intent = getIntent();
-
         idd = intent.getIntExtra("id", 0);
         Map<String, Object> params = new HashMap<>();
         params.put("courseId", idd);

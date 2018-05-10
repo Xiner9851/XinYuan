@@ -3,6 +3,7 @@ package com.example.administrator.xinyuan.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.administrator.xinyuan.App;
@@ -14,6 +15,8 @@ import com.example.administrator.xinyuan.App;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private BaseFragment lastframent;
+    public FragmentTransaction transaction;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +44,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract void loadData();
 
-    protected void setContentView(int containerId,Class<? extends BaseFragment> fragmentClass,Bundle params){
+    public void setContentView(int containerId,Class<? extends BaseFragment> fragmentClass,Bundle params){
         android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
-        android.support.v4.app.FragmentTransaction transaction = manager.beginTransaction();
+        transaction = manager.beginTransaction();
         String simpleName = fragmentClass.getSimpleName();
         BaseFragment fragment = (BaseFragment) manager.findFragmentByTag(simpleName);
         if (fragment==null){

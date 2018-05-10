@@ -22,4 +22,11 @@ public class Urls {
 
     public static final String teather_banner_url="v1/m/forthcoming/detail";
 
+    public static final String zhao_teather_url="v1/m/user/teacher/list";
+
+    public static final String zhaoteather_item_check_url="v1/m/user/teacher/homepage";
+
+    public static final String zhaoteather_item_kecheng_url="v1/m/user/teacher/live";
+
+    public static final String zhaotrather_item_fensi_url="v1/m/user/teacher/fans";
 }

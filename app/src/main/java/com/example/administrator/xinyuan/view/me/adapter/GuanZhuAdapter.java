@@ -52,14 +52,13 @@ public class GuanZhuAdapter extends BaseAdapter {
         vh = null;
         if(convertView==null){
             vh =new Vh();
-            convertView= LayoutInflater.from(context).inflate(R.layout.guanzhu,null);
+            convertView= LayoutInflater.from(context).inflate(R.layout.activity_guan_zhu,null);
             vh.img=convertView.findViewById(R.id.img);
             vh.name=convertView.findViewById(R.id.name);
             convertView.setTag(vh);
         }else {
             vh = (Vh) convertView.getTag();
         }
-        vh.name.setText(list.get(position).getNickname());
         Glide.with(context).load(list.get(position).getPhoto())
                 .asBitmap()
                 .override(50,50)
@@ -72,7 +71,7 @@ public class GuanZhuAdapter extends BaseAdapter {
                         vh.img.setImageDrawable(roundedBitmapDrawable);
                     }
                 });
-
+        vh.name.setText(list.get(position).getNickname());
 
 
         return convertView;

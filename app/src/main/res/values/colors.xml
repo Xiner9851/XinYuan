@@ -7,4 +7,5 @@
     <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
     <color name="colorTong">#66000000</color>
+    <color name="colorWhite">#ffffff</color>
 </resources>
