@@ -1,6 +1,7 @@
 package com.example.administrator.xinyuan.view.me;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -84,7 +85,8 @@ public class ChongZhiActivity extends BaseActivity implements View.OnClickListen
                 finish();
                 break;
             case R.id.recharge_center_aty_zhangdan:
-
+                Intent intent = new Intent(this, ZhangDangActivity.class);
+                startActivity(intent);
                 break;
         }
     }

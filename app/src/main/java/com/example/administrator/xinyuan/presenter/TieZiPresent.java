@@ -2,6 +2,7 @@ package com.example.administrator.xinyuan.presenter;
 
 import com.example.administrator.xinyuan.contact.ITieZiContact;
 import com.example.administrator.xinyuan.model.biz.IHuoQuYZMaService;
+import com.example.administrator.xinyuan.model.entity.FensiBean;
 import com.example.administrator.xinyuan.model.entity.GuanZhuBean;
 import com.example.administrator.xinyuan.model.entity.TieZiBean;
 import com.example.administrator.xinyuan.model.http.RetrofitUtils;
@@ -32,7 +33,7 @@ public class TieZiPresent implements ITieZiContact.Present {
         Map<String,Integer> params=new HashMap<>();
         params.put("loginUserId",id);
 
-        iHuoQuYZMaService.loaddetail(params)
+        iHuoQuYZMaService.loadTieZi(params)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<TieZiBean>() {
@@ -75,6 +76,36 @@ public class TieZiPresent implements ITieZiContact.Present {
                     @Override
                     public void onNext(GuanZhuBean value) {
                     view.showGuanZhi(value);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void LoadFensi(int id) {
+        Map<String,Integer> params=new HashMap<>();
+        params.put("loginUserId",id);
+        iHuoQuYZMaService.loadFensi(params)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<FensiBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(FensiBean value) {
+                    view.showFensi(value);
                     }
 
                     @Override

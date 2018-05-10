@@ -48,6 +48,7 @@ public class MeMyXinXiPresent implements IMeMyXinXiContact.Present{
                     public void onNext(ResponseBody value) {
                         try {
                             String string = value.string();
+                            Log.e("aaa",string);
                             MeMyXinXiBean meMyXinXiBean = new Gson().fromJson(string, MeMyXinXiBean.class);
                             MeMyXinXiBean.DataBean data = meMyXinXiBean.getData();
                             Log.e("data",data.getMobile());

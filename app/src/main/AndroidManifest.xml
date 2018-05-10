@@ -42,7 +42,11 @@
         <activity android:name=".view.me.ChongZhiActivity" />
         <activity android:name=".view.me.ZhangDangActivity" />
         <activity android:name=".view.me.TieZiActivity" />
-        <activity android:name=".view.me.GuanZhuActivity"></activity>
+        <activity android:name=".view.me.GuanZhuActivity" />
+        <activity android:name=".view.me.FensiActivity" />
+        <activity android:name=".view.me.MyPianHaoActivity" />
+        <activity android:name=".view.me.XiaoXiActivity" />
+        <activity android:name=".view.me.DaiActivity"></activity>
     </application>
 
 </manifest>

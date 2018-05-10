@@ -2,6 +2,7 @@ package com.example.administrator.xinyuan.view.me;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
 import com.example.administrator.xinyuan.contact.ITieZiContact;
+import com.example.administrator.xinyuan.model.entity.FensiBean;
 import com.example.administrator.xinyuan.model.entity.GuanZhuBean;
 import com.example.administrator.xinyuan.model.entity.TieZiBean;
 import com.example.administrator.xinyuan.presenter.TieZiPresent;
@@ -21,7 +23,7 @@ public class TieZiActivity extends BaseActivity implements ITieZiContact.View,Vi
     private TextView masterfudaolist_aty_title_tv;
     private ListView mLiv;
     private RelativeLayout masterfudaolist_list_empty;
-    private int size;
+    private int size=0;
 
 
     @Override
@@ -42,6 +44,7 @@ public class TieZiActivity extends BaseActivity implements ITieZiContact.View,Vi
     protected void loadData() {
         tieZiPresent=new TieZiPresent(this);
         SharedPreferences xiaoji = getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
+        Log.e("xiaoji",xiaoji.getInt("id",0)+"");
         tieZiPresent.LoadData(xiaoji.getInt("id",0));
         if(size==0){
             mLiv.setVisibility(View.GONE);
@@ -60,6 +63,11 @@ public class TieZiActivity extends BaseActivity implements ITieZiContact.View,Vi
 
     @Override
     public void showGuanZhi(GuanZhuBean guanZhuBean) {
+
+    }
+
+    @Override
+    public void showFensi(FensiBean fensiBean) {
 
     }
 
