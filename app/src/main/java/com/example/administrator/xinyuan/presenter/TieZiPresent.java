@@ -95,6 +95,9 @@ public class TieZiPresent implements ITieZiContact.Present {
 
     @Override
     public void LoadFensi(int id) {
+
+
+
         Map<String,Integer> params=new HashMap<>();
         params.put("loginUserId",id);
         iHuoQuYZMaService.loadFensi(params)

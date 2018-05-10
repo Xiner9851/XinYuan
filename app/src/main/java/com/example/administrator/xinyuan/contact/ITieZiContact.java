@@ -19,6 +19,8 @@ public interface ITieZiContact {
         void LoadData(int id);
         void LoadGuanZhu(int id);
         void LoadFensi(int id);
+
+
     }
 
 }
