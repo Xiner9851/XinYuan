@@ -13,6 +13,9 @@ public interface IMyselfContact {
         void showShuju(RechargeCenterListModel rechargeCenterListModel);
     }
     interface Present{
+
+
+
         void loadMyself(int a);
         void loadMyself();
     }

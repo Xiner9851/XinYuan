@@ -21,6 +21,8 @@ public class ChongZhiAdapter extends RecyclerView.Adapter<ChongZhiAdapter.Holder
     private  List<RechargeCenterListModel.DataBean> list;
 
     public ChongZhiAdapter(Context context, List<RechargeCenterListModel.DataBean> list) {
+
+
         this.context = context;
         this.list = list;
     }
