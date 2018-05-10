@@ -11,6 +11,7 @@
 
         android:layout_width="wrap_content"
         android:text="温馨提示：请在网络状态良好的环境下充值。"
+
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="12dp"
         android:textSize="12sp"
