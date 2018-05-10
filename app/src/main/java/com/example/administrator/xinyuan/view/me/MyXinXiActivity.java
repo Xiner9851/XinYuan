@@ -68,6 +68,8 @@ public class MyXinXiActivity extends BaseActivity implements IMeMyXinXiContact.V
         userinfo_aty_userimg_group= (RelativeLayout) findViewById(R.id.userinfo_aty_userimg_group);
         userinfo_aty_userimg_group.setOnClickListener(this);
 
+
+
         //昵称
         userinfo_aty_changename_tv= (TextView) findViewById(R.id.userinfo_aty_changename_tv);
         userinfo_aty_changename= (RelativeLayout) findViewById(R.id.userinfo_aty_changename);
