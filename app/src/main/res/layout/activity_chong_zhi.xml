@@ -6,7 +6,9 @@
     android:layout_height="match_parent">
 
     <TextView
+
         android:id="@+id/recharge_center_aty_bottom"
+
         android:layout_width="wrap_content"
         android:text="温馨提示：请在网络状态良好的环境下充值。"
         android:layout_alignParentBottom="true"
