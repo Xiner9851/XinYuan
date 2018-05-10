@@ -105,6 +105,9 @@ public class GoToLoginActivity extends BaseActivity implements View.OnClickListe
     @Override
     public void login(LoginBean loginBean) {
         if (loginBean.getMessage().equals("cid为空")){
+
+
+
             Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
             Log.e("logid",loginBean.getData().getId()+"");
             SharedPreferences sharedPreferences1 = getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
