@@ -24,6 +24,8 @@ import com.example.administrator.xinyuan.presenter.HuoQuMaPresenter;
 public class GoToLoginActivity extends BaseActivity implements View.OnClickListener,IHuoQuYZMaContact.View{
 
 
+
+
     private TextView guanbi;
     private TextView zhuce;
     private EditText tel;

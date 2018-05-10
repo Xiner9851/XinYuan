@@ -184,6 +184,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         phone=getView().findViewById(R.id.phone);
         zhuce=getView().findViewById(R.id.zhuce);
         denglu=getView().findViewById(R.id.denglu);
+
+
         home_myselft_fragment_message =getView().findViewById(R.id.home_myselft_fragment_message);
         home_myselft_fragment_message_newimg = getView().findViewById(R.id.home_myselft_fragment_message_newimg);
         home_myself_message = getView().findViewById(R.id.home_myself_message);
