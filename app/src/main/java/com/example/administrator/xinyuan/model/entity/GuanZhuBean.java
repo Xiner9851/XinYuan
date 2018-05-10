@@ -15,6 +15,10 @@ public class GuanZhuBean {
      */
 
     private int code;
+
+
+
+
     private String message;
     private DataBean data;
 

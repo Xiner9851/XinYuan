@@ -15,6 +15,9 @@ public class TieZiBean {
      */
 
     private int code;
+
+
+
     private String message;
     private DataBean data;
 
