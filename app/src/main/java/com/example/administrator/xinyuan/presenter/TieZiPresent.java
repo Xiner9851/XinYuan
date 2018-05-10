@@ -24,6 +24,8 @@ public class TieZiPresent implements ITieZiContact.Present {
     private IHuoQuYZMaService iHuoQuYZMaService;
 
     public TieZiPresent(ITieZiContact.View view) {
+
+
         this.view = view;
         iHuoQuYZMaService= RetrofitUtils.getInstence().getIHuoQuYZMaService();
     }
