@@ -111,8 +111,12 @@ public class GoToLoginActivity extends BaseActivity implements View.OnClickListe
             Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
             Log.e("logid",loginBean.getData().getId()+"");
             SharedPreferences sharedPreferences1 = getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
+
+
             SharedPreferences.Editor edit = sharedPreferences1.edit();
+
             edit.putBoolean("bbb",true);
+
             edit.putString("name",loginBean.getData().getNickname());
             edit.putString("mobile",loginBean.getData().getMobile());
             String photo= (String) loginBean.getData().getPhoto();
