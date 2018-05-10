@@ -33,6 +33,7 @@ public class TieZiPresent implements ITieZiContact.Present {
     @Override
     public void LoadData(int id) {
         Map<String,Integer> params=new HashMap<>();
+
         params.put("loginUserId",id);
 
         iHuoQuYZMaService.loadTieZi(params)

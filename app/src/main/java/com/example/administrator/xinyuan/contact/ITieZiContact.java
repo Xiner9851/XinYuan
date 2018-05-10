@@ -15,6 +15,7 @@ public interface ITieZiContact {
         void showFensi(FensiBean fensiBean);
     }
     interface  Present{
+
         void LoadData(int id);
         void LoadGuanZhu(int id);
         void LoadFensi(int id);
