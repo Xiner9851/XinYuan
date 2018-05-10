@@ -14,6 +14,9 @@ public class MeMyXinXiBean {
 
     private int code;
     private String message;
+
+
+
     private DataBean data;
 
     public int getCode() {

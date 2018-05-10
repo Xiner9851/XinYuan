@@ -11,6 +11,9 @@ public interface IMeMyXinXiContact {
         void showXinXi(MeMyXinXiBean.DataBean data);
     }
     interface Present{
+
+
+
         void loadMyXinXi(int a);
     }
 
