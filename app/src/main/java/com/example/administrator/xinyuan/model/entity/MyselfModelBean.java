@@ -12,6 +12,10 @@ public class MyselfModelBean {
      */
 
     private int code;
+
+
+
+
     private String message;
     private DataBean data;
 
