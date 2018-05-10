@@ -77,7 +77,7 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
        teather_list=new ArrayList<>();
         List<TeatherBean.DataBean.SystemAdsBean> systemAds = teatherBean.getData().getSystemAds();
         List<TeatherBean.DataBean.UsersBean> users = teatherBean.getData().getUsers();
-        List<TeatherBean.DataBean.LiveCoursesBean> liveCourses = teatherBean.getData().getLiveCourses();
+        final List<TeatherBean.DataBean.LiveCoursesBean> liveCourses = teatherBean.getData().getLiveCourses();
         List<TeatherBean.DataBean.HomewoksBean> homewoks = teatherBean.getData().getHomewoks();
 
 
@@ -106,6 +106,9 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
             @Override
             public void setTwoClick(int postion) {
                 Toast.makeText(getContext(), "two"+postion, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), TuiJie_ItemActivity.class);
+                intent.putExtra("id",liveCourses.get(postion).getId());
+                startActivity(intent);
             }
         });
         //three监听

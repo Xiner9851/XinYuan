@@ -85,7 +85,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 setContentView(R.id.fragment_manger, YuGaoFragment.class, null);
                 break;
             case R.id.me_btn:
+
                 message_bi.setVisibility(View.GONE);
+                tou.setVisibility(View.GONE);
                 setContentView(R.id.fragment_manger, MeFragment.class, null);
                 break;
         }

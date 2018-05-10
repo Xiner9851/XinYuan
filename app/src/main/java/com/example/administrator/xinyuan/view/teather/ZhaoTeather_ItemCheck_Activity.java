@@ -18,15 +18,20 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
 import com.example.administrator.xinyuan.contact.teathercontact.zhaoteatheritemcontact.ZhaoTeatherItem_Contact;
+import com.example.administrator.xinyuan.contact.zhaoteatherguanzhucontact.ZhaoTeatherGuanZhuContact;
 import com.example.administrator.xinyuan.model.entity.ZhaoTeatherItemBean;
 import com.example.administrator.xinyuan.presenter.teatherpresenter.zhaoteatheritempresenter.IZhaoTheatherItemPresenter;
+import com.example.administrator.xinyuan.presenter.zhaoteatherguanzhupresenter.IZhao_GuanZhu_Presenter;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.ResponseBody;
+
 import static com.example.administrator.xinyuan.App.context;
 
-public class ZhaoTeather_ItemCheck_Activity extends BaseActivity implements ZhaoTeatherItem_Contact.View {
+public class ZhaoTeather_ItemCheck_Activity extends BaseActivity implements ZhaoTeatherItem_Contact.View, ZhaoTeatherGuanZhuContact.View,View.OnClickListener {
 
 
     private ImageView again_img;
@@ -61,6 +66,9 @@ public class ZhaoTeather_ItemCheck_Activity extends BaseActivity implements Zhao
     private TextView again_NameteacherHead_teacherConcernNum1;
     private RelativeLayout guanzhu;
     private RelativeLayout fengsi;
+    private IZhao_GuanZhu_Presenter iZhao_guanZhu_presenter;
+    private Button quagain_NameteacherHead_teacherConcern;
+    private ZhaoTeatherItemBean.DataBean.UserBean user;
 
     @Override
     protected int getLayoutId() {
@@ -89,11 +97,18 @@ public class ZhaoTeather_ItemCheck_Activity extends BaseActivity implements Zhao
         again_back = (ImageView) findViewById(R.id.again_back);
         again_share = (ImageView) findViewById(R.id.again_share);
         course = (RelativeLayout) findViewById(R.id.course);
-        guanzhu= (RelativeLayout) findViewById(R.id.guanzhu);
-        teather_fudao= (RelativeLayout) findViewById(R.id.teather_fudao);
-        fengsi= (RelativeLayout) findViewById(R.id.fengsi);
-        tianzi= (RelativeLayout) findViewById(R.id.tianzi);
-        teather_work= (RelativeLayout) findViewById(R.id.teather_work);
+        guanzhu = (RelativeLayout) findViewById(R.id.guanzhu);
+        teather_fudao = (RelativeLayout) findViewById(R.id.teather_fudao);
+        fengsi = (RelativeLayout) findViewById(R.id.fengsi);
+        tianzi = (RelativeLayout) findViewById(R.id.tianzi);
+        teather_work = (RelativeLayout) findViewById(R.id.teather_work);
+        fudao= (RelativeLayout) findViewById(R.id.fudao);
+        quagain_NameteacherHead_teacherConcern= (Button) findViewById(R.id.quagain_NameteacherHead_teacherConcern);
+        tianzi.setOnClickListener(this);
+        teather_work.setOnClickListener(this);
+        teather_fudao.setOnClickListener(this);
+        guanzhu.setOnClickListener(this);
+        fudao.setOnClickListener(this);
     }
 
     @Override
@@ -102,7 +117,7 @@ public class ZhaoTeather_ItemCheck_Activity extends BaseActivity implements Zhao
         int id = intent.getIntExtra("id", 0);
         Map<String, Object> params = new HashMap<>();
         params.put("teacherId", id);
-        IZhaoTheatherItemPresenter iZhaoTheatherItemPresenter = new IZhaoTheatherItemPresenter(this);
+        final IZhaoTheatherItemPresenter iZhaoTheatherItemPresenter = new IZhaoTheatherItemPresenter(this);
         iZhaoTheatherItemPresenter.loadData(params);
         again_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,13 +125,15 @@ public class ZhaoTeather_ItemCheck_Activity extends BaseActivity implements Zhao
                 finish();
             }
         });
+        iZhao_guanZhu_presenter = new IZhao_GuanZhu_Presenter(this);
+
 
     }
 
     @Override
     public void showData(ZhaoTeatherItemBean zhaoTeatherItemBean) {
         Log.e("DDDDDDDDDDDD", zhaoTeatherItemBean.getMessage());
-        final ZhaoTeatherItemBean.DataBean.UserBean user = zhaoTeatherItemBean.getData().getUser();
+        user = zhaoTeatherItemBean.getData().getUser();
 
         Glide.with(this).load(user.getImages()).into(again_img);
         again_teacherlabel.setText(user.getSkilled());
@@ -154,23 +171,103 @@ public class ZhaoTeather_ItemCheck_Activity extends BaseActivity implements Zhao
         course.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplication(),ZhaoTeather_KeCheng_Activity.class);
-                intent.putExtra("id",user.get_$Id141());
-                intent.putExtra("name",user.getNickname());
+                Intent intent = new Intent(getApplication(), ZhaoTeather_KeCheng_Activity.class);
+                intent.putExtra("id", user.get_$Id141());
+                intent.putExtra("name", user.getNickname());
                 startActivity(intent);
             }
         });
         fengsi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(getApplication(),ZhaoTeather_FenSiActivity.class);
-                intent1.putExtra("idd",user.get_$Id141());
-                intent1.putExtra("namee",user.getNickname());
+                Intent intent1 = new Intent(getApplication(), ZhaoTeather_FenSiActivity.class);
+                intent1.putExtra("idd", user.get_$Id141());
+                intent1.putExtra("namee", user.getNickname());
                 startActivity(intent1);
+            }
+
+        });
+        again_NameteacherHead_teacherConcern.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String, Object> params = new HashMap<>();
+                params.put("attentionId", user.get_$Id141());
+                params.put("loginUserId", 668);
+
+                iZhao_guanZhu_presenter.loadGuanZhu(params);
+                quagain_NameteacherHead_teacherConcern.setVisibility(View.VISIBLE);
+                again_NameteacherHead_teacherConcern.setVisibility(View.GONE);
+
+            }
+        });
+        quagain_NameteacherHead_teacherConcern.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String, Object> params = new HashMap<>();
+                params.put("attentionId", user.get_$Id141());
+                params.put("loginUserId", 668);
+
+                iZhao_guanZhu_presenter.loadQuGuan(params);
+                quagain_NameteacherHead_teacherConcern.setVisibility(View.GONE);
+                again_NameteacherHead_teacherConcern.setVisibility(View.VISIBLE);
             }
         });
     }
 
 
+    @Override
+    public void guanzhu(ResponseBody responseBody) {
+        try {
+            String string = responseBody.string();
+            Log.e("guanzhu", string);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+    }
+
+    @Override
+    public void quguan(ResponseBody responseBody) {
+        try {
+            String string = responseBody.string();
+            Log.e("quguan", string);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case  R.id.teather_work:
+                Intent intent = new Intent(this, ZhaoTeather_WorkActivity.class);
+                intent.putExtra("name",user.getNickname()+"的作业");
+                startActivity(intent);
+                break;
+            case  R.id.teather_fudao:
+                Intent intent2 = new Intent(this, ZhaoTeather_WorkActivity.class);
+                intent2.putExtra("name",user.getNickname()+"辅导的作业");
+                startActivity(intent2);
+                break;
+            case  R.id.tianzi:
+                Intent intent3 = new Intent(this, ZhaoTeather_WorkActivity.class);
+                intent3.putExtra("name",user.getNickname()+"的帖子");
+                startActivity(intent3);
+                break;
+            case   R.id.guanzhu:
+                Intent intent4 = new Intent(this, ZhaoTeather_WorkActivity.class);
+                intent4.putExtra("name",user.getNickname()+"的关注");
+                startActivity(intent4);
+                break;
+            case R.id.fudao:
+                Intent intent5 = new Intent(this, ZhaoQingTa_FuDaoActivity.class);
+
+                startActivity(intent5);
+                break;
+        }
+    }
 }

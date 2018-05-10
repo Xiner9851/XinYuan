@@ -29,4 +29,13 @@ public class Urls {
     public static final String zhaoteather_item_kecheng_url="v1/m/user/teacher/live";
 
     public static final String zhaotrather_item_fensi_url="v1/m/user/teacher/fans";
+
+    public static final String xianshang_url="v1/m/liveCourse/list";
+
+    public static final String teather_tuijianitem_url="v1/m/liveCourse/detail";
+
+    //关注
+    public static final String zhaoteather_guanzhu="v1/m/user/attention";
+    //取消关注
+    public static final String zhaoteather_quxiaoguanzhu="v1/m/user/attention/cancel";
 }

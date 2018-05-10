@@ -17,7 +17,9 @@ import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
 import com.example.administrator.xinyuan.model.entity.TeatherBean;
 import com.example.administrator.xinyuan.view.baodian.BaoDianFragment;
+import com.example.administrator.xinyuan.view.teather.Teather_Banner_Item2Activity;
 import com.example.administrator.xinyuan.view.teather.Teather_Banner_Item_Activity;
+import com.example.administrator.xinyuan.view.teather.XianShang_Activity;
 import com.example.administrator.xinyuan.view.teather.ZhaoTeatherActivity;
 import com.example.administrator.xinyuan.view.work.WorkFragment;
 import com.example.administrator.xinyuan.view.yugao.YuGaoFragment;
@@ -40,6 +42,8 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private int six=6;
     private ArrayList<Object> teather_list;
     private Context context;
+    private List<TeatherBean.DataBean.SystemAdsBean> systemAds;
+    private List<TeatherBean.DataBean.LiveCoursesBean> liveCourses;
 
     public Teather_Adapter(ArrayList<Object> teather_list,Context context) {
         this.context = context;
@@ -76,7 +80,7 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }else if (viewType==two){
             View inflate = inflater.inflate(R.layout.teather_twot_item, parent, false);
             holder=new HolderTwo(inflate);
-            List<TeatherBean.DataBean.LiveCoursesBean> liveCourses= (List<TeatherBean.DataBean.LiveCoursesBean>) teather_list.get(2);
+            liveCourses = (List<TeatherBean.DataBean.LiveCoursesBean>) teather_list.get(2);
             ((HolderTwo) holder).two_recy.setLayoutManager(new GridLayoutManager(context,2));
             TwoAdapter twoAdapter = new TwoAdapter(context, liveCourses);
             ((HolderTwo) holder).two_recy.setAdapter(twoAdapter);
@@ -112,9 +116,9 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         if (holder instanceof HolderZero){
-            final List<TeatherBean.DataBean.SystemAdsBean> systemAds= (List<TeatherBean.DataBean.SystemAdsBean>) teather_list.get(0);
+            systemAds = (List<TeatherBean.DataBean.SystemAdsBean>) teather_list.get(0);
         ArrayList<String> imgs=new ArrayList<>();
-          for (int i=0;i<systemAds.size();i++){
+          for (int i = 0; i< systemAds.size(); i++){
               imgs.add(systemAds.get(i).getMobileImgUrl());
           }
           Log.e("SSSSSSSSSSSSs",imgs.size()+"");
@@ -124,9 +128,18 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 @Override
                 public void onItemClick(int position) {
                     Toast.makeText(context, "轮播图"+position, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(context, Teather_Banner_Item_Activity.class);
-                    intent.putExtra("id",systemAds.get(position).getMobileUrl());
-                    context.startActivity(intent);
+
+                    String urlType = systemAds.get(position).getUrlType();
+                    if (urlType.equals("3")){
+                        Intent intent = new Intent(context, Teather_Banner_Item_Activity.class);
+                    intent.putExtra("id", systemAds.get(position).getMobileUrl());
+                        context.startActivity(intent);
+                    }else if (urlType.equals("4")){
+                        Intent intent = new Intent(context, Teather_Banner_Item2Activity.class);
+                        intent.putExtra("id",liveCourses.get(position).getId());
+                        context.startActivity(intent);
+                    }
+
                 }
             });
             //找老师监听
@@ -143,6 +156,8 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "线上课", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, XianShang_Activity.class);
+                    context.startActivity(intent);
                 }
             });
             //交作业监听
