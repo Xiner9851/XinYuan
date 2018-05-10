@@ -602,6 +602,8 @@
 
 
                         <ImageView
+
+
                             android:layout_width="7dp"
                             android:src="@mipmap/home_myself_right_arrow"
                             android:layout_alignParentRight="true"
