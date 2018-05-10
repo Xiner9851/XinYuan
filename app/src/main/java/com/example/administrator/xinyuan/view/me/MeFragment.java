@@ -230,11 +230,17 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         home_myselft_fragment_setting.setOnClickListener(this);
         home_myself_fragment_jindou_group.setOnClickListener(this);
         home_myselft_fragment_havegift_group.setOnClickListener(this);
+
         home_myselft_fragment_tiezi_group.setOnClickListener(this);
+
         home_myselft_fragment_guanzhu_group.setOnClickListener(this);
+
         home_myselft_fragment_fensi_group.setOnClickListener(this);
+
         home_myself_fragment_selectmajor.setOnClickListener(this);
+
         home_myselft_fragment_message.setOnClickListener(this);
+
         home_myselft_fragment_student_fukuan.setOnClickListener(this);
         home_myselft_fragment_student_shiyong.setOnClickListener(this);
         home_myselft_fragment_student_tuiguo.setOnClickListener(this);
