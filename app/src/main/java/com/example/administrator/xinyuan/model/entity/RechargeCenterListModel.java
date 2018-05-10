@@ -15,6 +15,10 @@ public class RechargeCenterListModel {
      */
 
     private int code;
+
+
+
+
     private String message;
     private List<DataBean> data;
 
