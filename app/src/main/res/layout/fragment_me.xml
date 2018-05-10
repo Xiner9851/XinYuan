@@ -131,6 +131,8 @@
                                 android:layout_toRightOf="@+id/phone"
                                 android:layout_toEndOf="@+id/phone">
                                 <TextView
+
+
                                     android:id="@+id/myxinxi"
                                     android:layout_width="wrap_content"
                                     android:text="我的信息"
