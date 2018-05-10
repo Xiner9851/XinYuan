@@ -1,6 +1,5 @@
 package com.example.administrator.xinyuan.view.me;
 
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -37,6 +36,8 @@ public class DaiActivity extends BaseActivity implements View.OnClickListener{
 
 
         return R.layout.activity_dai;
+
+
     }
 
     @Override
@@ -61,11 +62,6 @@ public class DaiActivity extends BaseActivity implements View.OnClickListener{
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) and run LayoutCreator again
-    }
 
     @Override
     public void onClick(View v) {
