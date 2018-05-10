@@ -25,6 +25,8 @@ public class MyselfPresent implements IMyselfContact.Present {
     private IHuoQuYZMaService iHuoQuYZMaService;
 
     public MyselfPresent(IMyselfContact.View view) {
+
+
         this.view = view;
         iHuoQuYZMaService= RetrofitUtils.getInstence().getIHuoQuYZMaService();
     }
