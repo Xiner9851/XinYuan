@@ -24,6 +24,8 @@ public class HuanPhoneActivity extends BaseActivity implements View.OnClickListe
     private Button dian;
     private EditText ma;
     HuoQuMaPresenter huoQuMaPresenter;
+
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_huan_phone;
