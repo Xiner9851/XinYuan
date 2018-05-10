@@ -47,15 +47,7 @@ public class GuanZhuActivity extends BaseActivity implements View.OnClickListene
         tieZiPresent=new TieZiPresent(this);
         SharedPreferences xiaoji = getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
         tieZiPresent.LoadGuanZhu(xiaoji.getInt("id",0));
-        if(size==0){
-            mLiv.setVisibility(View.GONE);
-            masterfudaolist_list_empty.setVisibility(View.VISIBLE);
-        }else {
-            mLiv.setVisibility(View.VISIBLE);
-            masterfudaolist_list_empty.setVisibility(View.GONE);
-        }
-        guanZhuAdapter = new GuanZhuAdapter(this,list1);
-        mLiv.setAdapter(guanZhuAdapter);
+
     }
 
     @Override
@@ -75,8 +67,16 @@ public class GuanZhuActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void showGuanZhi(GuanZhuBean guanZhuBean) {
         List<GuanZhuBean.DataBean.ListBean> list = guanZhuBean.getData().getList();
-        list1.addAll(list);
-        guanZhuAdapter.notifyDataSetChanged();
+        if(guanZhuBean.getData().getSize()==0){
+            mLiv.setVisibility(View.GONE);
+            masterfudaolist_list_empty.setVisibility(View.VISIBLE);
+        }else {
+            mLiv.setVisibility(View.VISIBLE);
+            masterfudaolist_list_empty.setVisibility(View.GONE);
+            guanZhuAdapter = new GuanZhuAdapter(this,list);
+            mLiv.setAdapter(guanZhuAdapter);
+        }
+
     }
 
     @Override

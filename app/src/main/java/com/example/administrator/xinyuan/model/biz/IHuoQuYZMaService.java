@@ -2,7 +2,11 @@ package com.example.administrator.xinyuan.model.biz;
 
 import com.example.administrator.xinyuan.model.entity.FensiBean;
 import com.example.administrator.xinyuan.model.entity.GuanZhuBean;
+import com.example.administrator.xinyuan.model.entity.MessageBean;
+import com.example.administrator.xinyuan.model.entity.MyDingDangBean;
+import com.example.administrator.xinyuan.model.entity.MyLiWuBean;
 import com.example.administrator.xinyuan.model.entity.MyPianHaoBean;
+import com.example.administrator.xinyuan.model.entity.MyShoucangBean;
 import com.example.administrator.xinyuan.model.entity.MyselfModelBean;
 import com.example.administrator.xinyuan.model.entity.RechargeCenterListModel;
 import com.example.administrator.xinyuan.model.entity.TieZiBean;
@@ -85,7 +89,25 @@ public interface IHuoQuYZMaService {
     @GET("v1/m/user/preference")
     Observable<MyPianHaoBean> loadPianHao();
 
+    @FormUrlEncoded
+    @POST("v1/m/user/my/orders")
+    Observable<MyDingDangBean> loadMyDingDang(@FieldMap Map<String,Integer> params);
 
 
+    @FormUrlEncoded
+    @POST("v1/m/record/detail")
+    Observable<MyLiWuBean> loadMyLiWu(@FieldMap Map<String,Integer> params);
 
+    @FormUrlEncoded
+    @POST("v1/m/user/my/favorites")
+    Observable<MyShoucangBean> loadMyShoucang(@FieldMap Map<String,Integer> params);
+
+    @FormUrlEncoded
+    @POST("v1/m/user/my/favorites")
+    Observable<TieZiBean> loadMyShoucangTieZi(@FieldMap Map<String,Integer> params);
+
+
+    @FormUrlEncoded
+    @POST("v1/m/message/list")
+    Observable<MessageBean> loadMessage(@FieldMap Map<String,Integer> params);
 }

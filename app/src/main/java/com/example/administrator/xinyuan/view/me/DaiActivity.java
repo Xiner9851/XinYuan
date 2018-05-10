@@ -1,40 +1,32 @@
 package com.example.administrator.xinyuan.view.me;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.RelativeLayout;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.widget.TextView;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
+import com.example.administrator.xinyuan.view.me.adapter.MyDingDangPageAdapter;
+import com.example.administrator.xinyuan.view.me.fragment.DaiFuKuanFragment;
+import com.example.administrator.xinyuan.view.me.fragment.DaiShiYongFragment;
+import com.example.administrator.xinyuan.view.me.fragment.QuanBuFragment;
+import com.example.administrator.xinyuan.view.me.fragment.TuiHuoFragment;
 
-public class DaiActivity extends BaseActivity implements View.OnClickListener{
+import java.util.ArrayList;
+
+public class DaiActivity extends BaseActivity {
 
 
     private TextView indentlist_aty_title_cancle;
-    private TextView indentlist_aty_level1_tv;
-    private TextView indentlist_aty_level1_line;
-    private RelativeLayout indentlist_aty_level1;
-    private TextView indentlist_aty_level2_tv;
-    private TextView indentlist_aty_level2_line;
-    private RelativeLayout indentlist_aty_level2;
-    private TextView indentlist_aty_level3_tv;
-    private TextView indentlist_aty_level3_line;
-    private RelativeLayout indentlist_aty_level3;
-    private TextView indentlist_aty_level4_tv;
-    private TextView indentlist_aty_level4_line;
-    private RelativeLayout indentlist_aty_level4;
-    private RecyclerView indentlist_aty_recycler;
-    private RelativeLayout indentlist_aty_recyclerview_empty;
+    private TabLayout mTab;
+    private ViewPager vpage;
+    private ArrayList<String> mTitle=new ArrayList<>();
+    private ArrayList<Fragment> mList=new ArrayList<>();
+
 
     @Override
     protected int getLayoutId() {
-
-
-
-
-
         return R.layout.activity_dai;
 
 
@@ -42,29 +34,33 @@ public class DaiActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     protected void init() {
-        indentlist_aty_level1= (RelativeLayout) findViewById(R.id.indentlist_aty_level1);
-        indentlist_aty_level1.setOnClickListener(this);
-        indentlist_aty_level2= (RelativeLayout) findViewById(R.id.indentlist_aty_level1);
-        indentlist_aty_level2.setOnClickListener(this);
-        indentlist_aty_level3= (RelativeLayout) findViewById(R.id.indentlist_aty_level1);
-        indentlist_aty_level3.setOnClickListener(this);
-        indentlist_aty_level4= (RelativeLayout) findViewById(R.id.indentlist_aty_level1);
-        indentlist_aty_level4.setOnClickListener(this);
-        indentlist_aty_recycler= (RecyclerView) findViewById(R.id.indentlist_aty_recycler);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        indentlist_aty_recycler.setLayoutManager(linearLayoutManager);
+        indentlist_aty_title_cancle= (TextView) findViewById(R.id.indentlist_aty_title_cancle);
+        mTab= (TabLayout) findViewById(R.id.mTab);
+        vpage= (ViewPager) findViewById(R.id.vpage);
 
 
     }
 
     @Override
     protected void loadData() {
+        mTitle.add("全部");
+        mTitle.add("代付款");
+        mTitle.add("带使用");
+        mTitle.add("退货");
+        QuanBuFragment quanBuFragment=new QuanBuFragment();
+        DaiFuKuanFragment daiFuKuanFragment=new DaiFuKuanFragment();
+        DaiShiYongFragment daiShiYongFragment=new DaiShiYongFragment();
+        TuiHuoFragment tuiHuoFragment=new TuiHuoFragment();
+        mList.add(quanBuFragment);
+        mList.add(daiFuKuanFragment);
+        mList.add(daiShiYongFragment);
+        mList.add(tuiHuoFragment);
+        MyDingDangPageAdapter myDingDangAdapter = new MyDingDangPageAdapter(getSupportFragmentManager(), mList, mTitle);
+        vpage.setAdapter(myDingDangAdapter);
+        mTab.setupWithViewPager(vpage);
 
     }
 
 
-    @Override
-    public void onClick(View v) {
 
-    }
 }
