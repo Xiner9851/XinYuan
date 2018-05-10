@@ -50,10 +50,14 @@ public class MyPianHaoActivity extends BaseActivity implements PianHaoContact.Vi
             public void bi(View view, int possi) {
                 name=view.findViewById(R.id.name);
                 if(pp==0) {
+
+
                     name.setTextColor(Color.parseColor("#ffffff"));
                     name.setBackground(getResources().getDrawable(R.drawable.valuable_listitem_type_bg_two));
                     pp=1;
                 }else if(pp==1){
+
+
                     name.setTextColor(Color.parseColor("#000000"));
                     name.setBackground(getResources().getDrawable(R.drawable.valuable_listitem_type_bg));
                     pp=0;
