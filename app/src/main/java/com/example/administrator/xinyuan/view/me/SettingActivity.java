@@ -30,6 +30,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void init() {
+
+
         setting_aty_cancle= (TextView) findViewById(R.id.setting_aty_cancle);
         setting_aty_phone_tv= (TextView) findViewById(R.id.setting_aty_phone_tv);
         setting_glide_cahce_tv= (TextView) findViewById(R.id.setting_glide_cahce_tv);
