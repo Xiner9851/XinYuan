@@ -128,7 +128,6 @@ public class Teather_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 @Override
                 public void onItemClick(int position) {
                     Toast.makeText(context, "轮播图"+position, Toast.LENGTH_SHORT).show();
-
                     String urlType = systemAds.get(position).getUrlType();
                     if (urlType.equals("3")){
                         Intent intent = new Intent(context, Teather_Banner_Item_Activity.class);
