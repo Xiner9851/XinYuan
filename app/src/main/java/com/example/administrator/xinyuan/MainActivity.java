@@ -47,6 +47,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         fragment_manger= (FrameLayout) findViewById(R.id.fragment_manger);
         message_bi= (ImageView) findViewById(R.id.message_bi);
         message_img= (ImageView) findViewById(R.id.message_img);
+        tou= (RelativeLayout) findViewById(R.id.tou);
 
         ming_teather_btn.setOnClickListener(this);
         work_btn.setOnClickListener(this);

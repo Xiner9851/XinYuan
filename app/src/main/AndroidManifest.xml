@@ -58,6 +58,12 @@
         <activity android:name=".view.teather.ZhaoTeather_ItemCheck_Activity" />
         <activity android:name=".view.teather.ZhaoTeather_FenSiActivity" />
         <activity android:name=".view.teather.ZhaoTeather_KeCheng_Activity" />
+        <activity android:name=".view.teather.ZhaoQingTa_FuDaoActivity" />
+        <activity android:name=".view.teather.TuiJie_ItemActivity" />
+        <activity android:name=".view.teather.ZhaoTeather_WorkActivity" />
+        <activity android:name=".view.work.Work_HuiFuActivity" />
+
+
 
         <activity android:name=".view.yugao.YuGao_ItemActivity" />
         <activity android:name=".view.yugao.YuYue_Activity" />
