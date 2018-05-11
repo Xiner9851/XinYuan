@@ -2,7 +2,6 @@ package com.example.administrator.xinyuan.view.teather;
 
 import android.content.Intent;
 import android.util.Log;
-import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
@@ -40,7 +39,7 @@ public class Teather_Banner_Item_Activity extends BaseActivity implements Teathe
     private ImageView teather_banner_share;
     private RadioButton teather_banner_item_btn;
     private RelativeLayout fudao;
-    private String idd;
+    private int idd;
 
     @Override
     protected int getLayoutId() {
@@ -64,19 +63,11 @@ public class Teather_Banner_Item_Activity extends BaseActivity implements Teathe
     @Override
     protected void loadData() {
         Intent intent = getIntent();
-        idd = intent.getStringExtra("id");
-
-
+        idd = intent.getIntExtra("id", 0);
         Map<String, Object> params = new HashMap<>();
         params.put("courseId", idd);
         ITeatherBanner_Presenter iTeatherBanner_presenter = new ITeatherBanner_Presenter(this);
         iTeatherBanner_presenter.loadData(params);
-        teather_banner__back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
 

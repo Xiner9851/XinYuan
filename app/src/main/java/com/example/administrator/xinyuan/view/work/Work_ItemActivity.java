@@ -1,18 +1,13 @@
 package com.example.administrator.xinyuan.view.work;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -21,25 +16,17 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
 import com.example.administrator.xinyuan.contact.workcontact.workitemcontact.Work_Item_Contact;
-import com.example.administrator.xinyuan.contact.workpingluncontact.WorkPinglunContact;
-import com.example.administrator.xinyuan.contact.worktijiaopinglun.WorkTiJiaoPingLunContact;
-import com.example.administrator.xinyuan.model.entity.WorkPingLunLieBiaoBean;
-import com.example.administrator.xinyuan.model.entity.WorkTiJIaoBean;
 import com.example.administrator.xinyuan.model.entity.Work_Item_Bean;
-import com.example.administrator.xinyuan.presenter.workpinglunliebiaopresenter.IWorkPingLunLieBiaoPresenter;
 import com.example.administrator.xinyuan.presenter.workpresenter.workitempresenter.IWorkItemPresenter;
-import com.example.administrator.xinyuan.presenter.worktijiaopinglunpresenter.IWorkTiJiaoPingLunPresenter;
-import com.example.administrator.xinyuan.view.work.adapter.Work_PingLun_Adapter;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static com.example.administrator.xinyuan.App.context;
 
-public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact.View,WorkPinglunContact.View,WorkTiJiaoPingLunContact.View {
+public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact.View {
 
 
     private ImageView work_check_img;
@@ -68,12 +55,6 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
     private TextView work_recycler_item_peep_price;
     private LinearLayout work_item_touting;
     private RelativeLayout yyy;
-    private ImageView work_item_pinglun_img;
-    private ListView work_item_pinglun_listview;
-    private IWorkPingLunLieBiaoPresenter iWorkPingLunLieBiaoPresenter;
-    private Map<String, Object> params,tijiaoparams;
-    private  TextView work_more_pinglun;
-    private Button work_tijiao_btn;
 
     @Override
     protected int getLayoutId() {
@@ -82,7 +63,7 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
 
     @Override
     protected void init() {
-        work_check_img = (ImageView) findViewById(R.id.work_check_img);
+        work_check_img= (ImageView) findViewById(R.id.work_check_img);
         work_again_back = (ImageView) findViewById(R.id.work_again_back);
         work_check_name = (TextView) findViewById(R.id.work_check_name);
         work_check_time = (TextView) findViewById(R.id.work_check_time);
@@ -99,11 +80,7 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
         work_check_name2 = (TextView) findViewById(R.id.work_check_name2);
         work_check_time2 = (TextView) findViewById(R.id.work_check_time2);
         work_item_touting = (LinearLayout) findViewById(R.id.work_item_touting);
-        work_item_pinglun_img = (ImageView) findViewById(R.id.work_item_pinglun_img);
-        work_item_pinglun_listview = (ListView) findViewById(R.id.work_item_pinglun_listview);
-        work_more_pinglun= (TextView) findViewById(R.id.work_more_pinglun);
-        work_tijiao_btn = (Button) findViewById(R.id.work_tijiao_btn);
-        work_item_pinglun = (EditText) findViewById(R.id.work_item_pinglun);
+
 
     }
 
@@ -111,55 +88,10 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
     protected void loadData() {
         Intent intent = getIntent();
         int id = intent.getIntExtra("id", 0);
-        int replyId = intent.getIntExtra("replyId", 0);
-        int refId = intent.getIntExtra("refId", 0);
-        params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
         params.put("homewokId", id);
         IWorkItemPresenter iWorkItemPresenter = new IWorkItemPresenter(this);
         iWorkItemPresenter.loadData(params);
-        iWorkPingLunLieBiaoPresenter = new IWorkPingLunLieBiaoPresenter(this);
-        iWorkPingLunLieBiaoPresenter.pinglunData(params);
-        tijiaoparams = new HashMap<>();
-
-        SharedPreferences xiaoji = getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
-        int id1 = xiaoji.getInt("id", 0);
-        String s = work_item_pinglun.getText().toString();
-        tijiaoparams.put("userId",id1 );
-        tijiaoparams.put("content",s );
-        tijiaoparams.put("replyId", replyId);
-        tijiaoparams.put("refId", refId);
-        tijiaoparams.put("refType", "作业评论");
-        final IWorkTiJiaoPingLunPresenter iWorkTiJiaoPingLunPresenter = new IWorkTiJiaoPingLunPresenter(this);
-        work_item_pinglun.clearFocus();
-        work_item_pinglun.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                work_tijiao_btn.setVisibility(View.VISIBLE);
-                work_item_xiaoxi.setVisibility(View.GONE);
-                work_item_dianzan.setVisibility(View.GONE);
-            }
-        });
-        work_tijiao_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                work_tijiao_btn.setVisibility(View.GONE);
-                work_item_xiaoxi.setVisibility(View.VISIBLE);
-                work_item_dianzan.setVisibility(View.VISIBLE);
-                iWorkTiJiaoPingLunPresenter.tijiaoData(tijiaoparams);
-                work_item_pinglun.setText("");
-            }
-        });
-
-        //listview置顶
-        work_item_xiaoxi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-
-
-            }
-        });
     }
 
     @Override
@@ -168,15 +100,14 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
 
         Glide.with(this).load(work_item_bean.getData().getHomewok().getPhoto())
                 .asBitmap()
-                .override(50, 50)
-                .into(new BitmapImageViewTarget(work_check_img) {
+                .override(50,50)
+                .into(new BitmapImageViewTarget(work_check_img){
                     @Override
                     protected void setResource(Bitmap resource) {
                         super.setResource(resource);
                         RoundedBitmapDrawable drawable = RoundedBitmapDrawableFactory.create(context.getResources(), resource);
                         drawable.setCornerRadius(100);
                         work_check_img.setImageDrawable(drawable);
-
                     }
                 });
         work_check_name.setText(homewok.getNickname());
@@ -188,8 +119,8 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
         Glide.with(this).load(work_item_bean.getData().getHomewok().getPath()).into(work_check_path);
         Glide.with(this).load(work_item_bean.getData().getHomewok().getTPhoto())
                 .asBitmap()
-                .override(50, 50)
-                .into(new BitmapImageViewTarget(work_check_img2) {
+                .override(50,50)
+                .into(new BitmapImageViewTarget(work_check_img2){
                     @Override
                     protected void setResource(Bitmap resource) {
                         super.setResource(resource);
@@ -203,38 +134,11 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
 
 
     }
-
     public static String longToDate(long lo) {
         Date date = new Date(lo);
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd HH:mm");
         return sd.format(date);
     }
 
-
-
-
-    @Override
-    public void showPingLun(WorkPingLunLieBiaoBean workPingLunLieBiaoBean) {
-        List<WorkPingLunLieBiaoBean.DataBean.CommentsBean.ListBean> list = workPingLunLieBiaoBean.getData().getComments().getList();
-        if (workPingLunLieBiaoBean.getData().getComments().getList().size()!=0){
-            work_item_pinglun_listview.setVisibility(View.VISIBLE);
-            Work_PingLun_Adapter work_pingLun_adapter = new Work_PingLun_Adapter(list, this);
-            work_item_pinglun_listview.setAdapter(work_pingLun_adapter);
-            work_pingLun_adapter.notifyDataSetChanged();
-            work_item_pinglun_img.setVisibility(View.GONE);
-
-        }else {
-            work_item_pinglun_img.setVisibility(View.VISIBLE);
-            work_item_pinglun_listview.setVisibility(View.GONE);
-            work_more_pinglun.setVisibility(View.GONE);
-        }
-
-
-    }
-
-    @Override
-    public void showTiJiao(WorkTiJIaoBean workTiJIaoBean) {
-        Log.e("tijiao",workTiJIaoBean.getMessage());
-    }
 
 }

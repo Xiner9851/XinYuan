@@ -20,7 +20,7 @@ import java.util.List;
  * Created by Administrator on 2018/5/9.
  */
 
-public class ZhaoTeather_KeCheng_Adapter extends RecyclerView.Adapter<ZhaoTeather_KeCheng_Adapter.Holder> implements View.OnClickListener{
+public class ZhaoTeather_KeCheng_Adapter extends RecyclerView.Adapter<ZhaoTeather_KeCheng_Adapter.Holder> {
     private Context context;
     private List<ZhaoTeather_KeCheng.DataBean.ListBean> list;
 
@@ -35,7 +35,6 @@ public class ZhaoTeather_KeCheng_Adapter extends RecyclerView.Adapter<ZhaoTeathe
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.zhaoteather_kecheng, parent, false);
         Holder holder = new Holder(inflate);
-        holder.itemView.setOnClickListener(this);
         return holder;
     }
 
@@ -61,7 +60,6 @@ public class ZhaoTeather_KeCheng_Adapter extends RecyclerView.Adapter<ZhaoTeathe
         }
         holder.xsk_item_flag.setText("讲堂");
         holder.xsk_item_majorIds.setText("表演");
-        holder.itemView.setTag(position);
     }
 
     @Override
@@ -94,22 +92,6 @@ public class ZhaoTeather_KeCheng_Adapter extends RecyclerView.Adapter<ZhaoTeathe
 
         }
     }
-    public interface OnClick{
-        void setOnClick(View view,int postion);
-    }
-    private OnClick onClick;
-    @Override
-    public void onClick(View v) {
-        if (onClick!=null){
-            onClick.setOnClick(v,(int)v.getTag());
-        }
-
-    }
-    public void setOnCLickItem(OnClick onClick){
-        this.onClick=onClick;
-
-    }
-
 
     public static String longToDate(long lo) {
         Date date = new Date(lo);

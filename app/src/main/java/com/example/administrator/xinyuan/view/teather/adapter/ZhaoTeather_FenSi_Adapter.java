@@ -26,8 +26,6 @@ import java.util.List;
 public class ZhaoTeather_FenSi_Adapter extends BaseAdapter {
 
     private Context context;
-
-
     private List<ZhaoTeather_FenSi_Bean.DataBean.ListBean> list;
     private View inflate;
 
