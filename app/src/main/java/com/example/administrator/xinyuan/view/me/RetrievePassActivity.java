@@ -138,4 +138,9 @@ public class RetrievePassActivity extends BaseActivity implements IHuoQuYZMaCont
     public void findPassNext(UapateBean uapateBean) {
 
     }
+
+    @Override
+    public void update(String a) {
+
+    }
 }

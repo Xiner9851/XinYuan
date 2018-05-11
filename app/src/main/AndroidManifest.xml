@@ -59,7 +59,12 @@
         <activity android:name=".view.me.MyLiWuActivity" />
         <activity android:name=".view.me.MyShoucangActivity" />
         <activity android:name=".view.me.RenZActivity" />
-        <activity android:name=".view.me.MessageActivity"></activity>
+        <activity android:name=".view.me.MessageActivity" />
+        <activity android:name=".view.me.SheJiaoActivity" />
+        <activity android:name=".view.me.SettingPassActivity" />
+        <activity android:name=".view.me.SettingNewPassActivity" />
+        <activity android:name=".view.me.AboutActivity" />
+        <activity android:name=".view.me.AboutJieShaoActivity"></activity>
     </application>
 
 </manifest>

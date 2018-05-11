@@ -9,6 +9,7 @@ import com.example.administrator.xinyuan.model.entity.MyPianHaoBean;
 import com.example.administrator.xinyuan.model.entity.MyShoucangBean;
 import com.example.administrator.xinyuan.model.entity.MyselfModelBean;
 import com.example.administrator.xinyuan.model.entity.RechargeCenterListModel;
+import com.example.administrator.xinyuan.model.entity.SettingNewPassBean;
 import com.example.administrator.xinyuan.model.entity.TieZiBean;
 
 import java.util.Map;
@@ -110,4 +111,17 @@ public interface IHuoQuYZMaService {
     @FormUrlEncoded
     @POST("v1/m/message/list")
     Observable<MessageBean> loadMessage(@FieldMap Map<String,Integer> params);
+
+    @FormUrlEncoded
+    @POST("v1/m/user/setting/password")
+    Observable<SettingNewPassBean> loadSettingNewPass(@FieldMap Map<String,String> params);
+
+    @FormUrlEncoded
+    @POST("v1/m/user/setting/mobile")
+    Observable<SettingNewPassBean> goToUpdateMobile(@FieldMap Map<String,String> params);
+
+
+    @FormUrlEncoded
+    @POST("v1/m/user/my/preference/save")
+    Observable<SettingNewPassBean> cunPianHao(@FieldMap Map<String,String> params);
 }

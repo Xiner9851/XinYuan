@@ -1,5 +1,6 @@
 package com.example.administrator.xinyuan.view.me;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -70,7 +71,9 @@ public class HuanPhoneActivity extends BaseActivity implements View.OnClickListe
     @Override
     public void zhuCe(String s) {
         if(s.equals("成功")){
-
+            Intent intent = new Intent(this, HuanMobileActivity.class);
+            startActivity(intent);
+            finish();
 
         }
     }
@@ -92,6 +95,11 @@ public class HuanPhoneActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void findPassNext(UapateBean uapateBean) {
+
+    }
+
+    @Override
+    public void update(String a) {
 
     }
 }

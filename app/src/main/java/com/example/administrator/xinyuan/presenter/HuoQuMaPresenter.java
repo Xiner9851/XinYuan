@@ -6,6 +6,7 @@ import com.example.administrator.xinyuan.contact.IHuoQuYZMaContact;
 import com.example.administrator.xinyuan.model.biz.IHuoQuYZMaService;
 import com.example.administrator.xinyuan.model.entity.HuoQuMa;
 import com.example.administrator.xinyuan.model.entity.LoginBean;
+import com.example.administrator.xinyuan.model.entity.SettingNewPassBean;
 import com.example.administrator.xinyuan.model.entity.UapateBean;
 import com.example.administrator.xinyuan.model.entity.WangChengBean;
 import com.example.administrator.xinyuan.model.entity.ZhuCeBean;
@@ -263,6 +264,38 @@ public class HuoQuMaPresenter implements IHuoQuYZMaContact.Presenter {
                         }
 
 
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void updateMobile(String id, String mobile, String code) {
+        Map<String,String> params=new HashMap<>();
+        params.put("loginUserId",id);
+        params.put("mobile",mobile);
+        params.put("code",code);
+        iHuoQuYZMaService.goToUpdateMobile(params)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<SettingNewPassBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(SettingNewPassBean value) {
+                    view.update(value.getMessage());
                     }
 
                     @Override

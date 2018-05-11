@@ -15,49 +15,68 @@ import com.example.administrator.xinyuan.model.entity.UapateBean;
 import com.example.administrator.xinyuan.model.entity.WangChengBean;
 import com.example.administrator.xinyuan.presenter.HuoQuMaPresenter;
 
-public class ResetPassActivity extends BaseActivity implements View.OnClickListener,IHuoQuYZMaContact.View{
+public class SettingPassActivity extends BaseActivity implements View.OnClickListener,IHuoQuYZMaContact.View{
 
-    private String phone;
-    private TextView resetpass_aty_cancle;
-    private EditText resetpass_aty_et;
-    private EditText resetpass_aty_rp_et;
-    private Button resetpass_aty_loginbtn;
-    private HuoQuMaPresenter huoQuMaPresenter;
+
+
+    private TextView guanbi;
+    private TextView textView2;
+    private TextView mobile;
+    private TextView yzm;
+    private Button dian;
+    private EditText ma;
+    HuoQuMaPresenter huoQuMaPresenter;
+
+
     @Override
     protected int getLayoutId() {
-        return R.layout.resetpass_aty;
+        return R.layout.activity_setting_pass;
     }
 
     @Override
     protected void init() {
-        resetpass_aty_et= (EditText) findViewById(R.id.resetpass_aty_et);
-        resetpass_aty_rp_et= (EditText) findViewById(R.id.resetpass_aty_rp_et);
-        resetpass_aty_loginbtn= (Button) findViewById(R.id.resetpass_aty_loginbtn);
-        resetpass_aty_loginbtn.setOnClickListener(this);
+        guanbi= (TextView) findViewById(R.id.guanbi);
+        textView2= (TextView) findViewById(R.id.textView2);
+        mobile= (TextView) findViewById(R.id.mobile);
+        yzm= (TextView) findViewById(R.id.yzm);
+        dian= (Button) findViewById(R.id.dian);
+        ma= (EditText) findViewById(R.id.ma);
     }
+
     @Override
     protected void loadData() {
         huoQuMaPresenter=new HuoQuMaPresenter(this);
-        Intent intent = getIntent();
-         phone = intent.getStringExtra("phone");
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.resetpass_aty_loginbtn:
-                huoQuMaPresenter.findPassNext(phone,resetpass_aty_rp_et.getText().toString());
+            case R.id.yzm:
+                huoQuMaPresenter.loadMa(mobile.getText().toString());
+                break;
+            case R.id.dian:
+                huoQuMaPresenter.zhuCe(mobile.getText().toString(),ma.getText().toString());
                 break;
         }
     }
 
     @Override
     public void loadMa(String a) {
-
+        if(a.equals("验证码已发送")){
+            Toast.makeText(this, "验证码发送成功", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "验证码发送失败", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
     public void zhuCe(String s) {
+        if(s.equals("成功")){
+            Intent intent = new Intent(this, SettingNewPassActivity.class);
+            startActivity(intent);
+            finish();
 
+        }
     }
 
     @Override
@@ -77,12 +96,6 @@ public class ResetPassActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void findPassNext(UapateBean uapateBean) {
-        if(uapateBean.getMessage().equals("成功")){
-            Toast.makeText(this, "密码重置成功", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, GoToLoginActivity.class);
-            startActivity(intent);
-            finish();
-        }
 
     }
 

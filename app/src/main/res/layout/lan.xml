@@ -8,7 +8,7 @@
     android:layout_height="30dp">
 
     <CheckBox
-        android:background="@drawable/bian_se"
+        android:background="@drawable/bian_se_two"
         android:layout_width="match_parent"
         android:checked="true"
         android:button="@null"

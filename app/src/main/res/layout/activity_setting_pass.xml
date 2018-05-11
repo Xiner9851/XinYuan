@@ -13,6 +13,7 @@
         android:layout_height="44dp">
 
         <TextView
+
             android:id="@+id/guanbi"
             android:layout_width="wrap_content"
             android:drawableLeft="@mipmap/u1253"
@@ -20,25 +21,16 @@
             android:layout_height="match_parent" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:text="更换手机号"
-            android:textSize="18sp"
 
+            android:layout_width="wrap_content"
+            android:text="更换密码"
+            android:textSize="18sp"
             android:textColor="#407ccb"
             android:layout_centerInParent="true"
             android:layout_height="wrap_content" />
     </RelativeLayout>
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="请输入新得手机号"
-        android:textSize="20sp"
-        android:textColor="#000000"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
-        />
 
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="80dp"
         />
@@ -48,15 +40,16 @@
         android:orientation="horizontal"
         >
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="+86"
+            android:text="手机号："
             android:gravity="center"
             android:textColor="#000000"
             android:layout_marginLeft="50dp"
             android:id="@+id/textView2" />
-
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/mobile"
@@ -65,9 +58,7 @@
             android:textColor="#000000"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/textView2"
-            android:layout_toEndOf="@+id/textView2"
-            android:layout_marginLeft="13dp"
-            android:layout_marginStart="13dp" />
+            android:layout_toEndOf="@+id/textView2" />
 
 
     </RelativeLayout>
@@ -78,13 +69,16 @@
         android:layout_marginRight="50dp"
         >
         <EditText
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="输入验证码"
             android:id="@+id/ma"
+            android:gravity="center"
             android:layout_marginLeft="50dp"
             />
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="获取验证码"
@@ -97,13 +91,16 @@
 
     </RelativeLayout>
     <Button
+
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="完成"
+        android:text="下一步"
         android:id="@+id/dian"
         android:layout_margin="50dp"
         android:background="#2f52b0"
         />
+
+
 
 
 </LinearLayout>

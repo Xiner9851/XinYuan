@@ -144,4 +144,9 @@ public class WanSanXinXiActivity extends BaseActivity implements View.OnClickLis
     public void findPassNext(UapateBean uapateBean) {
 
     }
+
+    @Override
+    public void update(String a) {
+
+    }
 }
