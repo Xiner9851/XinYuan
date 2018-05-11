@@ -153,6 +153,12 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
                 startActivity(intent8);
                 break;
             case R.id.home_myselft_fragment_message:
+                if(preferences.getBoolean("bbb", false)==false){
+                    startActivity(new Intent(getActivity(),ZhuCeActivity.class));
+                }else {
+                    Intent intent13 = new Intent(getActivity(), MessageActivity.class);
+                    startActivity(intent13);
+                }
 
                 break;
             case R.id.home_myselft_fragment_student_fukuan:
@@ -172,7 +178,16 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
                 startActivity(intentd);
                 break;
             case R.id.home_myselft_fragment_havegift_group:
-
+                Intent intent10 = new Intent(getActivity(), MyLiWuActivity.class);
+                startActivity(intent10);
+                break;
+            case R.id.home_myselft_fragment_favorites:
+                Intent intent11 = new Intent(getActivity(), MyShoucangActivity.class);
+                startActivity(intent11);
+                break;
+            case R.id.home_myselft_fragment_approve:
+                Intent intent12 = new Intent(getActivity(), RenZActivity.class);
+                startActivity(intent12);
                 break;
         }
     }
@@ -246,6 +261,9 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         home_myselft_fragment_student_tuiguo.setOnClickListener(this);
         home_myselft_fragment_student_dingdan.setOnClickListener(this);
         home_myselft_fragment_havegift_group.setOnClickListener(this);
+
+        home_myselft_fragment_favorites.setOnClickListener(this);
+        home_myselft_fragment_approve.setOnClickListener(this);
     }
 
 

@@ -47,7 +47,14 @@ public class PianHaoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }else if(viewType==TWO_ITEM){
             MyPianHaoBean.DataBean dataBeen = (MyPianHaoBean.DataBean) list.get(ONE_ITEM);
             List<MyPianHaoBean.DataBean.CollegesBean> colleges = dataBeen.getColleges();
-            return new TwoHolder(getYuanXiaoView(parent,R.layout.pianhao_yuanxiao,R.id.mRecy,new PianHaoYuanXiaoAdapter(parent.getContext(),colleges)));
+            PianHaoYuanXiaoAdapter pianHaoYuanXiaoAdapter = new PianHaoYuanXiaoAdapter(parent.getContext(), colleges);
+            pianHaoYuanXiaoAdapter.setOnclick(new PianHaoYuanXiaoAdapter.Onclick() {
+                @Override
+                public void wai(View view, int possi) {
+                    two.bi(view,possi);
+                }
+            });
+            return new TwoHolder(getYuanXiaoView(parent,R.layout.pianhao_yuanxiao,R.id.mRecy,pianHaoYuanXiaoAdapter));
         }
 
 
@@ -123,6 +130,12 @@ public class PianHaoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         this.etTiao=etTiao;
 
     }
+    public interface setTwo{
+        void bi(View view,int possi);
+    }
+    private setTwo two;
+    public void setCunZhi(setTwo two){
+        this.two=two;
 
-
+    }
 }

@@ -7,13 +7,14 @@
     android:layout_marginRight="20dp"
     android:layout_height="30dp">
 
-    <TextView
-        android:background="@drawable/valuable_listitem_type_bg"
+    <CheckBox
+        android:background="@drawable/bian_se"
         android:layout_width="match_parent"
+        android:checked="true"
+        android:button="@null"
         android:layout_height="match_parent"
         android:gravity="center"
         android:id="@+id/name"
-
         />
 
 

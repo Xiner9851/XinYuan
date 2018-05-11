@@ -23,7 +23,7 @@ public interface IHuoQuYZMaContact {
         void findPassNext(UapateBean uapateBean);
 
 
-
+        void update(String a);
     }
     interface Presenter{
         void loadMa(String value);
@@ -39,5 +39,8 @@ public interface IHuoQuYZMaContact {
         void findPass(String tel, String ma);
 
         void findPassNext(String tel, String pass);
+
+
+        void updateMobile(String id,String mobile,String code);
     }
 }

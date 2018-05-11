@@ -85,4 +85,9 @@ public class ResetPassActivity extends BaseActivity implements View.OnClickListe
         }
 
     }
+
+    @Override
+    public void update(String a) {
+
+    }
 }

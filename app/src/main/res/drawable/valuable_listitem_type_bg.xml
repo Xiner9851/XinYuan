@@ -9,7 +9,9 @@
     <!-- 指定边框线条的宽度和颜色 -->
     <stroke android:width="0.5dp"
         android:color="#995491FF"/>
-
+    <solid
+        android:color="#ffffff"
+        ></solid>
 
 
 </shape>

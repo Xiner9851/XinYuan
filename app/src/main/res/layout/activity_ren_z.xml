@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="26dp"
+        android:layout_height="44dp">
+
+        <TextView
+            android:id="@+id/approve_user_aty_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="我的认证"
+            android:textSize="18sp"
+            android:textColor="#5025b5"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_height="1dp" />
+    </RelativeLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="106dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:src="@mipmap/approve_certification"
+                        android:layout_height="33dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="认证后将点亮v图标，开通老师权限"
+                        android:textSize="14dp"
+                        android:layout_marginTop="12dp"
+                        android:textColor="#242e85"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:background="#F6F6F6"
+                android:layout_height="10dp" />
+
+            <EditText
+                android:id="@+id/approve_user_aty_name"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:padding="12dp"
+                android:hint="姓名"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:singleLine="true"
+                android:layout_height="54dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:background="#F6F6F6"
+                android:layout_height="10dp" />
+
+
+            <EditText
+                android:id="@+id/approve_user_aty_majors"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:padding="12dp"
+                android:hint="专业领域"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:singleLine="true"
+                android:layout_height="54dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:background="#F6F6F6"
+                android:layout_height="10dp" />
+
+            <EditText
+                android:id="@+id/approve_user_aty_input"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:minLines="5"
+                android:textSize="14sp"
+                android:textColor="#293f92"
+                android:gravity="top"
+                android:hint="个人介绍"
+                android:layout_margin="12dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:background="#F6F6F6"
+                android:layout_height="10dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="202dp">
+
+                <ImageView
+                    android:id="@+id/approve_user_aty_show_idcard"
+                    android:layout_width="match_parent"
+                    android:layout_margin="12dp"
+                    android:scaleType="centerCrop"
+                    android:layout_height="202dp" />
+
+                <LinearLayout
+                    android:id="@+id/approve_user_aty_post_idcard"
+                    android:layout_width="match_parent"
+                    android:layout_margin="12dp"
+                    android:gravity="center"
+                    android:visibility="visible"
+                    android:background="@drawable/approve_idcard_bg"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:layout_width="76dp"
+                        android:src="@mipmap/approve_message"
+                        android:layout_height="52dp" />
+
+                    <TextView
+                        android:layout_marginTop="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="上传您的身份证明"
+                        android:textColor="#ff333333"
+                        android:textSize="16dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="名片、工牌、工作邮箱后台截图等任一材料 请确保上传图片的手机号码与Univstar绑定的手机号码一致"
+                        android:textColor="#ff999999"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:textSize="12dp"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/approve_user_aty_genghuan_group"
+                    android:layout_width="match_parent"
+                    android:background="#66000000"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_margin="12dp"
+                    android:gravity="bottom"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/approve_user_aty_genghuan_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="right"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:visibility="gone"
+                        android:background="@drawable/button_black_bg"
+                        android:gravity="center_vertical"
+                        android:layout_marginRight="12dp"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:src="@mipmap/genghuan_label"
+                            android:layout_height="14dp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="更换"
+                            android:layout_marginLeft="8dp"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                    <ProgressBar
+                        android:id="@+id/approve_user_aty_progressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_gravity="center"
+                        android:visibility="visible"
+                        android:maxHeight="5dp"
+                        android:minHeight="5dp"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/progress_bar_bg"/>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/approve_user_aty_post_btn"
+                android:layout_width="match_parent"
+                android:background="#213092"
+                android:text="提交"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:layout_height="48dp" />
+
+
+        </LinearLayout>
+
+</LinearLayout>

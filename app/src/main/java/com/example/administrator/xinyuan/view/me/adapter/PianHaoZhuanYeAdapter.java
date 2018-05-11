@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.CheckBox;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.model.entity.MyPianHaoBean;
@@ -47,7 +47,7 @@ public class PianHaoZhuanYeAdapter extends RecyclerView.Adapter<PianHaoZhuanYeAd
 
 
     public class Holder extends RecyclerView.ViewHolder {
-        private TextView name;
+        private CheckBox name;
         public Holder(View itemView) {
             super(itemView);
             name=itemView.findViewById(R.id.name);

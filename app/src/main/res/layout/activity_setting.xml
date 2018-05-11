@@ -182,6 +182,7 @@
         android:layout_height="10dp" />
 
     <RelativeLayout
+        android:id="@+id/quchu_huancun"
         android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_marginLeft="12dp"

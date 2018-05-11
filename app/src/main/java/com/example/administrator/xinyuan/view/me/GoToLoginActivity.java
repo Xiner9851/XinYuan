@@ -141,4 +141,9 @@ public class GoToLoginActivity extends BaseActivity implements View.OnClickListe
     public void findPassNext(UapateBean uapateBean) {
 
     }
+
+    @Override
+    public void update(String a) {
+
+    }
 }

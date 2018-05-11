@@ -52,7 +52,7 @@ public class GuanZhuAdapter extends BaseAdapter {
         vh = null;
         if(convertView==null){
             vh =new Vh();
-            convertView= LayoutInflater.from(context).inflate(R.layout.activity_guan_zhu,null);
+            convertView= LayoutInflater.from(context).inflate(R.layout.guanzhu,null);
             vh.img=convertView.findViewById(R.id.img);
             vh.name=convertView.findViewById(R.id.name);
             convertView.setTag(vh);

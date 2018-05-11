@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.xinyuan.view.me.SettingNewPassActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="26dp"
+        android:layout_height="44dp">
+
+        <TextView
+            android:id="@+id/guanbi"
+            android:layout_width="wrap_content"
+            android:drawableLeft="@mipmap/u1253"
+            android:layout_marginLeft="10dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:text="修改密码"
+            android:textSize="18sp"
+            android:textColor="#407ccb"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="输入新的密码"
+        android:layout_margin="40dp"
+        android:textColor="#000000"
+        android:textSize="23sp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入新的密码"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/pass"
+        android:layout_marginRight="40dp"
+        />
+    <EditText
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入新的密码"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/password"
+        android:layout_marginRight="40dp"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="40dp"
+        android:text="完成"
+        android:id="@+id/wancheng"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:background="#211ec8"
+        />
+
+</LinearLayout>

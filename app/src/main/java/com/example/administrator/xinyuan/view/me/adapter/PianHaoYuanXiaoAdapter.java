@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.CheckBox;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.model.entity.MyPianHaoBean;
@@ -16,7 +16,7 @@ import java.util.List;
  * Created by fghjkl on 2018/5/9.
  */
 
-public class PianHaoYuanXiaoAdapter extends RecyclerView.Adapter<PianHaoYuanXiaoAdapter.Holder>{
+public class PianHaoYuanXiaoAdapter extends RecyclerView.Adapter<PianHaoYuanXiaoAdapter.Holder> implements View.OnClickListener{
     private Context context;
     private List<MyPianHaoBean.DataBean.CollegesBean> o;
 
@@ -28,14 +28,16 @@ public class PianHaoYuanXiaoAdapter extends RecyclerView.Adapter<PianHaoYuanXiao
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.one,parent,false);
-
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.lan,parent,false);
+        view.setOnClickListener(this);
         return new Holder(view);
     }
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
         holder.name.setText(o.get(position).getName());
+
+        holder.itemView.setTag(position);
 
     }
 
@@ -45,10 +47,25 @@ public class PianHaoYuanXiaoAdapter extends RecyclerView.Adapter<PianHaoYuanXiao
     }
 
     public class Holder extends RecyclerView.ViewHolder {
-        private TextView name;
+        private CheckBox name;
         public Holder(View itemView) {
             super(itemView);
             name=itemView.findViewById(R.id.name);
         }
+    }
+    public  interface Onclick{
+        void wai(View view,int possi);
+    }
+    private Onclick onclick;
+    @Override
+    public void onClick(View v) {
+        if(onclick!=null){
+            onclick.wai(v,(int)v.getTag());
+        }
+
+
+    }
+    public void setOnclick(Onclick onclick){
+        this.onclick=onclick;
     }
 }

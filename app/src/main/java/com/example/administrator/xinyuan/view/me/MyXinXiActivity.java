@@ -1,9 +1,15 @@
 package com.example.administrator.xinyuan.view.me;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -48,7 +54,8 @@ public class MyXinXiActivity extends BaseActivity implements IMeMyXinXiContact.V
     private int yue;
     private int day;
     private  int sex=0;
-
+    //调用系统相册-选择图片
+    private static final int IMAGE = 1;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_my_xin_xi;
@@ -131,6 +138,10 @@ public class MyXinXiActivity extends BaseActivity implements IMeMyXinXiContact.V
                 finish();
                 break;
             case R.id.userinfo_aty_userimg_group:
+                //调用相册
+                Intent intent = new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intent, IMAGE);
 
                 break;
             case R.id.userinfo_aty_changename:
@@ -192,4 +203,26 @@ public class MyXinXiActivity extends BaseActivity implements IMeMyXinXiContact.V
             userinfo_aty_changenbirthday_tv.setText(days);
         }
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //获取图片路径
+        if (requestCode == IMAGE && resultCode == Activity.RESULT_OK && data != null) {
+            Uri selectedImage = data.getData();
+            String[] filePathColumns = {MediaStore.Images.Media.DATA};
+            Cursor c = getContentResolver().query(selectedImage, filePathColumns, null, null, null);
+            c.moveToFirst();
+            int columnIndex = c.getColumnIndex(filePathColumns[0]);
+            String imagePath = c.getString(columnIndex);
+            showImage(imagePath);
+            c.close();
+        }
+    }
+    //加载图片
+    private void showImage(String imaePath){
+        Bitmap bm = BitmapFactory.decodeFile(imaePath);
+        ((ImageView)findViewById(R.id.userinfo_aty_userimg)).setImageBitmap(bm);
+    }
+
 }

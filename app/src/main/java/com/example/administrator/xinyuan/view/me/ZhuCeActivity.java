@@ -143,4 +143,9 @@ public class ZhuCeActivity extends BaseActivity implements View.OnClickListener,
     public void findPassNext(UapateBean uapateBean) {
 
     }
+
+    @Override
+    public void update(String a) {
+
+    }
 }
