@@ -15,6 +15,9 @@ public class KeCheng_ItemZiActivity extends BaseActivity {
 
 
     private ImageView again_img;
+
+
+
     private TextView again_teacherlabel;
     private TextView ketang;
     private TextView ketangtime;
