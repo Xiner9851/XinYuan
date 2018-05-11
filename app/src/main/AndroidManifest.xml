@@ -61,7 +61,8 @@
         <activity android:name=".view.teather.ZhaoTeather_WorkActivity" />
         <activity android:name=".view.teather.ZhaoQingTa_FuDaoActivity" />
         <activity android:name=".view.teather.KeCheng_ItemZiActivity" />
-        <activity android:name=".view.teather.Teather_Banner_Item2Activity"></activity>
+        <activity android:name=".view.teather.Teather_Banner_Item2Activity" />
+        <activity android:name=".view.work.Work_HuiFuActivity"></activity>
     </application>
 
 </manifest>

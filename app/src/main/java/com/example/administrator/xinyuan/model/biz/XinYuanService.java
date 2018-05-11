@@ -1,12 +1,16 @@
 package com.example.administrator.xinyuan.model.biz;
 
 import com.example.administrator.xinyuan.model.entity.BaoDian_Item_Bean;
+import com.example.administrator.xinyuan.model.entity.HuiFuLieBiaoBean;
 import com.example.administrator.xinyuan.model.entity.TeatherBean;
 import com.example.administrator.xinyuan.model.entity.TeatherTuiJie_Item;
 import com.example.administrator.xinyuan.model.entity.Teather_Banner_ItemBean;
 import com.example.administrator.xinyuan.model.entity.Teather_One_Item;
 import com.example.administrator.xinyuan.model.entity.TokenBean;
 import com.example.administrator.xinyuan.model.entity.WorkBean;
+import com.example.administrator.xinyuan.model.entity.WorkPingLunLieBiaoBean;
+import com.example.administrator.xinyuan.model.entity.WorkTiJIaoBean;
+import com.example.administrator.xinyuan.model.entity.Work_HuiFuBean;
 import com.example.administrator.xinyuan.model.entity.Work_Item_Bean;
 import com.example.administrator.xinyuan.model.entity.XianShang_Bean;
 import com.example.administrator.xinyuan.model.entity.YuDaoBean;
@@ -79,5 +83,30 @@ public interface XinYuanService {
     @FormUrlEncoded
     @POST(Urls.zhaoteather_quxiaoguanzhu)
     Observable<ResponseBody> zhaoTeaherQuGuanZhuData(@FieldMap Map<String,Object> params);
+    @FormUrlEncoded
+    @POST(Urls.dianzan)
+    Observable<ResponseBody> dianZanMessage(@FieldMap Map<String,Object> params);
+    @FormUrlEncoded
+    @POST(Urls.qudianzan)
+    Observable<ResponseBody> quDianZanMessage(@FieldMap Map<String,Object> params);
+    @FormUrlEncoded
+    @POST(Urls.shoucang)
+    Observable<ResponseBody> shouCangMessage(@FieldMap Map<String,Object> params);
+    @FormUrlEncoded
+    @POST(Urls.qushoucang)
+    Observable<ResponseBody> quShouCangMessage(@FieldMap Map<String,Object> params);
+
+    @FormUrlEncoded
+    @POST(Urls.workpinglun_url)
+    Observable<WorkPingLunLieBiaoBean> workPingLunMessage(@FieldMap Map<String,Object> params);
+    @FormUrlEncoded
+    @POST(Urls.tijiaopinglun_url)
+    Observable<WorkTiJIaoBean> tijiaoPingLunMessage(@FieldMap Map<String,Object> params);
+    @FormUrlEncoded
+    @POST(Urls.tijiaopinglun_url)
+    Observable<Work_HuiFuBean> huifuMessage(@FieldMap Map<String,Object> params);
+    @FormUrlEncoded
+    @POST(Urls.huifuliebiao_url)
+    Observable<HuiFuLieBiaoBean> huifuLieBiaoMessage(@FieldMap Map<String,Object> params);
 
 }
