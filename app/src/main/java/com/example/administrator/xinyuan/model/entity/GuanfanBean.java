@@ -8,11 +8,16 @@ import java.util.List;
 
 public class GuanfanBean {
 
+
+
+
     /**
      * code : 0
      * message : 成功
      * data : {"pageNum":1,"pageSize":20,"size":1,"startRow":1,"endRow":1,"total":1,"pages":1,"list":[{"id":7017,"page":1,"rows":20,"userId":668,"title":null,"content":"亲爱的用户，恭喜您，注册成功。UnivStar团队与您一起为学业进步而努力！","otherUserId":null,"otherUserName":null,"otherUserPhoto":null,"imageUrl":"","linkUrl":"","type":3,"refId":null,"refType":"UNIVSTAR","createDate":1525349056000}],"prePage":0,"nextPage":0,"isFirstPage":true,"isLastPage":true,"hasPreviousPage":false,"hasNextPage":false,"navigatePages":8,"navigatepageNums":[1],"navigateFirstPage":1,"navigateLastPage":1,"firstPage":1,"lastPage":1}
      */
+
+
 
     private int code;
     private String message;

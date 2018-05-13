@@ -9,11 +9,15 @@ import java.util.List;
 public class PingLunMessageBean {
 
 
+
+
     /**
      * code : 0
      * message : 成功
      * data : {"pageNum":1,"pageSize":20,"size":0,"startRow":0,"endRow":0,"total":0,"pages":0,"list":[],"prePage":0,"nextPage":0,"isFirstPage":true,"isLastPage":false,"hasPreviousPage":false,"hasNextPage":false,"navigatePages":8,"navigatepageNums":[],"navigateFirstPage":0,"navigateLastPage":0,"firstPage":0,"lastPage":0}
      */
+
+
 
     private int code;
     private String message;

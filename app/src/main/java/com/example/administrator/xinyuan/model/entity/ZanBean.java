@@ -8,11 +8,16 @@ import java.util.List;
 
 public class ZanBean {
 
+
+
     /**
      * code : 0
      * message : 成功
      * data : {"pageNum":1,"pageSize":20,"size":2,"startRow":1,"endRow":2,"total":2,"pages":1,"list":[{"id":17029,"page":1,"rows":20,"userId":668,"title":"你好","content":"赞了你的作业评论","otherUserId":778,"otherUserName":"八戒","otherUserPhoto":"http://qiniu.5roo.com/59a87011-eebf-4354-8e6d-becfbc85670e.jpg","imageUrl":"","linkUrl":"","type":4,"refId":507,"refType":"作业评论","createDate":1526022533000},{"id":17006,"page":1,"rows":20,"userId":668,"title":"你好","content":"赞了你的作业评论","otherUserId":778,"otherUserName":"八戒","otherUserPhoto":"http://qiniu.5roo.com/59a87011-eebf-4354-8e6d-becfbc85670e.jpg","imageUrl":"","linkUrl":"","type":4,"refId":507,"refType":"作业评论","createDate":1526020443000}],"prePage":0,"nextPage":0,"isFirstPage":true,"isLastPage":true,"hasPreviousPage":false,"hasNextPage":false,"navigatePages":8,"navigatepageNums":[1],"navigateFirstPage":1,"navigateLastPage":1,"firstPage":1,"lastPage":1}
      */
+
+
+
 
     private int code;
     private String message;

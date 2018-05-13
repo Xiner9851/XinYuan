@@ -8,11 +8,17 @@ import java.util.List;
 
 public class GuanZhuMyBean {
 
+
+
+
     /**
      * code : 0
      * message : 成功
      * data : {"pageNum":1,"pageSize":20,"size":1,"startRow":1,"endRow":1,"total":1,"pages":1,"list":[{"fansId":668,"intro":null,"nickname":"发吧","photo":"http://qiniu.5roo.com/98ed48c705cc48bcb99146342151672a.jpg","attention":2,"userType":1,"realname":null}],"prePage":0,"nextPage":0,"isFirstPage":true,"isLastPage":true,"hasPreviousPage":false,"hasNextPage":false,"navigatePages":8,"navigatepageNums":[1],"navigateFirstPage":1,"navigateLastPage":1,"firstPage":1,"lastPage":1}
      */
+
+
+
 
     private int code;
     private String message;
