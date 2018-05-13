@@ -27,7 +27,6 @@ public class DaiActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-
         return R.layout.activity_dai;
 
 

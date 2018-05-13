@@ -113,7 +113,7 @@ public class SheJiaoActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void showQQ(String s) {
         Log.e("sss",s);
-        if(s.equals("成功")){
+        if(s.equals("string")){
             Toast.makeText(this, "绑定成功", Toast.LENGTH_SHORT).show();
             bindaccount_qq_tv.setText("取消绑定");
         }

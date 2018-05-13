@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.xinyuan">
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -63,6 +55,12 @@
         <activity android:name=".view.me.TieZiActivity" />
         <activity android:name=".view.me.MyPianHaoActivity" />
         <activity android:name=".view.me.GuanZhuActivity" />
+        <activity android:name=".view.me.DingDangMessageActivity" />
+        <activity android:name=".view.me.GuanFangActivity" />
+        <activity android:name=".view.me.GuanZhuMyActivity" />
+        <activity android:name=".view.me.PinLunActivity" />
+        <activity android:name=".view.me.ZanActivity" />
+        <activity android:name=".view.me.ZuoYeMessageActivity" />
         <activity android:name=".view.teather.Teather_Banner_Item_Activity" />
         <activity android:name=".view.teather.Teather_OneItem_Activity" />
         <!-- com.example.administrator.xinyuan.view.teather -->
@@ -90,29 +88,7 @@
         <activity android:name=".view.teather.XianShang_Activity"></activity>
 
         <activity android:name=".view.teather.Teather_Banner_Item2Activity"></activity>
-        <activity
-            android:name="com.tencent.tauth.AuthActivity"
-            android:launchMode="singleTask"
-            android:noHistory="true" >
 
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="tencent100424468" />
-            </intent-filter>
-
-        </activity>
-
-        <activity
-            android:name="com.tencent.connect.common.AssistActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="5ab081a5f29d985022000247" >
-        </meta-data>
 
 
 

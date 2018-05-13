@@ -18,7 +18,7 @@ import java.util.List;
  * Created by fghjkl on 2018/5/10.
  */
 
-public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> {
+public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> implements View.OnClickListener{
     private Context context;
     private List<MessageBean.DataBean> list;
 
@@ -31,6 +31,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_message, parent, false);
+        view.setOnClickListener(this);
         return new Holder(view);
     }
 
@@ -98,12 +99,16 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
             holder.message_listitem_time.setText(TimeShift.getChatTime(list.get(position).getCreateDate()));
         }
 
+        holder.itemView.setTag(position);
+
     }
 
     @Override
     public int getItemCount() {
         return list.size();
     }
+
+
 
     public class Holder extends RecyclerView.ViewHolder {
 
@@ -123,4 +128,19 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
             message_listitem_time=itemView.findViewById(R.id.message_listitem_time);
         }
     }
+    public interface Onclick{
+        void wai(View view,int possi);
+    }
+    private Onclick onclick;
+    @Override
+    public void onClick(View v) {
+        if(onclick!=null){
+            onclick.wai(v,(int)v.getTag());
+        }
+    }
+    public void setTiao(Onclick onclick){
+        this.onclick =onclick;
+    }
+
+
 }

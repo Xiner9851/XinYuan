@@ -16,21 +16,14 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
-import com.example.administrator.xinyuan.App;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.contact.dainzancontact.DianZanContact;
 import com.example.administrator.xinyuan.model.entity.TeatherBean;
 import com.example.administrator.xinyuan.presenter.dianzanpresenter.IDianZanPresenter;
 import com.example.administrator.xinyuan.view.work.Work_ItemActivity;
-import com.umeng.socialize.ShareAction;
-import com.umeng.socialize.UMShareListener;
-import com.umeng.socialize.bean.SHARE_MEDIA;
-import com.umeng.socialize.media.UMImage;
-import com.umeng.socialize.media.UMWeb;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -52,45 +45,6 @@ public class ThreeAdapter extends RecyclerView.Adapter<ThreeAdapter.Holder> impl
     private IDianZanPresenter iDianZanPresenter;
     private int postions;
     private Intent intent;
-    private UMShareListener umShareListener= new UMShareListener() {
-        /**
-         * @descrption 分享开始的回调
-         * @param platform 平台类型
-         */
-        @Override
-        public void onStart(SHARE_MEDIA platform) {
-
-        }
-
-        /**
-         * @descrption 分享成功的回调
-         * @param platform 平台类型
-         */
-        @Override
-        public void onResult(SHARE_MEDIA platform) {
-            Toast.makeText(context,"成功了",Toast.LENGTH_LONG).show();
-        }
-
-        /**
-         * @descrption 分享失败的回调
-         * @param platform 平台类型
-         * @param t 错误原因
-         */
-        @Override
-        public void onError(SHARE_MEDIA platform, Throwable t) {
-            Toast.makeText(context,"失败"+t.getMessage(),Toast.LENGTH_LONG).show();
-        }
-
-        /**
-         * @descrption 分享取消的回调
-         * @param platform 平台类型
-         */
-        @Override
-        public void onCancel(SHARE_MEDIA platform) {
-            Toast.makeText(context,"取消了",Toast.LENGTH_LONG).show();
-
-        }
-    };
 
     public ThreeAdapter(Context context, List<TeatherBean.DataBean.HomewoksBean> homewoks) {
         this.context = context;
@@ -115,7 +69,6 @@ public class ThreeAdapter extends RecyclerView.Adapter<ThreeAdapter.Holder> impl
 
             Glide.with(context).load(homewoks.get(position).getPhoto())
                     .asBitmap()
-                    .error(R.mipmap.play_music_bg)
                     .override(50, 50)
                     .into(new BitmapImageViewTarget(holder.three_touxiang) {
                         @Override
@@ -177,31 +130,6 @@ public class ThreeAdapter extends RecyclerView.Adapter<ThreeAdapter.Holder> impl
             public void onClick(View v) {
 
                 context.startActivity(intent);
-            }
-        });
-        holder.teather_share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-              /*  new ShareAction(App.context)
-                        .withMedia(image)
-                        .withText("hello")
-                        .setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN)
-                        .setCallback(umShareListener)
-                        .open();*/
-                String path = homewoks.get(position).getPath();
-                UMWeb web = new UMWeb(path);
-                web.setTitle("This is music title");//标题
-                UMImage image = new UMImage(context,R.mipmap.ic_launcher );//网络图片
-                web.setThumb(image);  //缩略图
-                web.setDescription(homewoks.get(position).getContent());//描述
-
-
-                new ShareAction(App.context)
-                        .withMedia(web)
-                        .setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN)
-                        .setCallback(umShareListener)
-                        .open();
             }
         });
       /*  holder.rb1.setOnClickListener(new View.OnClickListener() {
@@ -277,7 +205,6 @@ public class ThreeAdapter extends RecyclerView.Adapter<ThreeAdapter.Holder> impl
         private TextView work_zanshang_geshu;
         private LinearLayout work_recycler_item_reward_group;
         private LinearLayout work_recycler_item_share;
-        private ImageView teather_share;
 
         public Holder(View itemView) {
             super(itemView);
@@ -292,7 +219,6 @@ public class ThreeAdapter extends RecyclerView.Adapter<ThreeAdapter.Holder> impl
             work_pinglin_geshu=itemView.findViewById(R.id.work_pinglin_geshu);
             work_dianzan_geshu=itemView.findViewById(R.id.work_dianzan_geshu);
             work_zanshang_geshu=itemView.findViewById(R.id.work_zanshang_geshu);
-            teather_share=itemView.findViewById(R.id.teather_share);
 
 
         }
