@@ -55,7 +55,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/mLiv"
         android:visibility="gone"
-        android:background="#e4e2e2"
         ></ListView>
 
 

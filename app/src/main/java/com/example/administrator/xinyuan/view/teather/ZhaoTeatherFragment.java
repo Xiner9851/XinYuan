@@ -62,6 +62,7 @@ public class ZhaoTeatherFragment extends BaseFragment implements IZhaoTeather_Co
         final List<ZhaoTeatherBean.DataBean.ListBean> list = data.getList();
         ZhaoAdapter zhaoAdapter = new ZhaoAdapter(getContext(),list);
         zhao_recy.setAdapter(zhaoAdapter);
+
         zhaoAdapter.setOnClickItemListion(new ZhaoAdapter.OnClickListion() {
             @Override
             public void setOnCLickListion(View view, int postion) {

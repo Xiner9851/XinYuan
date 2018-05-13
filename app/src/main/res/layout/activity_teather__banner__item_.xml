@@ -366,9 +366,37 @@
                 android:weightSum="8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <RadioButton
+            <!--    <ImageView
+
+                    android:id="@+id/tuijie_shoucang"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/collect_normal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/tuijie_qushoucang"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:src="@mipmap/collect_active"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />-->
+                <ImageView
+                    android:id="@+id/banner1_qushoushang"
                     android:button="@null"
-                    android:drawableTop="@mipmap/collect_normal"
+                    android:src= "@mipmap/collect_active"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/banner1_shoushang"
+                    android:button="@null"
+                    android:src= "@mipmap/collect_normal"
                     android:layout_gravity="center_vertical"
 
                     android:layout_width="0dp"

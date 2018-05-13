@@ -366,10 +366,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <RadioButton
+                    android:id="@+id/yugao_item_shoucang"
                     android:button="@null"
                     android:drawableTop="@mipmap/collect_normal"
                     android:layout_gravity="center_vertical"
 
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/yugao_item_qushoucang"
+                    android:button="@null"
+                    android:drawableTop="@mipmap/collect_active"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone"
                     android:layout_width="0dp"
                     android:layout_weight="2"
                     android:layout_height="wrap_content" />

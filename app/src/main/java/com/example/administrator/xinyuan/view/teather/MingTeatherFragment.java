@@ -12,6 +12,7 @@ import com.example.administrator.xinyuan.contact.teathercontact.Teather_Contact;
 import com.example.administrator.xinyuan.model.entity.TeatherBean;
 import com.example.administrator.xinyuan.presenter.teatherpresenter.ITeather_Presenter;
 import com.example.administrator.xinyuan.view.teather.adapter.Teather_Adapter;
+import com.example.administrator.xinyuan.view.work.Work_ItemActivity;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
@@ -27,6 +28,8 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
     private Handler han=new Handler();
     private PullLoadMoreRecyclerView teather_recy;
     private ITeather_Presenter iTeather_presenter;
+    private Intent intent;
+    private List<TeatherBean.DataBean.HomewoksBean> homewoks;
 
     @Override
     protected int getLayoutId() {
@@ -77,8 +80,8 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
        teather_list=new ArrayList<>();
         List<TeatherBean.DataBean.SystemAdsBean> systemAds = teatherBean.getData().getSystemAds();
         List<TeatherBean.DataBean.UsersBean> users = teatherBean.getData().getUsers();
-        List<TeatherBean.DataBean.LiveCoursesBean> liveCourses = teatherBean.getData().getLiveCourses();
-        List<TeatherBean.DataBean.HomewoksBean> homewoks = teatherBean.getData().getHomewoks();
+        final List<TeatherBean.DataBean.LiveCoursesBean> liveCourses = teatherBean.getData().getLiveCourses();
+        homewoks = teatherBean.getData().getHomewoks();
 
 
 
@@ -89,6 +92,7 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
         teather_list.add("");
         Teather_Adapter teather_adapter = new Teather_Adapter(teather_list,getActivity());
         teather_recy.setAdapter(teather_adapter);
+        intent = new Intent(getContext(), Work_ItemActivity.class);
 
         //one监听
         teather_adapter.setOneClick(new Teather_Adapter.OneClick() {
@@ -106,6 +110,9 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
             @Override
             public void setTwoClick(int postion) {
                 Toast.makeText(getContext(), "two"+postion, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), TuiJie_ItemActivity.class);
+                intent.putExtra("id",liveCourses.get(postion).getId());
+                startActivity(intent);
             }
         });
         //three监听
@@ -113,6 +120,10 @@ public class MingTeatherFragment extends BaseFragment implements Teather_Contact
             @Override
             public void setThreeClick(int postion) {
                 Toast.makeText(getContext(), "three"+postion, Toast.LENGTH_SHORT).show();
+                intent.putExtra("id", homewoks.get(postion).getId());
+                intent.putExtra("replyId", homewoks.get(postion).getTUserId());
+                intent.putExtra("refId", homewoks.get(postion).getId());
+                startActivity(intent);
             }
         });
 

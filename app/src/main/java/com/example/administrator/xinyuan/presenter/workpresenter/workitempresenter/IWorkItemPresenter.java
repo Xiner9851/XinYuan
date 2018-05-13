@@ -3,6 +3,7 @@ package com.example.administrator.xinyuan.presenter.workpresenter.workitempresen
 import com.example.administrator.xinyuan.contact.workcontact.workitemcontact.Work_Item_Contact;
 import com.example.administrator.xinyuan.model.biz.XinYuanService;
 import com.example.administrator.xinyuan.model.entity.Work_Item_Bean;
+import com.example.administrator.xinyuan.model.entity.Work_ZanShangBean;
 import com.example.administrator.xinyuan.model.http.RetrofitUtils;
 
 import java.util.Map;
@@ -33,6 +34,19 @@ public class IWorkItemPresenter implements Work_Item_Contact.Presenter {
                     @Override
                     public void accept(Work_Item_Bean work_item_bean) throws Exception {
                         view.showData(work_item_bean);
+                    }
+                });
+    }
+
+    @Override
+    public void zanShangLoadData(Map<String, Object> params) {
+       loadDate.workItemZanShangData(params)
+               .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Consumer<Work_ZanShangBean>() {
+                    @Override
+                    public void accept(Work_ZanShangBean work_zanShangBean) throws Exception {
+                        view.zanShangshowData(work_zanShangBean);
                     }
                 });
     }

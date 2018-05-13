@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.xinyuan.view.teather.TuiJie_ItemActivity">
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/again_NameTeacherHead"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/again_bigImg"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:id="@+id/again_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+                <RelativeLayout
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/colorTong"
+                    android:id="@+id/again_teacher"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp">
+
+                    <TextView
+                        android:id="@+id/again_teacherlabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+
+                        android:textColor="@color/colorWhite"
+                        android:textSize="10sp" />
+                   <TextView
+                       android:id="@+id/ketang"
+                       android:textColor="#fff"
+                       android:layout_centerInParent="true"
+                       android:layout_alignParentRight="true"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="讲课课堂:"/>
+                    <TextView
+                        android:textColor="#fff"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/ketangtime"
+                        android:layout_toRightOf="@+id/ketang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/again_Rela"
+                android:layout_below="@+id/again_bigImg"
+                android:layout_width="match_parent"
+                android:layout_height="140dp">
+                <RelativeLayout
+                    android:id="@+id/again_NameTeacherHead1"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+                    <ImageView
+                        android:id="@+id/again_NameteacherHead_teacherImg"
+                        android:layout_marginRight="15dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                    <TextView
+                        android:id="@+id/again_NameteacherHead_teacherName"
+                        android:layout_marginRight="3dp"
+                        android:layout_alignTop="@+id/again_NameteacherHead_teacherImg"
+                        android:layout_toRightOf="@+id/again_NameteacherHead_teacherImg"
+                        android:textSize="16sp"
+                        android:textColor="#e9dc26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/again_NameteacherHead_teacherVipImg"
+                        android:layout_alignTop="@+id/again_NameteacherHead_teacherImg"
+                        android:layout_toRightOf="@+id/again_NameteacherHead_teacherName"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp" />
+                    <TextView
+                        android:layout_toRightOf="@+id/again_NameteacherHead_teacherImg"
+                        android:id="@+id/again_teacherHead_NameteacherTitle"
+                        android:textSize="15sp"
+                        android:layout_alignBottom="@+id/again_NameteacherHead_teacherImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/again_NameteacherHead_teacherConcern"
+                        android:layout_marginRight="10dp"
+                        android:text="关注"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/shape"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp" />
+
+                    <View
+                        android:layout_alignParentBottom="true"
+                        android:background="#8888"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_below="@+id/again_NameTeacherHead1"
+                    android:id="@+id/again_NameTeacherHead2"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+                    <LinearLayout
+                        android:id="@+id/aaa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/biaoqian"
+                            android:text="表演"
+
+                            android:textColor="#6585f1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="  名师讲堂"
+                            android:textColor="#6585f1"
+                            android:id="@+id/biaoqian2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_alignParentBottom="true"
+                        android:layout_below="@+id/aaa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></LinearLayout>
+
+                    <View
+                        android:layout_below="@+id/aaa"
+                        android:background="#8888"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+                </RelativeLayout>
+            </RelativeLayout>
+            <WebView
+                android:layout_below="@+id/again_Rela"
+                android:textColor="#8888"
+                android:id="@+id/again_NameTeacherContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp">
+        <ImageView
+            android:id="@+id/again_back"
+            android:src="@mipmap/detail_back"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/again_share"
+            android:src="@mipmap/detail_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:id="@+id/fudao"
+
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:weightSum="4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <ImageView
+
+                android:id="@+id/tuijie_shoucang"
+                android:layout_weight="1"
+                android:background="#fff"
+                android:layout_gravity="center"
+                android:src="@mipmap/collect_normal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/tuijie_qushoucang"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:src="@mipmap/collect_active"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            <Button
+                android:background="#5599c1"
+               android:layout_weight="3"
+                android:button="@null"
+                android:textColor="#fff"
+                android:text="购买"
+                android:layout_centerInParent="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/again_share"
+            android:layout_alignRight="@+id/again_share"
+            android:layout_below="@+id/again_share"
+            android:layout_marginTop="217dp"
+            android:text="你好" />
+
+        <TextView
+
+            android:id="@+id/yuyuegeshu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  名师讲堂"
+            android:textColor="#6585f1"
+            android:layout_alignBaseline="@+id/textView5"
+            android:layout_alignBottom="@+id/textView5"
+            android:layout_toRightOf="@+id/textView5"
+            android:layout_toEndOf="@+id/textView5" />
+
+        <TextView
+
+
+            android:id="@+id/textView5"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已预约："
+            android:textColor="#6585f1"
+            android:layout_alignBaseline="@+id/price"
+            android:layout_alignBottom="@+id/price"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

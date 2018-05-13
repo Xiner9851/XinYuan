@@ -62,9 +62,14 @@ public class ZhaoTeather_KeCheng_Activity extends BaseActivity implements ZhaoTe
         List<ZhaoTeather_KeCheng.DataBean.ListBean> list = zhaoTeatherKeCheng.getData().getList();
         ZhaoTeather_KeCheng_Adapter zhaoTeather_keCheng_adapter = new ZhaoTeather_KeCheng_Adapter(this, list);
         zhaoteather_kecheng_recy.setAdapter(zhaoTeather_keCheng_adapter);
-
+        zhaoTeather_keCheng_adapter.setOnCLickItem(new ZhaoTeather_KeCheng_Adapter.OnClick() {
+            @Override
+            public void setOnClick(View view, int postion) {
+                Intent intent = new Intent(ZhaoTeather_KeCheng_Activity.this, TuiJie_ItemActivity.class);
+                startActivity(intent);
+            }
+        });
     }
-
 
 
 }

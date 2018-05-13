@@ -14,6 +14,7 @@
         android:layout_height="48dp" >
 
         <LinearLayout
+            android:id="@+id/one_check_qingta"
             android:layout_width="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center_vertical"
@@ -171,14 +172,30 @@
                     </LinearLayout>
 
 
-                    <TextView
+                    <Button
+
                         android:id="@+id/masterdetail_teacher_Attention"
                         android:layout_width="60dp"
-                        android:background="@drawable/detail_guanzhu_bg"
+                        android:background="#5dd9b4"
                         android:gravity="center"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:textColor="@drawable/detail_guanzhu_tv_bg"
+                        android:text="关注"
+
+                        android:textColor="#fff"
+                        android:layout_height="28dp" />
+                    <Button
+
+                        android:id="@+id/masterdetail_teacher_quAttention"
+                        android:layout_width="60dp"
+                        android:visibility="gone"
+                        android:background="#8888"
+                        android:gravity="center"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:text="已关注"
+
+                        android:textColor="#fff"
                         android:layout_height="28dp" />
 
 

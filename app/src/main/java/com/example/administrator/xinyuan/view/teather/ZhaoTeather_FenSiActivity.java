@@ -1,6 +1,8 @@
 package com.example.administrator.xinyuan.view.teather;
 
 import android.content.Intent;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -22,7 +24,8 @@ public class ZhaoTeather_FenSiActivity extends BaseActivity implements ZhaoTeath
 
     private ImageView fensi_back;
     private TextView fensi_teathername;
-    private ListView zhaoteather_fensi_listview;
+    private RecyclerView zhaoteather_fensi_listview;
+
 
     @Override
     protected int getLayoutId() {
@@ -31,7 +34,7 @@ public class ZhaoTeather_FenSiActivity extends BaseActivity implements ZhaoTeath
 
     @Override
     protected void init() {
-        zhaoteather_fensi_listview= (ListView) findViewById(R.id.zhaoteather_fensi_listview);
+        zhaoteather_fensi_listview= (RecyclerView) findViewById(R.id.zhaoteather_fensi_listview);
         fensi_teathername= (TextView) findViewById(R.id.fensi_teathername);
         fensi_back= (ImageView) findViewById(R.id.fensi_back);
         fensi_back.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +43,7 @@ public class ZhaoTeather_FenSiActivity extends BaseActivity implements ZhaoTeath
                 finish();
             }
         });
+        zhaoteather_fensi_listview.setLayoutManager(new LinearLayoutManager(this));
 
 
     }
@@ -54,6 +58,7 @@ public class ZhaoTeather_FenSiActivity extends BaseActivity implements ZhaoTeath
         IZhaoTeatherFenSiPresenter iZhaoTeatherFenSiPresenter = new IZhaoTeatherFenSiPresenter(this);
         iZhaoTeatherFenSiPresenter.loadData(params);
         fensi_teathername.setText(name+"的粉丝");
+
     }
 
 
@@ -64,4 +69,6 @@ public class ZhaoTeather_FenSiActivity extends BaseActivity implements ZhaoTeath
         zhaoteather_fensi_listview.setAdapter(zhaoTeather_fenSi_adapter);
 
     }
+
+
 }

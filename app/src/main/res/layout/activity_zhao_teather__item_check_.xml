@@ -110,6 +110,18 @@
                         android:background="@drawable/shape"
                         android:layout_width="60dp"
                         android:layout_height="30dp" />
+                    <Button
+                        android:visibility="gone"
+                        android:id="@+id/quagain_NameteacherHead_teacherConcern"
+                        android:layout_marginRight="10dp"
+                        android:text="已关注"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:textColor="#8888"
+                        android:background="@drawable/shape3"
+
+                        android:layout_width="60dp"
+                        android:layout_height="30dp" />
 
                     <View
                         android:layout_alignParentBottom="true"

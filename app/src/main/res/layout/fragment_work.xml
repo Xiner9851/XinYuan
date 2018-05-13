@@ -63,6 +63,7 @@
                 android:paddingLeft="60dp"
                 >
                 <ImageView
+                    android:id="@+id/fubuzuoping"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/imageView"
@@ -73,6 +74,7 @@
 
 
                 <TextView
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
