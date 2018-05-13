@@ -16,6 +16,7 @@ public class DingDanMessageBean {
 
     private int code;
     private String message;
+
     private DataBean data;
 
     public int getCode() {
@@ -43,6 +44,7 @@ public class DingDanMessageBean {
     }
 
     public static class DataBean {
+
         /**
          * pageNum : 1
          * pageSize : 20
