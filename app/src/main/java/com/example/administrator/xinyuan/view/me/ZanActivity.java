@@ -16,6 +16,7 @@ import com.example.administrator.xinyuan.model.entity.GuanfanBean;
 import com.example.administrator.xinyuan.model.entity.PingLunMessageBean;
 import com.example.administrator.xinyuan.model.entity.ZanBean;
 import com.example.administrator.xinyuan.presenter.DingDanMessagePresent;
+import com.example.administrator.xinyuan.view.me.adapter.ZanAdapter;
 
 public class ZanActivity extends BaseActivity implements IDingDangMessageContact.View,View.OnClickListener{
     private DingDanMessagePresent dingDanMessagePresent;
@@ -73,6 +74,8 @@ public class ZanActivity extends BaseActivity implements IDingDangMessageContact
         }else {
             mLiv.setVisibility(View.VISIBLE);
             masterfudaolist_list_empty.setVisibility(View.GONE);
+            ZanAdapter zanAdapter=new ZanAdapter(this,zanBean.getList());
+            mLiv.setAdapter(zanAdapter);
         }
     }
 

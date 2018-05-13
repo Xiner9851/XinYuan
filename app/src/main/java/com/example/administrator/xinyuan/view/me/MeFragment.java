@@ -20,12 +20,17 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseFragment;
+import com.example.administrator.xinyuan.contact.ITieZiContact;
+import com.example.administrator.xinyuan.model.entity.FensiBean;
+import com.example.administrator.xinyuan.model.entity.GuanZhuBean;
+import com.example.administrator.xinyuan.model.entity.TieZiBean;
 import com.example.administrator.xinyuan.model.http.Constant;
+import com.example.administrator.xinyuan.presenter.TieZiPresent;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MeFragment extends BaseFragment implements View.OnClickListener{
+public class MeFragment extends BaseFragment implements View.OnClickListener,ITieZiContact.View {
 
 
     private ImageView touxiang;
@@ -92,6 +97,10 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
 
     @Override
     protected void loadDate() {
+         TieZiPresent tieZiPresent=new TieZiPresent(this);
+        SharedPreferences xiaoji = getActivity().getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
+        tieZiPresent.LoadGuanZhu(xiaoji.getInt("id",0));
+        tieZiPresent.LoadFensi(xiaoji.getInt("id",0));
         preferences = getActivity().getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
         string = preferences.getString(Constant.UserId, "");
         String mobile = preferences.getString("mobile", "");
@@ -307,5 +316,22 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         }
 
 
+    }
+
+    @Override
+    public void showShuJu(TieZiBean tieZiBean) {
+
+    }
+
+    @Override
+    public void showGuanZhi(GuanZhuBean guanZhuBean) {
+        int size = guanZhuBean.getData().getSize();
+        home_myselft_fragment_attentionCount_tv.setText(size+"");
+
+    }
+
+    @Override
+    public void showFensi(FensiBean fensiBean) {
+        home_myselft_fragment_fansCount_tv.setText(fensiBean.getData().getSize()+"");
     }
 }

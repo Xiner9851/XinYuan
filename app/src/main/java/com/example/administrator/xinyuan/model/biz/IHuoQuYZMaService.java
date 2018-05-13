@@ -12,6 +12,7 @@ import com.example.administrator.xinyuan.model.entity.MyPianHaoBean;
 import com.example.administrator.xinyuan.model.entity.MyShoucangBean;
 import com.example.administrator.xinyuan.model.entity.MyselfModelBean;
 import com.example.administrator.xinyuan.model.entity.PingLunMessageBean;
+import com.example.administrator.xinyuan.model.entity.QQBangDingBean;
 import com.example.administrator.xinyuan.model.entity.RechargeCenterListModel;
 import com.example.administrator.xinyuan.model.entity.SettingNewPassBean;
 import com.example.administrator.xinyuan.model.entity.TieZiBean;
@@ -154,4 +155,8 @@ public interface IHuoQuYZMaService {
     @FormUrlEncoded
     @POST("v1/m/message/attention ")
     Observable<GuanZhuMyBean> loadGuanZhuMyMessage(@FieldMap Map<String,Integer> params);
+    //qq绑定
+    @FormUrlEncoded
+    @POST("v1/m/user/setting/binding")
+    Observable<QQBangDingBean> qqBangD(@FieldMap Map<String,String> params);
 }
