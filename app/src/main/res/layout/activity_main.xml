@@ -48,7 +48,7 @@
         android:layout_above="@+id/gp_bt"
         android:id="@+id/fragment_manger"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="wrap_content"></FrameLayout>
     <RadioGroup
         android:id="@+id/gp_bt"
 

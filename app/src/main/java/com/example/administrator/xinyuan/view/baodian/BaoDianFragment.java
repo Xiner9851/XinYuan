@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.widget.Toast;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
@@ -31,7 +32,7 @@ public class BaoDianFragment extends BaseFragment implements IBaoDianContact.Vie
     ArrayList<Fragment> aaa=new ArrayList<>();
     private Handler han=new Handler();
     private ArrayList<String> mTitle=new ArrayList<>();
-    private int a=0;
+    private int a=1;
     private String b="1";
     private String c="2";
     private BaoDianPresent baoDianPresent;
@@ -83,18 +84,18 @@ public class BaoDianFragment extends BaseFragment implements IBaoDianContact.Vie
 
     @Override
     public void showData(BaoDianFuYongBean baoDianFuYongBean) {
-//        if(baoDianFuYongBean.getData().getSystemAds().size()!=0) {
-//            list.add(baoDianFuYongBean.getData().getSystemAds().get(0).getMobileImgUrl());
-//            list.add(baoDianFuYongBean.getData().getSystemAds().get(1).getMobileImgUrl());
-//            baodian_fly.setImagesUrl(list);
-//            baodian_fly.setOnItemClickListener(new FlyBanner.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(int position) {
-//                    Toast.makeText(getContext(), "轮播图" + position, Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//
-//        }
+        if(baoDianFuYongBean.getData().getSystemAds().size()!=0) {
+            list.add(baoDianFuYongBean.getData().getSystemAds().get(0).getMobileImgUrl());
+            list.add(baoDianFuYongBean.getData().getSystemAds().get(1).getMobileImgUrl());
+            baodian_fly.setImagesUrl(list);
+            baodian_fly.setOnItemClickListener(new FlyBanner.OnItemClickListener() {
+                @Override
+                public void onItemClick(int position) {
+                    Toast.makeText(getContext(), "轮播图" + position, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
 
     }
 }

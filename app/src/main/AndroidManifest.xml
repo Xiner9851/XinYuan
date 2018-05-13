@@ -52,11 +52,25 @@
         <activity android:name=".view.teather.ZhaoTeather_ItemCheck_Activity" />
         <activity android:name=".view.teather.ZhaoTeather_FenSiActivity" />
         <activity android:name=".view.teather.ZhaoTeather_KeCheng_Activity" />
-
         <activity android:name=".view.yugao.YuGao_ItemActivity" />
         <activity android:name=".view.yugao.YuYue_Activity" />
         <activity android:name=".view.baodian.BaoDian_ItemActivity" />
-        <activity android:name=".view.work.Work_ItemActivity"></activity>
+        <activity android:name=".view.work.Work_ItemActivity" />
+        <activity android:name=".view.me.MyLiWuActivity" />
+        <activity android:name=".view.me.MyShoucangActivity" />
+        <activity android:name=".view.me.RenZActivity" />
+        <activity android:name=".view.me.MessageActivity" />
+        <activity android:name=".view.me.SheJiaoActivity" />
+        <activity android:name=".view.me.SettingPassActivity" />
+        <activity android:name=".view.me.SettingNewPassActivity" />
+        <activity android:name=".view.me.AboutActivity" />
+        <activity android:name=".view.me.AboutJieShaoActivity" />
+        <activity android:name=".view.me.DingDangMessageActivity" />
+        <activity android:name=".view.me.ZanActivity" />
+        <activity android:name=".view.me.PinLunActivity" />
+        <activity android:name=".view.me.ZuoYeMessageActivity" />
+        <activity android:name=".view.me.GuanFangActivity" />
+        <activity android:name=".view.me.GuanZhuMyActivity"></activity>
     </application>
 
 </manifest>

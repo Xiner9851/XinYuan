@@ -1,10 +1,12 @@
 package com.example.administrator.xinyuan.view.baodian;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseFragment;
@@ -39,7 +41,7 @@ public class BaoDianFuYongFragment extends BaseFragment implements IBaoDianConta
     protected void loadDate() {
         Bundle arguments = getArguments();
         int i = arguments.getInt("a");
-        if (i <= 2) {
+        if (i <= 2&&i!=0) {
             baoDianPresent = new BaoDianPresent(this);
             baoDianPresent.loadData(i);
         }
@@ -49,22 +51,21 @@ public class BaoDianFuYongFragment extends BaseFragment implements IBaoDianConta
 
     @Override
     public void showData(BaoDianFuYongBean baoDianFuYongBean) {
-//        final List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list = baoDianFuYongBean.getData().getArtcircleList().getList();
-//        if(list.size()!=0) {
-//            baoDianFuYongAdapter = new BaoDianFuYongAdapter(list, getContext());
-//            mRecy.setAdapter(baoDianFuYongAdapter);
-//            baoDianFuYongAdapter.setBaoDianOnClickListionItem(new BaoDianFuYongAdapter.BaoDianOnClickListion() {
-//                @Override
-//                public void setBaoDianOnClickListion(View view, int postion) {
-//                    Intent intent = new Intent(getContext(), BaoDian_ItemActivity.class);
-//                    intent.putExtra("id", list.get(postion).getId());
-//                    startActivity(intent);
-//
-//                }
-//            });
-//            baoDianFuYongAdapter.notifyDataSetChanged();
-//
-//
-//        }
+        final List<BaoDianFuYongBean.DataBean.ArtcircleListBean.ListBean> list = baoDianFuYongBean.getData().getArtcircleList().getList();
+        if(list.size()!=0) {
+            baoDianFuYongAdapter = new BaoDianFuYongAdapter(list, getContext());
+            mRecy.setAdapter(baoDianFuYongAdapter);
+            baoDianFuYongAdapter.setBaoDianOnClickListionItem(new BaoDianFuYongAdapter.BaoDianOnClickListion() {
+                @Override
+                public void setBaoDianOnClickListion(View view, int postion) {
+                    Intent intent = new Intent(getContext(), BaoDian_ItemActivity.class);
+                    intent.putExtra("id", list.get(postion).getId());
+                    startActivity(intent);
+                }
+            });
+            baoDianFuYongAdapter.notifyDataSetChanged();
+
+
+        }
     }
 }
