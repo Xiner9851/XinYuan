@@ -22,6 +22,7 @@ public class GuanZhuMyBean {
 
     private int code;
     private String message;
+
     private DataBean data;
 
     public int getCode() {
