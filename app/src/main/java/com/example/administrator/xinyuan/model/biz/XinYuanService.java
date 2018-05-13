@@ -2,6 +2,7 @@ package com.example.administrator.xinyuan.model.biz;
 
 import com.example.administrator.xinyuan.model.entity.BaoDian_Item_Bean;
 import com.example.administrator.xinyuan.model.entity.HuiFuLieBiaoBean;
+import com.example.administrator.xinyuan.model.entity.LiWuBean;
 import com.example.administrator.xinyuan.model.entity.TeatherBean;
 import com.example.administrator.xinyuan.model.entity.TeatherTuiJie_Item;
 import com.example.administrator.xinyuan.model.entity.Teather_Banner_ItemBean;
@@ -116,6 +117,9 @@ public interface XinYuanService {
     @FormUrlEncoded
     @POST(Urls.huifuliebiao_url)
     Observable<HuiFuLieBiaoBean> huifuLieBiaoMessage(@FieldMap Map<String,Object> params);
+    @FormUrlEncoded
+    @POST(Urls.liwuliebiao_url)
+    Observable<LiWuBean> liwuLieBiaoMessage(@FieldMap Map<String,Object> params);
 
 
 }

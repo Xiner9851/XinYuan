@@ -53,4 +53,7 @@ public class Urls {
     public static final String tijiaopinglun_url="v1/m/homewok/comments/save";
     //回复列表
     public static final String huifuliebiao_url="v1/m/homewok/reply";
+    //礼物列表
+    public static final String liwuliebiao_url="v1/m/gift/list";
+
 }

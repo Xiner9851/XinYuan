@@ -96,7 +96,7 @@ public class Work_FuYong_Fragment extends BaseFragment implements Work_Contact.V
                 intent.putExtra("id",list.get(postion).getId());
                 intent.putExtra("replyId",list.get(postion).getTUserId());
                 intent.putExtra("refId",list.get(postion).getId());
-
+                intent.getIntExtra("postion",postion);
 
                 startActivity(intent);
                 SharedPreferences pinglunid = getActivity().getSharedPreferences("workid", context.MODE_PRIVATE);
