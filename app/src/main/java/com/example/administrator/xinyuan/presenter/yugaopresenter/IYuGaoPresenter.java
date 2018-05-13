@@ -5,9 +5,12 @@ import com.example.administrator.xinyuan.model.biz.XinYuanService;
 import com.example.administrator.xinyuan.model.entity.YuDaoBean;
 import com.example.administrator.xinyuan.model.http.RetrofitUtils;
 
+import java.util.Map;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.http.FieldMap;
 
 /**
  * Created by Administrator on 2018/5/4.
@@ -24,14 +27,28 @@ public class IYuGaoPresenter implements YuGao_Contact.Presenter {
     }
 
     @Override
-    public void loadData() {
-        loadDate.yudaoData()
+    public void loadData(@FieldMap Map<String,Object> params) {
+        loadDate.yudaoData(params)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(new Consumer<YuDaoBean>() {
                     @Override
                     public void accept(YuDaoBean yuDaoBean) throws Exception {
                             view.showData(yuDaoBean);
+                    }
+                });
+
+    }
+    @Override
+    public void loadData() {
+
+        loadDate.yudaoData()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Consumer<YuDaoBean>() {
+                    @Override
+                    public void accept(YuDaoBean yuDaoBean) throws Exception {
+                        view.showData(yuDaoBean);
                     }
                 });
     }

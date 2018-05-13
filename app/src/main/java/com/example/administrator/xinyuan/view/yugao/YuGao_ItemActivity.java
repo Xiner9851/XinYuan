@@ -1,6 +1,8 @@
 package com.example.administrator.xinyuan.view.yugao;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -12,8 +14,10 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
+import com.example.administrator.xinyuan.contact.shoucang.ShouCangContact;
 import com.example.administrator.xinyuan.contact.yugaocontact.yugaoitemcontact.YuGao_Item_Contact;
 import com.example.administrator.xinyuan.model.entity.YuGao_ItemData;
+import com.example.administrator.xinyuan.presenter.shoucangpresenter.IShouCangPresenter;
 import com.example.administrator.xinyuan.presenter.yugaopresenter.yugaoitempresenter.IYuGaoItemPresenter;
 
 import java.text.SimpleDateFormat;
@@ -21,7 +25,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Contact.View {
+import okhttp3.ResponseBody;
+
+public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Contact.View,ShouCangContact.View {
 
 
     private ImageView yugao_item_img;
@@ -41,8 +47,10 @@ public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Conta
     private TextView yiyuyue;
     private TextView yugao_item_prices;
     private RelativeLayout yugao_item_xinxi;
-    private RadioButton yuyue_btn;
+    private RadioButton yuyue_btn,yugao_item_shoucang,yugao_item_qushoucang;
     private int price;
+    private int id1;
+    private IShouCangPresenter iShouCangPresenter;
 
     @Override
     protected int getLayoutId() {
@@ -59,6 +67,9 @@ public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Conta
         again_NameTeacherContent = (WebView) findViewById(R.id.again_NameTeacherContent);
         again_back = (ImageView) findViewById(R.id.again_back);
         yuyue_btn= (RadioButton) findViewById(R.id.yuyue_item_btn);
+        yugao_item_shoucang= (RadioButton) findViewById(R.id.yugao_item_shoucang);
+        yugao_item_qushoucang= (RadioButton) findViewById(R.id.yugao_item_qushoucang);
+
 
     }
     //aa
@@ -77,7 +88,7 @@ public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Conta
                 finish();
             }
         });
-
+        iShouCangPresenter = new IShouCangPresenter(this);
 
     }
 
@@ -123,9 +134,37 @@ public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Conta
                 startActivity(intent1);
             }
         });
+        SharedPreferences xiaoji = getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
+        id1 = xiaoji.getInt("id", 0);
+
+        yugao_item_qushoucang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String,Object> params=new HashMap<>();
+                params.put("id",data.getId());
+                params.put("loginUserId", id1);
+                params.put("type","体验课");
+
+                iShouCangPresenter.loadQuShouCang(params);
+                yugao_item_shoucang.setVisibility(View.VISIBLE);
+                yugao_item_qushoucang.setVisibility(View.GONE);
+            }
+        });
+        yugao_item_shoucang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String,Object> params=new HashMap<>();
+                params.put("id",data.getId());
+                params.put("loginUserId", id1);
+                params.put("type","体验课");
+
+                iShouCangPresenter.loadShouCang(params);
+                yugao_item_shoucang.setVisibility(View.GONE);
+                yugao_item_qushoucang.setVisibility(View.VISIBLE);
+            }
+    });
 
     }
-
     public static String longToDate(long lo) {
         Date date = new Date(lo);
         SimpleDateFormat sd = new SimpleDateFormat("MM-dd HH:mm");
@@ -133,4 +172,13 @@ public class YuGao_ItemActivity extends BaseActivity implements YuGao_Item_Conta
     }
 
 
+    @Override
+    public void shouCang(ResponseBody responseBody) {
+
+    }
+
+    @Override
+    public void quShouCang(ResponseBody responseBody) {
+
+    }
 }

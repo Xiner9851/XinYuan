@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+
     >
     <RelativeLayout
+        android:descendantFocusability="blocksDescendants"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:gravity="center"
@@ -33,12 +36,25 @@
         android:layout_toRightOf="@+id/zhao_fensi_img"
         android:layout_toEndOf="@+id/zhao_fensi_img" />
     <Button
+        android:focusable="false"
         android:background="#3dafa0"
         android:textColor="#fff"
         android:layout_alignParentRight="true"
         android:id="@+id/zhao_fensi_guanzhu"
         android:text="关注"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+        <Button
+            android:focusable="false"
+
+            android:background="#8888"
+            android:textColor="#fff"
+            android:layout_alignParentRight="true"
+            android:id="@+id/zhao_fensi_quguanzhu"
+            android:visibility="gone"
+            android:text="已关注"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
     </RelativeLayout>
 </RelativeLayout>

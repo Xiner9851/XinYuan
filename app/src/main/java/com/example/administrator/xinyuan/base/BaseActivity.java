@@ -33,10 +33,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onDestroy() {
+        super.onDestroy();
         App.context=null;
     }
+
+
 
     protected abstract int getLayoutId();
 

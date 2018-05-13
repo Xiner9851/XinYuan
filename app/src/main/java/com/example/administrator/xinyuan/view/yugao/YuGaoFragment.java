@@ -28,17 +28,27 @@ import com.example.administrator.xinyuan.presenter.yugaopresenter.IYuGaoPresente
 import com.example.administrator.xinyuan.view.yugao.adapter.YuGao_Adapter;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
 //ccc
-
+private Button data_queding;
+    private Button data_chongzhi;
+    private EditText end_data;
+    private EditText start_data;
     private TextView yugao_shaixuan;
     private PullLoadMoreRecyclerView yugao_recy;
     private Handler han = new Handler();
+    private IYuGaoPresenter iYuGaoPresenter;
+    private Map<String, Object> params;
 
     @Override
     protected int getLayoutId() {
@@ -54,7 +64,7 @@ public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
 //bbb
     @Override
     protected void loadDate() {
-        final IYuGaoPresenter iYuGaoPresenter = new IYuGaoPresenter(this);
+        iYuGaoPresenter=new IYuGaoPresenter(this);
         iYuGaoPresenter.loadData();
         yugao_recy.setLinearLayout();
         yugao_recy.setPullRefreshEnable(true);
@@ -65,7 +75,7 @@ public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
                 han.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        iYuGaoPresenter.loadData();
+                        iYuGaoPresenter.loadData(params);
                         yugao_recy.setPullLoadMoreCompleted();
                     }
                 }, 2000);
@@ -79,10 +89,7 @@ public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
         });
         //时间选择器
         yugao_shaixuan.setOnClickListener(new View.OnClickListener() {
-            private Button data_queding;
-            private Button data_chongzhi;
-            private EditText end_data;
-            private EditText start_data;
+
 
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
@@ -135,6 +142,14 @@ public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
                 data_queding.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        params = new HashMap<>();
+                        String trim = start_data.getText().toString().trim();
+                        String trim1 = end_data.getText().toString().trim();
+                        long timeString = getTimeString(trim);
+                        long timeString1 = getTimeString(trim1);
+                        params.put("startDate",timeString);
+                        params.put("endDate",timeString1);
+                       iYuGaoPresenter.loadData(params);
                         popupWindow.dismiss();
                     }
                 });
@@ -142,6 +157,7 @@ public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
                 //DatePickerDialog日历选择器的对话框，监听为OnDateSetListener(){..}
             }
         });
+
     }
 
 
@@ -168,7 +184,21 @@ public class YuGaoFragment extends BaseFragment implements YuGao_Contact.View {
             }
         });
     }
+    private long getTimeString(String s) {
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date d2=null;
+        try {
+            d2=sdf.parse(s);//将String to Date类型
+            System.out.println(d2);
 
+            long t3=d2.getTime();
+            return t3;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
+      return 0;
+
+    }
 
 }

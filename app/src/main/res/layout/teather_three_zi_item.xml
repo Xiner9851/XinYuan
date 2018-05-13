@@ -62,51 +62,117 @@
         android:layout_height="230dp"
        android:layout_marginBottom="10dp"/>
     <TextView
+        android:id="@+id/fff"
         android:layout_below="@+id/word_image"
         android:background="#8888"
         android:layout_width="match_parent"
         android:layout_height="2dp" />
-    <RadioGroup
-    android:id="@+id/work_rg"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/word_image"
-        android:weightSum="4"
-        android:orientation="horizontal"
+    <LinearLayout
+        android:id="@+id/hhh"
+        android:layout_below="@+id/fff"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RadioButton
-            android:drawableTop="@mipmap/reply_normal"
-            android:id="@+id/teather_pinglun"
-            android:button="@null"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
-        <RadioButton
+        android:layout_height="36dp">
 
-            android:drawableTop="@mipmap/detail_praisse_normal"
-            android:id="@+id/teather_dianzan"
-            android:button="@null"
+        <LinearLayout
+            android:id="@+id/work_recycler_item_reply_group"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="wrap_content" />
-        <RadioButton
-            android:drawableTop="@mipmap/reward_active"
-            android:id="@+id/trather_shang"
-            android:button="@null"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/work_recycler_item_reply_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/reply_check_bg"
+                android:checked="false"
+                android:paddingLeft="8dp"
+                android:textColor="@drawable/reply_check_tv_bg" />
+            <TextView
+                android:text="2"
+                android:id="@+id/work_pinglin_geshu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/work_recycler_item_praise_group"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="wrap_content" />
-        <RadioButton
-            android:drawableTop="@mipmap/share_default"
-            android:id="@+id/teather_share"
-            android:button="@null"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/work_recycler_item_praise_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/praise_check_bg"
+                android:checked="false"
+                android:paddingLeft="8dp"
+                android:textColor="@drawable/praise_check_tv_bg" />
+           <!-- <ImageView
+                android:id="@+id/work_recycler_item_praise_cb"
+                android:paddingLeft="8dp"
+                android:src="@mipmap/praise_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/work_recycler_item_qupraise_cb"
+                android:paddingLeft="8dp"
+                android:src="@mipmap/praise_active"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />-->
+            <TextView
+                android:text="2"
+                android:id="@+id/work_dianzan_geshu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/work_recycler_item_reward_group"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="wrap_content" />
-    </RadioGroup>
+            android:gravity="center"
+            android:visibility="visible">
+
+            <CheckBox
+                android:id="@+id/work_recycler_item_reward_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/reward_check_bg"
+                android:checked="true"
+                android:paddingLeft="8dp"
+                android:textColor="@drawable/reward_check_tv_bg" />
+            <TextView
+                android:text="2"
+                android:id="@+id/work_zanshang_geshu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/work_recycler_item_share"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/share_default" />
+
+        </LinearLayout>
+    </LinearLayout>
     <TextView
 
-        android:layout_below="@+id/work_rg"
+        android:layout_below="@+id/hhh"
         android:background="#8888"
         android:layout_width="match_parent"
         android:layout_height="15dp" />

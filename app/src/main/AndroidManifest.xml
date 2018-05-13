@@ -48,29 +48,38 @@
         <activity android:name=".view.me.GuanZhuActivity" />
         <activity android:name=".view.teather.Teather_Banner_Item_Activity" />
         <activity android:name=".view.teather.Teather_OneItem_Activity" />
+        <!-- com.example.administrator.xinyuan.view.teather -->
         <activity android:name=".view.teather.ZhaoTeatherActivity" />
         <activity android:name=".view.teather.ZhaoTeather_ItemCheck_Activity" />
         <activity android:name=".view.teather.ZhaoTeather_FenSiActivity" />
         <activity android:name=".view.teather.ZhaoTeather_KeCheng_Activity" />
+        <activity android:name=".view.teather.ZhaoQingTa_FuDaoActivity" />
+        <activity android:name=".view.teather.TuiJie_ItemActivity" />
+        <activity android:name=".view.teather.ZhaoTeather_WorkActivity" />
+        <activity android:name=".view.work.Work_HuiFuActivity" />
         <activity android:name=".view.yugao.YuGao_ItemActivity" />
         <activity android:name=".view.yugao.YuYue_Activity" />
         <activity android:name=".view.baodian.BaoDian_ItemActivity" />
         <activity android:name=".view.work.Work_ItemActivity" />
-        <activity android:name=".view.me.MyLiWuActivity" />
-        <activity android:name=".view.me.MyShoucangActivity" />
-        <activity android:name=".view.me.RenZActivity" />
-        <activity android:name=".view.me.MessageActivity" />
-        <activity android:name=".view.me.SheJiaoActivity" />
-        <activity android:name=".view.me.SettingPassActivity" />
-        <activity android:name=".view.me.SettingNewPassActivity" />
-        <activity android:name=".view.me.AboutActivity" />
-        <activity android:name=".view.me.AboutJieShaoActivity" />
-        <activity android:name=".view.me.DingDangMessageActivity" />
-        <activity android:name=".view.me.ZanActivity" />
-        <activity android:name=".view.me.PinLunActivity" />
-        <activity android:name=".view.me.ZuoYeMessageActivity" />
-        <activity android:name=".view.me.GuanFangActivity" />
-        <activity android:name=".view.me.GuanZhuMyActivity"></activity>
+        <activity android:name=".view.work.WorkTiJiaoActivity"></activity>
+        <activity android:name=".view.me.MyShoucangActivity"></activity>
+        <activity android:name=".view.me.MessageActivity"></activity>
+        <activity android:name=".view.me.RenZActivity"></activity>
+        <activity android:name=".view.me.MyLiWuActivity"></activity>
+        <activity android:name=".view.me.SettingPassActivity"></activity>
+        <activity android:name=".view.me.SheJiaoActivity"></activity>
+        <activity android:name=".view.me.AboutActivity"></activity>
+        <activity android:name=".view.me.AboutJieShaoActivity"></activity>
+        <activity android:name=".view.teather.XianShang_Activity"></activity>
+
+        <activity android:name=".view.teather.Teather_Banner_Item2Activity"></activity>
+
+
+
+
+
+
+
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.example.administrator.xinyuan.view.work;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
 import com.example.administrator.xinyuan.base.BaseFragment;
+import com.example.administrator.xinyuan.view.teather.ZhaoQingTa_FuDaoActivity;
 import com.example.administrator.xinyuan.view.work.adapter.Work_Viewpager_Adapter;
 
 import java.util.ArrayList;
@@ -54,6 +56,7 @@ public class WorkFragment extends BaseFragment implements View.OnClickListener {
         work_vp = getView().findViewById(R.id.work_vp);
         work_fabu_zuoping=getView().findViewById(R.id.work_fabu_zuoping);
         work_tijiao=getView().findViewById(R.id.work_tijiao);
+
         fragments = new ArrayList<>();
         titles = new ArrayList<>();
         fuYong_fragment = new Work_FuYong_Fragment();
@@ -82,7 +85,20 @@ public class WorkFragment extends BaseFragment implements View.OnClickListener {
         Work_Viewpager_Adapter work_viewpager_adapter = new Work_Viewpager_Adapter(((BaseActivity) getActivity()).getSupportFragmentManager(), fragments, titles);
         work_vp.setAdapter(work_viewpager_adapter);
         work_tab.setupWithViewPager(work_vp);
-        
+        work_fabu_zuoping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ZhaoQingTa_FuDaoActivity.class);
+                startActivity(intent);
+            }
+        });
+        work_tijiao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), WorkTiJiaoActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
