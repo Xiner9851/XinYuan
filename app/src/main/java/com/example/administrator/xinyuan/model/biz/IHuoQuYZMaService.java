@@ -1,21 +1,16 @@
 package com.example.administrator.xinyuan.model.biz;
 
-import com.example.administrator.xinyuan.model.entity.DingDanMessageBean;
 import com.example.administrator.xinyuan.model.entity.FensiBean;
 import com.example.administrator.xinyuan.model.entity.GuanZhuBean;
-import com.example.administrator.xinyuan.model.entity.GuanZhuMyBean;
-import com.example.administrator.xinyuan.model.entity.GuanfanBean;
 import com.example.administrator.xinyuan.model.entity.MessageBean;
 import com.example.administrator.xinyuan.model.entity.MyDingDangBean;
 import com.example.administrator.xinyuan.model.entity.MyLiWuBean;
 import com.example.administrator.xinyuan.model.entity.MyPianHaoBean;
 import com.example.administrator.xinyuan.model.entity.MyShoucangBean;
 import com.example.administrator.xinyuan.model.entity.MyselfModelBean;
-import com.example.administrator.xinyuan.model.entity.PingLunMessageBean;
 import com.example.administrator.xinyuan.model.entity.RechargeCenterListModel;
 import com.example.administrator.xinyuan.model.entity.SettingNewPassBean;
 import com.example.administrator.xinyuan.model.entity.TieZiBean;
-import com.example.administrator.xinyuan.model.entity.ZanBean;
 
 import java.util.Map;
 
@@ -129,29 +124,5 @@ public interface IHuoQuYZMaService {
     @FormUrlEncoded
     @POST("v1/m/user/my/preference/save")
     Observable<SettingNewPassBean> cunPianHao(@FieldMap Map<String,String> params);
-    //订单提醒
-    @FormUrlEncoded
-    @POST("v1/m/message/order")
-    Observable<DingDanMessageBean> loadDingDangMessage(@FieldMap Map<String,Integer> params);
-    //攒我的
-    @FormUrlEncoded
-    @POST("v1/m/message/praise")
-    Observable<ZanBean> loadZanMessage(@FieldMap Map<String,Integer> params);
-    //评论我得
-    @FormUrlEncoded
-    @POST("v1/m/message/comments")
-    Observable<PingLunMessageBean> loadPingLunMessage(@FieldMap Map<String,Integer> params);
-    //作业提醒
-    @FormUrlEncoded
-    @POST("v1/m/message/homewok")
-    Observable<PingLunMessageBean> loadZuoYeMessage(@FieldMap Map<String,Integer> params);
 
-    //官方提醒
-    @FormUrlEncoded
-    @POST("v1/m/message/univstar")
-    Observable<GuanfanBean> loadGuanfaMessage(@FieldMap Map<String,Integer> params);
-    //关注提醒
-    @FormUrlEncoded
-    @POST("v1/m/message/attention ")
-    Observable<GuanZhuMyBean> loadGuanZhuMyMessage(@FieldMap Map<String,Integer> params);
 }

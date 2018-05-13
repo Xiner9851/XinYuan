@@ -116,19 +116,15 @@ private Button data_queding;
                     }
                 });
 
-                end_data.setOnClickListener(new View.OnClickListener() {
+                end_data.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                     @Override
-                    public void onClick(View v) {
-
-                                new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
-                                    @Override
-                                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                        end_data.setText( String.format("%d-%d-%d", year, monthOfYear + 1, dayOfMonth));
-                                    }
-                                }, 2000, 1, 2).show();
-
-
-
+                    public void onFocusChange(View v, boolean hasFocus) {
+                        new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                end_data.setText( String.format("%d-%d-%d", year, monthOfYear + 1, dayOfMonth));
+                            }
+                        }, 2000, 1, 2).show();
                     }
                 });
 

@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -28,16 +29,22 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.administrator.xinyuan.R;
 import com.example.administrator.xinyuan.base.BaseActivity;
+import com.example.administrator.xinyuan.contact.dainzancontact.DianZanContact;
+import com.example.administrator.xinyuan.contact.liwucontact.LiWuContact;
 import com.example.administrator.xinyuan.contact.workcontact.workitemcontact.Work_Item_Contact;
 import com.example.administrator.xinyuan.contact.workpingluncontact.WorkPinglunContact;
 import com.example.administrator.xinyuan.contact.worktijiaopinglun.WorkTiJiaoPingLunContact;
+import com.example.administrator.xinyuan.model.entity.LiWuBean;
 import com.example.administrator.xinyuan.model.entity.WorkPingLunLieBiaoBean;
 import com.example.administrator.xinyuan.model.entity.WorkTiJIaoBean;
 import com.example.administrator.xinyuan.model.entity.Work_Item_Bean;
 import com.example.administrator.xinyuan.model.entity.Work_ZanShangBean;
+import com.example.administrator.xinyuan.presenter.dianzanpresenter.IDianZanPresenter;
+import com.example.administrator.xinyuan.presenter.liwupresenter.ILIWuPresenter;
 import com.example.administrator.xinyuan.presenter.workpinglunliebiaopresenter.IWorkPingLunLieBiaoPresenter;
 import com.example.administrator.xinyuan.presenter.workpresenter.workitempresenter.IWorkItemPresenter;
 import com.example.administrator.xinyuan.presenter.worktijiaopinglunpresenter.IWorkTiJiaoPingLunPresenter;
+import com.example.administrator.xinyuan.view.work.adapter.LiWuPopAdapter;
 import com.example.administrator.xinyuan.view.work.adapter.Work_PingLun_Adapter;
 import com.example.administrator.xinyuan.view.work.adapter.Work_ZanShangAdapter;
 
@@ -47,9 +54,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import okhttp3.ResponseBody;
+
 import static com.example.administrator.xinyuan.App.context;
 
-public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact.View,WorkPinglunContact.View,WorkTiJiaoPingLunContact.View {
+public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact.View,WorkPinglunContact.View,WorkTiJiaoPingLunContact.View,LiWuContact.View,DianZanContact.View {
 
 
     private ImageView work_check_img;
@@ -70,7 +79,7 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
     private ImageView work_again_back;
     private EditText work_item_pinglun;
     private ImageView work_item_xiaoxi;
-    private ImageView work_item_dianzan;
+    private ImageView work_item_dianzan,work_item_qudianzan;
     private RelativeLayout fudao;
     private ImageView work_check_img2;
     private TextView work_check_name2;
@@ -82,7 +91,7 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
     private ListView work_item_pinglun_listview;
     private IWorkPingLunLieBiaoPresenter iWorkPingLunLieBiaoPresenter;
     private Map<String, Object> params,tijiaoparams;
-    private  TextView work_more_pinglun;
+    private  TextView work_more_pinglun,work_dianzan_geshu,work_xiaoxi_geshu;
     private Button work_tijiao_btn;
     private RecyclerView work_zanshang_recy;
     private IWorkTiJiaoPingLunPresenter iWorkTiJiaoPingLunPresenter;
@@ -93,6 +102,9 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
     private int id1;
     private View inflater;
     private PopupWindow popupWindow;
+    private List<LiWuBean.DataBean.GiftListBean> giftList;
+    private IDianZanPresenter iDianZanPresenter;
+    private int postion;
 
     @Override
     protected int getLayoutId() {
@@ -124,6 +136,9 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
         work_tijiao_btn = (Button) findViewById(R.id.work_tijiao_btn);
         work_item_pinglun = (EditText) findViewById(R.id.work_item_pinglun);
         work_zanshang_recy = (RecyclerView) findViewById(R.id.work_zansang_recy);
+        work_item_qudianzan= (ImageView) findViewById(R.id.work_item_qudianzan);
+        work_dianzan_geshu = (TextView) findViewById(R.id.work_dianzan_geshu);
+        work_xiaoxi_geshu = (TextView) findViewById(R.id.work_xiaoxi_geshu);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         work_zanshang_recy.setLayoutManager(linearLayoutManager);
@@ -189,34 +204,14 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
 
             }
         });
-        work_check_zansnag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                View view = getLayoutInflater().inflate(R.layout.popup_grant, null);
-                //设置布局，给PopupWindow
-                popupWindow = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-                //设置其他地方可以点击
-                popupWindow.setOutsideTouchable(true);
-                //设置背景颜色
-                popupWindow.setBackgroundDrawable(new ColorDrawable());
-                //设置相对于布局的位置
-                popupWindow.showAtLocation(findViewById(R.id.fu), Gravity.BOTTOM, 0, 0);
+        iDianZanPresenter = new IDianZanPresenter(this);
 
-              //  initView(view);
 
-//获取pop的参数
-                RecyclerView popup_recyclerview = (RecyclerView) view.findViewById(R.id.popup_recyclerview);
-                TextView  popup_jindou = (TextView) view.findViewById(R.id.popup_jindou);
-                LinearLayout   popup_recharge = (LinearLayout) view.findViewById(R.id.popup_recharge);
-                popup_recharge.setOnClickListener(this);
-                TextView  popup_send = (TextView) view.findViewById(R.id.popup_send);
-                popup_send.setOnClickListener(this);
 
-              //  presenter.setPopupGrant(params1, headers);
-
-            }
-        });
-
+        Map<String,Object> params=new HashMap<>();
+        params.put("loginUserId",id1);
+        ILIWuPresenter iliWuPresenter=new ILIWuPresenter(this);
+        iliWuPresenter.liwuLieBiaoData(params);
     }
 
     @Override
@@ -299,7 +294,7 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
 
     @Override
     public void showPingLun(WorkPingLunLieBiaoBean workPingLunLieBiaoBean) {
-        List<WorkPingLunLieBiaoBean.DataBean.CommentsBean.ListBean> list = workPingLunLieBiaoBean.getData().getComments().getList();
+        final List<WorkPingLunLieBiaoBean.DataBean.CommentsBean.ListBean> list = workPingLunLieBiaoBean.getData().getComments().getList();
         work_pingLun_adapter = new Work_PingLun_Adapter(list, this);
         if (workPingLunLieBiaoBean.getData().getComments().getList().size()!=0){
             work_item_pinglun_listview.setVisibility(View.VISIBLE);
@@ -324,6 +319,36 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
                 work_item_dianzan.setVisibility(View.VISIBLE);
             }
         });
+        Intent intent = getIntent();
+        postion = intent.getIntExtra("postion", 0);
+        params = new HashMap<>();
+        params.put("userId",list.get(postion).getUserId());
+        params.put("id",list.get(postion).getId());
+        SharedPreferences xiaoji =context. getSharedPreferences("xiaoji", Context.MODE_PRIVATE);
+        int id1 = xiaoji.getInt("id", 0);
+        params.put("loginUserId",id1);
+        params.put("type","学生作业" );
+        work_dianzan_geshu.setText(list.get(postion).getPraiseNum()+"");
+        work_xiaoxi_geshu.setText(list.get(postion).getReplyNum()+"");
+
+        work_item_dianzan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iDianZanPresenter.loadDianZan(params);
+                work_item_qudianzan.setVisibility(View.VISIBLE);
+                work_item_dianzan.setVisibility(View.GONE);
+                work_dianzan_geshu.setText((list.get(postion).getPraiseNum()+1)+"");
+            }
+        });
+        work_item_qudianzan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iDianZanPresenter.loadQuDianZan(params);
+                work_item_qudianzan.setVisibility(View.GONE);
+                work_item_dianzan.setVisibility(View.VISIBLE);
+                work_dianzan_geshu.setText((list.get(postion).getPraiseNum())+"");
+            }
+        });
 
     }
 
@@ -337,4 +362,52 @@ public class Work_ItemActivity extends BaseActivity implements Work_Item_Contact
 
     }
 
+    @Override
+    public void showLiWuLieBiao(LiWuBean liWuBean) {
+        giftList = liWuBean.getData().getGiftList();
+        work_check_zansnag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View view = getLayoutInflater().inflate(R.layout.popup_grant, null);
+                //设置布局，给PopupWindow
+                popupWindow = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                //设置其他地方可以点击
+                popupWindow.setOutsideTouchable(true);
+                //设置背景颜色
+                popupWindow.setBackgroundDrawable(new ColorDrawable());
+                //设置相对于布局的位置
+                popupWindow.showAtLocation(findViewById(R.id.fu), Gravity.BOTTOM, 0, 0);
+
+                //  initView(view);
+
+//获取pop的参数
+                RecyclerView popup_recyclerview = (RecyclerView) view.findViewById(R.id.popup_recyclerview);
+                GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplication(), 2);
+                gridLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                popup_recyclerview.setLayoutManager(gridLayoutManager);
+
+                TextView  popup_jindou = (TextView) view.findViewById(R.id.popup_jindou);
+                LinearLayout   popup_recharge = (LinearLayout) view.findViewById(R.id.popup_recharge);
+                popup_recharge.setOnClickListener(this);
+                TextView  popup_send = (TextView) view.findViewById(R.id.popup_send);
+                popup_send.setOnClickListener(this);
+
+
+                //  presenter.setPopupGrant(params1, headers);
+                LiWuPopAdapter liWuPopAdapter = new LiWuPopAdapter(giftList, getApplication());
+                popup_recyclerview.setAdapter(liWuPopAdapter);
+
+            }
+        });
+    }
+
+    @Override
+    public void dianZan(ResponseBody responseBody) {
+
+    }
+
+    @Override
+    public void quDianZan(ResponseBody responseBody) {
+
+    }
 }
