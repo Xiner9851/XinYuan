@@ -1,6 +1,7 @@
 package com.example.administrator.xinyuan.view.me;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -47,6 +48,30 @@ public class MessageActivity extends BaseActivity implements IMessageContact.Vie
         messagePresent.loadShuJu(getSharedPreferences("xiaoji", Context.MODE_PRIVATE).getInt("id",0));
         messageAdapter=new MessageAdapter(this,list);
         mRecy.setAdapter(messageAdapter);
+        messageAdapter.setTiao(new MessageAdapter.Onclick() {
+            @Override
+            public void wai(View view, int possi) {
+                if(possi==0){
+                    Intent intent = new Intent(MessageActivity.this, DingDangMessageActivity.class);
+                    startActivity(intent);
+                }else if(possi==1){
+                    Intent intent = new Intent(MessageActivity.this, ZanActivity.class);
+                    startActivity(intent);
+                }else if(possi==2){
+                    Intent intent = new Intent(MessageActivity.this, PinLunActivity.class);
+                    startActivity(intent);
+                }else if(possi==3){
+                    Intent intent = new Intent(MessageActivity.this, ZuoYeMessageActivity.class);
+                    startActivity(intent);
+                }else if(possi==4){
+                    Intent intent = new Intent(MessageActivity.this, GuanFangActivity.class);
+                    startActivity(intent);
+                }else if(possi==5){
+                    Intent intent = new Intent(MessageActivity.this, GuanZhuMyActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
 
@@ -61,7 +86,6 @@ public class MessageActivity extends BaseActivity implements IMessageContact.Vie
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.message_list_aty_cancle:
-
                 finish();
                 break;
         }

@@ -46,6 +46,12 @@
         <activity android:name=".view.me.TieZiActivity" />
         <activity android:name=".view.me.MyPianHaoActivity" />
         <activity android:name=".view.me.GuanZhuActivity" />
+        <activity android:name=".view.me.DingDangMessageActivity" />
+        <activity android:name=".view.me.GuanFangActivity" />
+        <activity android:name=".view.me.GuanZhuMyActivity" />
+        <activity android:name=".view.me.PinLunActivity" />
+        <activity android:name=".view.me.ZanActivity" />
+        <activity android:name=".view.me.ZuoYeMessageActivity" />
         <activity android:name=".view.teather.Teather_Banner_Item_Activity" />
         <activity android:name=".view.teather.Teather_OneItem_Activity" />
         <!-- com.example.administrator.xinyuan.view.teather -->
